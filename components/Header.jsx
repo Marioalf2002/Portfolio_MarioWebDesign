@@ -11,22 +11,22 @@ const Header = () => {
     <header className="py-8 xl:py-12 text-white">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
-        <Link href="/">
-          <h1 className="text-4xl font-semibold">
-            Luke<span className="text-accent">.</span>
+        <Link href="/" className="z-20">
+          <h1 className="text-4xl font-secondary">
+            MarioWebDesign<span className="text-accent">!</span>
           </h1>
         </Link>
 
         {/* Desktop nav & hire me button*/}
-        <div className="hidden xl:flex items-center gap-8">
+        <div className="hidden xl:flex items-center gap-8 z-20">
           <Nav />
           <Link href="/contact">
-            <Button>Contactame</Button>
+            <Button>Contactame!</Button>
           </Link>
         </div>
 
         {/* Mobile nav */}
-        <div className="xl:hidden">
+        <div className="xl:hidden z-20">
           <MobileNav />
         </div>
       </div>

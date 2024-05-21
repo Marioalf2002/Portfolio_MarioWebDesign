@@ -20,15 +20,19 @@ module.exports = {
       xl: "1200px",
     },
     fontFamily: {
-      primary: "var(--font-jetbrainsmono)",
+      primary: "var(--font-poppins)",
+      secondary: "var(--font-galada)",
     },
     extend: {
       colors: {
-        primary: "#1c1c22",
+        primary: "#09090b",
         accent: {
-          DEFAULT: "#00ff99",
-          hover: "#00e187",
+          DEFAULT: "#ff0000",
+          hover: "#d70000",
         },
+      },
+      backgroundImage: {
+        "custom-gradient": "linear-gradient(to bottom right, #000000, #1e1e2a)",
       },
       keyframes: {
         "accordion-down": {

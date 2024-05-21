@@ -150,7 +150,7 @@ const Resume = () => {
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
+        transition: { delay: 1, duration: 0.4, ease: "easeIn" },
       }}
       className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
     >
@@ -160,7 +160,7 @@ const Resume = () => {
           className="flex flex-col xl:flex-row gap-[60px]"
         >
           {/* Tabs */}
-          <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
+          <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6 z-20">
             <TabsTrigger value="about">Sobre Mi</TabsTrigger>
             <TabsTrigger value="experience">Experiencia</TabsTrigger>
             <TabsTrigger value="education">Educacion</TabsTrigger>
@@ -168,7 +168,7 @@ const Resume = () => {
           </TabsList>
 
           {/* Contenido */}
-          <div className="min-h-[70vh] w-full">
+          <div className="min-h-[70vh] w-full z-20">
             {/* Sobre Mi */}
             <TabsContent
               value="about"

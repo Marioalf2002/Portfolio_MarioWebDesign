@@ -2,6 +2,7 @@
 
 // Dependencies
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { CiMenuFries } from "react-icons/ci";
@@ -23,10 +24,10 @@ const MobileNav = () => {
       </SheetTrigger>
       <SheetContent className="flex flex-col">
         {/* Logo */}
-        <div className="mt-32 mb-40 text-center text-2xl">
+        <div className="mt-32 mb-20 flex justify-center">
           <Link href="/">
-            <h1 className="text-4xl font-semibold">
-              Luke<span className="text-accent">.</span>
+            <h1 className="text-3xl font-secondary">
+              MarioWebDesign<span className="text-accent">!</span>
             </h1>
           </Link>
         </div>

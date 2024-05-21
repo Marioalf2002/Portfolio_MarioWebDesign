@@ -4,10 +4,12 @@
 
 @layer base {
   body {
-    @apply font-primary bg-primary text-white leading-loose;
+    @apply font-primary text-white leading-loose bg-custom-gradient;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
   .h1 {
-    @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
+    @apply text-[48px] xl:text-[60px] leading-[1.1] font-semibold;
   }
   .h2 {
     @apply text-[36px] xl:text-[48px] leading-[1.1] font-semibold;
@@ -21,6 +23,28 @@
   }
 
   .text-outline-hover {
-    -webkit-text-stroke: 1px #00ff99;
+    -webkit-text-stroke: 1px #b91c1c;
+  }
+
+  .space {
+    width: var(--size);
+    height: var(--size);
+    background: #fff;
+    box-shadow: var(--space-layer);
+    position: absolute;
+    border-radius: 100%;
+    top: 0;
+    left: 0;
+    opacity: 75%;
+    animation: moveStars var(--duration) linear infinite;
+  }
+
+  @keyframes moveStars {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-100vh);
+    }
   }
 }

@@ -52,7 +52,7 @@ const projects = [
   },
 ];
 
-const work = () => {
+const Work = () => {
   const [project, setProject] = useState(projects[0]);
 
   const handleSlideChange = (swiper) => {
@@ -76,20 +76,20 @@ const work = () => {
           <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
             <div className="flex flex-col gap-[30px] h-[50%]">
               {/* Numero de proyecto */}
-              <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
+              <div className="text-8xl leading-none font-extrabold text-transparen text-accent z-20">
                 {project.num}
               </div>
               {/* Categoria */}
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize z-20">
                 Proyecto {project.category}
               </h2>
               {/* Descripcion */}
-              <p className="text-white/60">{project.description}</p>
+              <p className="text-white/60 z-20">{project.description}</p>
               {/* Stack */}
-              <ul className="flex gap-4">
+              <ul className="flex gap-4 z-20">
                 {project.stack.map((item, index) => {
                   return (
-                    <li key={index} className="text-accent">
+                    <li key={index} className="text-accent font-semibold">
                       {item.name}
                       {index !== project.stack.length - 1 && ","}
                     </li>
@@ -97,9 +97,9 @@ const work = () => {
                 })}
               </ul>
               {/* Border */}
-              <div className="border border-white/20"></div>
+              <div className="border border-white/20 z-20"></div>
               {/* Botones */}
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 z-20">
                 {/* Boton Live Proyecto */}
                 <Link href={project.live}>
                   <TooltipProvider delayDuration={100}>
@@ -168,4 +168,4 @@ const work = () => {
   );
 };
 
-export default work;
+export default Work;

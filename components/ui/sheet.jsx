@@ -4,7 +4,7 @@ import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-import { IoMdClose } from "react-icons/io";
+import { LuPanelRightClose } from "react-icons/lu";
 
 const Sheet = SheetPrimitive.Root;
 
@@ -56,7 +56,7 @@ const SheetContent = React.forwardRef(
       >
         {children}
         <SheetPrimitive.Close className="absolute right-8 top-8 transition-opacity outline-none">
-          <IoMdClose className="text-3xl text-accent" />
+          <LuPanelRightClose className="text-3xl text-accent" />
           <span className="sr-only">Close</span>
         </SheetPrimitive.Close>
       </SheetPrimitive.Content>

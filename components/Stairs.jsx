@@ -1,46 +1,40 @@
 // Dependencias
-import { animate, motion } from "framer-motion";
-import { exit } from "process";
+import { motion } from "framer-motion";
 
 // Variantes
-const stairAnimation = {
+const waveAnimation = {
   initial: {
-    top: "0%",
+    y: "100%",
   },
   animate: {
-    top: "100%",
+    y: ["100%", "0%", "100%"],
   },
-  exit: {
-    top: ["100%", "0%"],
+  transition: {
+    duration: 1,
+    ease: "easeInOut",
+    loop: Infinity,
   },
 };
 
-// Calculate the reverse index fot staggred delay
+const steps = 7; // number of steps
+
+// Calculate the reverse index for staggered delay
 const reverseIndex = (index) => {
-  const totalSteps = 6; // numbre of steps
+  const totalSteps = steps; // number of steps
   return totalSteps - index - 1;
 };
 
 const Stairs = () => {
   return (
     <>
-      {/* Render 6 motion divs, each representing a step of stairs.
-  
-    Each div will have the same animation defined by the stairAnimation object.
-    the delay for each div is calculated dynamically based on ir's reversed index,
-    creatign a stagger effect with decreasing delay for  each subsequent step.
-    
-  */}
-      {[...Array(6)].map((_, index) => {
+      {[...Array(steps)].map((_, index) => {
         return (
           <motion.div
             key={index}
-            variants={stairAnimation}
-            initial="initial"
+            variants={waveAnimation}
             animate="animate"
-            exit="exit"
             transition={{
-              duration: 0.4,
+              duration: 0.8,
               ease: "easeInOut",
               delay: reverseIndex(index) * 0.1,
             }}

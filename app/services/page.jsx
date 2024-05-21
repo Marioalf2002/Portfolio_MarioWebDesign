@@ -1,7 +1,7 @@
 "use client";
 
 // Dependencias
-import { BsArrowDownRight } from "react-icons/bs";
+import { FaLink } from "react-icons/fa6";
 import Link from "next/link";
 
 const services = [
@@ -39,13 +39,13 @@ import { motion } from "framer-motion";
 
 const Services = () => {
   return (
-    <section className="min-h-[80] flex flex-col justify-center py-12 xl:py-0">
+    <section className="min-h-[80] flex flex-col justify-center py-12">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{
             opacity: 1,
-            transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
+            transition: { delay: 1, duration: 0.4, ease: "easeIn" },
           }}
           className="grid grid-cols-1 md:grid-cols-2 gap-[60px]"
         >
@@ -53,7 +53,7 @@ const Services = () => {
             return (
               <div
                 key={index}
-                className="flex-1 flex flex-col justify-center gap-6 group"
+                className="flex-1 flex flex-col justify-center gap-6 group z-20"
               >
                 {/* Top */}
                 <div className="w-full flex justify-between items-center">
@@ -62,9 +62,9 @@ const Services = () => {
                   </div>
                   <Link
                     href={service.href}
-                    className="w-[70px] h-[70px] rounded-full bg-white group-hover:bg-accent transition-all duration-500 flex justify-center items-center hover:-rotate-45"
+                    className="w-[70px] h-[70px] rounded-full bg-white group-hover:bg-accent transition-all duration-500 flex justify-center items-center hover:-rotate-12"
                   >
-                    <BsArrowDownRight className="text-primary text-3xl" />
+                    <FaLink className="text-primary text-3xl" />
                   </Link>
                 </div>
                 {/* Titulo */}
