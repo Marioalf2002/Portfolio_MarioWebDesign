@@ -175,8 +175,10 @@ const Resume = () => {
               className="w-full text-center xl:text-left"
             >
               <div className="flex flex-col gap-[30px]">
-                <h3 className="text-4xl font-bold">{about.title}</h3>
-                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                <h3 className="text-4xl font-secondary text-accent">
+                  {about.title}
+                </h3>
+                <p className="max-w-[600px] text-white/90 mx-auto xl:mx-0">
                   {about.description}
                 </p>
                 <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0">
@@ -186,7 +188,7 @@ const Resume = () => {
                         key={index}
                         className="flex items-center justify-center xl:justify-start gap-4"
                       >
-                        <span className="text-white/60">{item.fieldName}</span>
+                        <span className="text-white/90">{item.fieldName}</span>
                         <span className="text-xl text-accent">
                           {item.fieldValue}
                         </span>
@@ -200,8 +202,10 @@ const Resume = () => {
             {/* Experiencia */}
             <TabsContent value="experience" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                <h3 className="text-4xl font-bold">{experience.title}</h3>
-                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                <h3 className="text-4xl font-secondary text-accent">
+                  {experience.title}
+                </h3>
+                <p className="max-w-[600px] text-white/90 mx-auto xl:mx-0">
                   {experience.description}
                 </p>
                 <ScrollArea className="h-[400px]">
@@ -218,7 +222,7 @@ const Resume = () => {
                           </h3>
                           <div className="flex items-center gap-3">
                             <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                            <p className="text-white/60">{item.company}</p>
+                            <p className="text-white/90">{item.company}</p>
                           </div>
                         </li>
                       );
@@ -231,8 +235,10 @@ const Resume = () => {
             {/* Educacion */}
             <TabsContent value="education" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                <h3 className="text-4xl font-bold">{education.title}</h3>
-                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                <h3 className="text-4xl font-secondary text-accent">
+                  {education.title}
+                </h3>
+                <p className="max-w-[600px] text-white/80 mx-auto xl:mx-0">
                   {education.description}
                 </p>
                 <ScrollArea className="h-[400px]">
@@ -263,8 +269,10 @@ const Resume = () => {
             <TabsContent value="skills" className="w-full">
               <div className="flex flex-col gap-[30px]">
                 <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                  <h3 className="text-4xl font-bold">{skills.title}</h3>
-                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                  <h3 className="text-4xl font-secondary text-accent">
+                    {skills.title}
+                  </h3>
+                  <p className="max-w-[600px] text-white/80 mx-auto xl:mx-0">
                     {skills.description}
                   </p>
                 </div>

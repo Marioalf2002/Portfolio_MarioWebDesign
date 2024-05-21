@@ -57,7 +57,7 @@ const Services = () => {
               >
                 {/* Top */}
                 <div className="w-full flex justify-between items-center">
-                  <div className="text-5xl font-extrabold text-outline text-transparent group-hover:text-outline-hover transition-all duration-500">
+                  <div className="text-5xl font-extrabold text-outline text-transparent transition-all duration-500">
                     {service.num}
                   </div>
                   <Link
@@ -68,13 +68,13 @@ const Services = () => {
                   </Link>
                 </div>
                 {/* Titulo */}
-                <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">
+                <h2 className="font-secondary text-[42px] font-bold leading-none text-accent transition-all duration-500">
                   {service.title}
                 </h2>
                 {/* Descripcion */}
-                <p className="text-white/60">{service.description}</p>
+                <p className="text-white/80">{service.description}</p>
                 {/* Border */}
-                <div className="border-b border-white/20 w-full"></div>
+                <div className="border-b border-white/30 w-full"></div>
               </div>
             );
           })}
