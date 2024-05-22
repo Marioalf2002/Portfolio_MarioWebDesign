@@ -26,13 +26,15 @@ module.exports = {
     extend: {
       colors: {
         primary: "#09090b",
+        secondary: "#222020",
         accent: {
-          DEFAULT: "#ff0000",
-          hover: "#d70000",
+          DEFAULT: "#dc2626",
+          hover: "#b91c1c",
         },
       },
       backgroundImage: {
-        "custom-gradient": "linear-gradient(to bottom right, #000000, #1e1e2a)",
+        "custom-gradient":
+          "radial-gradient(circle, rgba(25,25,25,1) 0%, rgba(0,0,0,1) 100%)",
       },
       keyframes: {
         "accordion-down": {

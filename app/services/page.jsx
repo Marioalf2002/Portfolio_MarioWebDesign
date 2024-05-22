@@ -7,7 +7,7 @@ import Link from "next/link";
 const services = [
   {
     num: "01",
-    title: "Desarrollo Web",
+    title: "UI / UX",
     description:
       "Desarrollo de sitios web a medida, con tecnologías modernas y escalables.",
     href: "",
