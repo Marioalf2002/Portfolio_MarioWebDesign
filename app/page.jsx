@@ -26,13 +26,15 @@ const Home = () => {
             </p>
             {/* Botones Extra & Redes Sociales */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
-              <Button
-                size="lg"
-                className="uppercase flex items-center gap-3 z-20"
-              >
-                <span className="font-bold text-white">Descargar CV</span>
-                <FaDownload className="text-xl text-white" />
-              </Button>
+              <a href="/" download>
+                <Button
+                  size="lg"
+                  className="uppercase flex items-center gap-3 z-20"
+                >
+                  <span className="font-bold text-white">Descargar CV</span>
+                  <FaDownload className="text-xl text-white" />
+                </Button>
+              </a>
               <div className="mb-8 xl:mb-0 z-20">
                 <Social
                   containerStyles="flex gap-6"

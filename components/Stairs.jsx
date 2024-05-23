@@ -3,16 +3,8 @@ import { motion } from "framer-motion";
 
 // Variantes
 const waveAnimation = {
-  initial: {
-    y: "100%",
-  },
   animate: {
     y: ["100%", "0%", "100%"],
-  },
-  transition: {
-    duration: 1,
-    ease: "easeInOut",
-    loop: Infinity,
   },
 };
 
@@ -38,7 +30,7 @@ const Stairs = () => {
               ease: "easeInOut",
               delay: reverseIndex(index) * 0.1,
             }}
-            className="h-full w-full bg-accent relative"
+            className="h-full w-full bg-accent relative pointer-events-none"
           ></motion.div>
         );
       })}

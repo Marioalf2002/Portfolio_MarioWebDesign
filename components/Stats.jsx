@@ -13,61 +13,91 @@ const stats = [
   { num: 14, text: "Tecnologías Dominadas" },
 ];
 
-const GITHUB_USERNAME = "Marioalf2002";
+// Variables de entorno
+const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
+// Componente de Estadísticas
 const Stats = () => {
   const [commits, setCommits] = useState(() => {
-    // Leer commits guardados desde el almacenamiento local
-    const savedCommits = localStorage.getItem("commits");
+    // Verificar si localStorage está disponible
+    const savedCommits =
+      typeof localStorage !== "undefined"
+        ? localStorage.getItem("commits")
+        : null;
     return savedCommits ? parseInt(savedCommits, 10) : 0;
   });
 
   useEffect(() => {
     const fetchCommits = async () => {
       try {
-        // Obtener lista de repositorios (incluye repositorios privados)
-        const reposResponse = await axios.get(
-          `https://api.github.com/user/repos`,
-          {
-            headers: {
-              Authorization: `token ${GITHUB_TOKEN}`,
-            },
-            params: {
-              visibility: "all", // Incluye todos los repositorios
-              per_page: 100, // Aumenta el límite por página
-            },
-          }
-        );
-
-        const repos = reposResponse.data;
-
+        let page = 1;
+        let repos = [];
         let totalCommits = 0;
 
-        // Obtener commits para cada repositorio
-        for (const repo of repos) {
-          const commitsResponse = await axios.get(
-            `https://api.github.com/repos/${GITHUB_USERNAME}/${repo.name}/commits`,
+        // Obtener lista de todos los repositorios, incluyendo los privados, paginados
+        while (true) {
+          const reposResponse = await axios.get(
+            "https://api.github.com/user/repos",
             {
               headers: {
                 Authorization: `token ${GITHUB_TOKEN}`,
               },
               params: {
-                author: GITHUB_USERNAME, // Asegurarse de contar solo los commits del usuario especificado
+                visibility: "all", // Incluir todos los repositorios
+                per_page: 100, // Aumentar el límite por página
+                page: page, // Paginar los resultados
               },
             }
           );
 
-          totalCommits += commitsResponse.data.length;
+          if (reposResponse.data.length === 0) break;
+          repos = repos.concat(reposResponse.data);
+          page++;
         }
 
-        console.log(`Total commits: ${totalCommits}`);
+        // Obtener commits para cada repositorio
+        for (const repo of repos) {
+          let commitPage = 1;
+          while (true) {
+            const commitsResponse = await axios.get(
+              `https://api.github.com/repos/${GITHUB_USERNAME}/${repo.name}/commits`,
+              {
+                headers: {
+                  Authorization: `token ${GITHUB_TOKEN}`,
+                },
+                params: {
+                  author: GITHUB_USERNAME, // Asegurarse de contar solo los commits del usuario especificado
+                  per_page: 100,
+                  page: commitPage,
+                },
+              }
+            );
+
+            if (commitsResponse.data.length === 0) break;
+            totalCommits += commitsResponse.data.length;
+            commitPage++;
+          }
+        }
+
+        // Actualizar el estado de commits
+        setCommits(totalCommits);
+
+        // Guardar la cantidad de commits en localStorage
+        localStorage.setItem("commits", totalCommits.toString());
       } catch (error) {
         console.error("Error fetching commits from GitHub:", error);
       }
     };
 
+    // Llamar a la función para obtener la cantidad de commits inicialmente
     fetchCommits();
+
+    // Configurar una actualización periódica (cada 5 minutos)
+    const intervalId = setInterval(fetchCommits, 5 * 60 * 1000); // Actualizar cada 5 minutos
+
+    // Limpiar el intervalo cuando el componente se desmonta
+    return () => clearInterval(intervalId);
   }, []);
 
   return (

@@ -9,7 +9,6 @@ import PageTransition from "@/components/PageTransition";
 // Tipografia
 import { Poppins, Galada } from "next/font/google";
 import SpaceLayer from "@/components/SpaceLayer";
-import SpaceLayerTop from "@/components/SpaceLayerTop";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -43,7 +42,6 @@ export default function RootLayout({ children }) {
         <StairTransition />
         <PageTransition>{children}</PageTransition>
         <SpaceLayer />
-        {/* <SpaceLayerTop /> */}
       </body>
     </html>
   );

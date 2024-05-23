@@ -1,45 +1,50 @@
 "use client";
 
 // Dependencias
-import { FaLink } from "react-icons/fa6";
+import { MdDevices, MdWeb, MdDesignServices } from "react-icons/md";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { FaCode } from "react-icons/fa";
 
+//
 const services = [
   {
     num: "01",
     title: "UI / UX",
     description:
-      "Desarrollo de sitios web a medida, con tecnologías modernas y escalables.",
+      "Diseño y desarrollo personalizado de interfaces de usuario y experiencias de usuario envolventes, utilizando tecnologías modernas y escalables para sitios web.",
     href: "",
+    icon: <MdDesignServices className="text-primary text-3xl" />,
   },
   {
     num: "02",
     title: "Full Stack",
     description:
-      "Creación de aplicaciones web y de escritorio integrales, abarcando tanto el frontend como el backend.",
+      "Desarrollo integral de aplicaciones web y de escritorio, desde la creación del frontend hasta la implementación del backend, ofreciendo soluciones completas y adaptadas a las necesidades específicas del cliente.",
     href: "",
+    icon: <MdDevices className="text-primary text-3xl" />,
   },
   {
     num: "03",
     title: "SEO",
     description:
-      "Optimización de sitios web para motores de búsqueda, para mejorar su posicionamiento.",
+      "Optimización de sitios web para mejorar su visibilidad y posicionamiento en los motores de búsqueda, mediante estrategias y técnicas probadas que aumentan el tráfico orgánico y la presencia en línea.",
     href: "",
+    icon: <MdWeb className="text-primary text-3xl" />,
   },
   {
-    num: "06",
+    num: "04",
     title: "Mantenimiento",
     description:
-      "Mantenimiento de sitios web, para garantizar su correcto funcionamiento.",
+      "Servicio de mantenimiento continuo de sitios web, asegurando su funcionamiento óptimo y actualizado en todo momento, con atención especializada para resolver cualquier problema y garantizar la seguridad y estabilidad de la plataforma.",
     href: "",
+    icon: <FaCode className="text-primary text-3xl" />,
   },
 ];
 
-import { motion } from "framer-motion";
-
 const Services = () => {
   return (
-    <section className="min-h-[80] flex flex-col justify-center py-12">
+    <section className="min-h-[80] flex flex-col justify-center py-6">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -64,7 +69,7 @@ const Services = () => {
                     href={service.href}
                     className="w-[70px] h-[70px] rounded-full bg-white group-hover:bg-accent transition-all duration-500 flex justify-center items-center hover:-rotate-12"
                   >
-                    <FaLink className="text-primary text-3xl" />
+                    {service.icon}
                   </Link>
                 </div>
                 {/* Titulo */}

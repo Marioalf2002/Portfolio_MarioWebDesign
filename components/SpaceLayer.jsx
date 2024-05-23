@@ -26,7 +26,7 @@ const SpaceLayer = ({ className }) => {
     // Función para generar una galaxia
     const generateGalaxy = () => {
       stars.length = 0; // Limpiar el array de estrellas
-      const numStars = Math.floor(Math.random() * 1000) + 100; // Número aleatorio de estrellas entre 100 y 1100
+      const numStars = Math.floor(Math.random() * 500) + 100; // Número aleatorio de estrellas entre 100 y 600
       const centerX = canvas.width / 2; // Posición central X de la galaxia
       const centerY = canvas.height / 2; // Posición central Y de la galaxia
 
