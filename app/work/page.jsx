@@ -40,7 +40,12 @@ const projects = [
     title: "IC TERRAQUANTUM S.A.S.",
     description:
       "Es una empresa dedicada a la prestación de servicios en las diferentes áreas de la construcción, diseño e interventoría de toda clase de obras civiles privadas y públicas y bienes raíces; que nace en la ciudad de Medellín como una Sociedad Anónima Simplificada, con la misión de suministrar soluciones y servicios para el mercado de la construcción.",
-    stack: [{ name: "Html 5" }, { name: "CSS" }, { name: "JavaScript" }],
+    stack: [
+      { name: "Html 5" },
+      { name: "CSS" },
+      { name: "JavaScript" },
+      { name: "PHP" },
+    ],
     image: "/assets/work/icterraquantum.webp",
     live: "",
     github: "https://github.com/Marioalf2002/IC-Terraquantum",
@@ -305,6 +310,8 @@ const Work = () => {
                           <Image
                             src={project.image}
                             fill
+                            sizes="(min-width: 640px) 640px, 100vw"
+                            priority
                             className="object-cover"
                             alt={project.title}
                           />

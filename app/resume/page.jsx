@@ -115,9 +115,9 @@ const education = {
       duration: "2020",
     },
     {
-      institution: "Institucion Universitaria Pascual Bravo",
+      institution: "Institución Universitaria Pascual Bravo",
       degree: "Tecnología en Desarrollo de Software",
-      duration: "2022 - Presente",
+      duration: "2022 - En Curso",
     },
   ],
 };
@@ -126,7 +126,7 @@ const education = {
 const skills = {
   title: "Mis Habilidades",
   description:
-    "Mis habilidades me permiten desarrollar proyectos de alta calidad, utilizando tecnologías modernas y escalables.",
+    "Poseo un conjunto diverso de habilidades que me permiten crear proyectos de alta calidad utilizando tecnologías modernas y escalables. Mi experiencia abarca desde el desarrollo frontend y backend hasta el diseño, gestión de bases de datos y herramientas de programación.",
   skillList: {
     frontend: [
       {
@@ -369,7 +369,7 @@ const Resume = () => {
       setLoading(false);
     }, 2500);
 
-    return () => clearTimeout(timer); // Limpiar el timeout si el componente se desmonta
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -515,7 +515,9 @@ const Resume = () => {
                             </h3>
                             <div className="flex items-center gap-3">
                               <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                              <p className="text-white/90">{item.school}</p>
+                              <p className="text-white/90">
+                                {item.institution}
+                              </p>
                             </div>
                           </li>
                         );
@@ -528,7 +530,15 @@ const Resume = () => {
               {/* Habilidades */}
               <TabsContent value="skills" className="w-full">
                 <div className="flex flex-col gap-[30px]">
-                  <ScrollArea className="h-[500px] overflow-y-auto">
+                  <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                    <h3 className="text-4xl font-secondary text-accent">
+                      {skills.title}
+                    </h3>
+                    <p className="text-white/70 mx-auto xl:mx-0">
+                      {skills.description}
+                    </p>
+                  </div>
+                  <ScrollArea className="h-[450px] overflow-y-auto">
                     {renderSkills("frontend", "FrontEnd")}
                     {renderSkills("backend", "BackEnd")}
                     {renderSkills("prgoram", "Programacion")}

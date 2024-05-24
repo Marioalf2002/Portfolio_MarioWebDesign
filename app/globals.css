@@ -92,4 +92,25 @@
     pointer-events: none;
     z-index: -1;
   }
+
+  /* Estilos para la barra de desplazamiento */
+  ::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra de desplazamiento */
+  }
+
+  /* Estilos para el riel de la barra de desplazamiento */
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 1); /* Color de fondo del riel */
+  }
+
+  /* Estilos para el pulgar de la barra de desplazamiento */
+  ::-webkit-scrollbar-thumb {
+    background: #dc2626; /* Color del pulgar */
+    border-radius: 5px; /* Radio de borde del pulgar */
+  }
+
+  /* Estilos para el pulgar de la barra de desplazamiento cuando está en hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b91c1c; /* Color del pulgar en hover */
+  }
 }
