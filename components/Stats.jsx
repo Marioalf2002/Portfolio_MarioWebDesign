@@ -1,7 +1,5 @@
 "use client";
 
-require("dotenv").config();
-
 // Dependencias
 import { useEffect, useState } from "react";
 import CountUp from "react-countup";
@@ -14,8 +12,8 @@ const stats = [
 ];
 
 // Variables de entorno
-const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
+const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 
 // Componente de Estadísticas
 const Stats = () => {

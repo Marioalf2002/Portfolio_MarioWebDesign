@@ -282,7 +282,7 @@ const Contact = (props) => {
                       <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-secondary text-accent rounded-md flex items-center justify-center">
                         <div className="text-[28px]">{item.icon}</div>
                       </div>
-                      <a href={item.path}>
+                      <a href={item.path} target="_blank">
                         <div className="flex-1">
                           <p className="text-white/60">{item.title}</p>
                           <h3 className="text-xl">{item.description}</h3>

@@ -7,7 +7,7 @@ const socials = [
   { icon: <FaGithub />, path: "https://github.com/Marioalf2002" },
   {
     icon: <FaWhatsapp />,
-    path: "https://wa.me/573247773515?text=Hola, me gustaría tener más información!",
+    path: "https://wa.me/message/MC62R3PTOHVDN1",
   },
   { icon: <FaLinkedin />, path: "" },
 ];

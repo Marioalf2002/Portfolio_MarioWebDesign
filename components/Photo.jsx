@@ -20,8 +20,9 @@ const Photo = () => {
             src="/assets/perfil.jpg"
             priority
             quality={100}
-            fill
-            alt=""
+            width={498}
+            height={498}
+            alt="MarioWebDesign"
             className="object-contain rounded-full animated"
           />
         </div>
