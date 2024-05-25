@@ -31,10 +31,9 @@ import {
   SiPostman,
   SiVisualstudiocode,
   SiMongodb,
-  SiFirebase,
-  SiPhpmyadmin,
+  SiMysql,
 } from "react-icons/si";
-import { DiMsqlServer, DiPostgresql, DiVisualstudio } from "react-icons/di";
+import { DiMsqlServer, DiVisualstudio } from "react-icons/di";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Tooltip,
@@ -70,11 +69,11 @@ const about = {
     },
     {
       fieldName: "Email",
-      fieldValue: "marioalf200216@gmail.com",
+      fieldValue: "contacto@mariowebdesigns.com",
     },
     {
       fieldName: "Telefono",
-      fieldValue: "+57 324 777 3515",
+      fieldValue: "(+57) 324 777 3515",
     },
   ],
 };
@@ -229,7 +228,7 @@ const skills = {
       },
       {
         icon: <SiAdobeaftereffects color="#D291FF" />,
-        name: "Affter Effects",
+        name: "After Effects",
       },
       {
         icon: <SiAdobeaudition color="#FF2F2F" />,
@@ -246,16 +245,12 @@ const skills = {
         name: "SQL Server",
       },
       {
-        icon: <DiPostgresql color="#336791" />,
-        name: "PostgreSQL",
+        icon: <SiMysql color="#336791" />,
+        name: "MySQL",
       },
       {
         icon: <SiMongodb color="#4DB33D" />,
         name: "MongoDB",
-      },
-      {
-        icon: <SiPhpmyadmin color="#00758F" />,
-        name: "SiPhpmyadmin",
       },
     ],
     study: [
@@ -324,54 +319,7 @@ const renderSkills = (category, title) => (
   </>
 );
 
-// Skeleton Loader
-const SkeletonLoader = () => {
-  return (
-    <div className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0">
-      <div className="container mx-auto">
-        <div className="flex flex-col xl:flex-row gap-[60px] animate-pulse">
-          <div className="flex flex-col w-full max-w-[350px] justify-center mx-auto xl:mx-0 gap-6">
-            <div className="h-10 bg-tertiary rounded animate-pulse"></div>
-            <div className="h-10 bg-tertiary rounded animate-pulse"></div>
-            <div className="h-10 bg-tertiary rounded animate-pulse"></div>
-            <div className="h-10 bg-tertiary rounded animate-pulse"></div>
-          </div>
-          <div className="w-full flex flex-col gap-6">
-            <div className="flex flex-col gap-[30px]">
-              <div className="h-10 bg-tertiary rounded w-1/3 animate-pulse"></div>
-              <div className="h-5 bg-tertiary rounded w-2/3 animate-pulse"></div>
-              <div className="grid grid-cols-1 gap-y-6 max-w-[620px]">
-                <div className="h-6 rounded animate-pulse"></div>
-                <div className="h-6 bg-tertiary rounded animate-pulse"></div>
-                <div className="h-6 bg-tertiary rounded animate-pulse"></div>
-              </div>
-            </div>
-            <div className="flex flex-col gap-[30px]">
-              <div className="h-10 bg-tertiary rounded w-1/3 animate-pulse"></div>
-              <div className="h-5 bg-tertiary rounded w-2/3 animate-pulse"></div>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-[30px] pr-4">
-                <div className="h-40 bg-tertiary rounded animate-pulse"></div>
-                <div className="h-40 bg-tertiary rounded animate-pulse"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 const Resume = () => {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -382,175 +330,167 @@ const Resume = () => {
       className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
     >
       <div className="container mx-auto">
-        {loading ? (
-          <SkeletonLoader />
-        ) : (
-          <Tabs
-            defaultValue="about"
-            className="flex flex-col xl:flex-row gap-[60px]"
-          >
-            {/* Tabs */}
-            <TabsList className="flex flex-col w-full max-w-[350px] justify-center mx-auto xl:mx-0 gap-6 z-20">
-              <TabsTrigger value="about">Sobre Mi</TabsTrigger>
-              <TabsTrigger value="experience">Experiencia</TabsTrigger>
-              <TabsTrigger value="education">Educacion</TabsTrigger>
-              <TabsTrigger value="skills">Habilidades</TabsTrigger>
-            </TabsList>
+        <Tabs
+          defaultValue="about"
+          className="flex flex-col xl:flex-row gap-[60px]"
+        >
+          {/* Tabs */}
+          <TabsList className="flex flex-col w-full max-w-[350px] justify-center mx-auto xl:mx-0 gap-6 z-20">
+            <TabsTrigger value="about">Sobre Mi</TabsTrigger>
+            <TabsTrigger value="experience">Experiencia</TabsTrigger>
+            <TabsTrigger value="education">Educacion</TabsTrigger>
+            <TabsTrigger value="skills">Habilidades</TabsTrigger>
+          </TabsList>
 
-            {/* Contenido */}
-            <div className="min-h-[70vh] w-full z-20">
-              {/* Sobre Mi */}
-              <TabsContent
-                value="about"
-                className="w-full text-center xl:text-left"
-              >
-                <div className="flex flex-col gap-[30px]">
-                  <h3 className="text-4xl font-secondary text-accent">
-                    {about.title}
-                  </h3>
-                  <p className="max-w-[700px] text-white/90 mx-auto xl:mx-0">
-                    {about.description}
-                  </p>
-                  <ul className="grid grid-cols-1 gap-y-6 max-w-[620px] mx-auto xl:mx-0">
-                    {about.info.map((item, index) => {
-                      let fieldValueElement;
+          {/* Contenido */}
+          <div className="min-h-[70vh] w-full z-20">
+            {/* Sobre Mi */}
+            <TabsContent
+              value="about"
+              className="w-full text-center xl:text-left"
+            >
+              <div className="flex flex-col gap-[30px]">
+                <h3 className="text-4xl font-secondary text-accent">
+                  {about.title}
+                </h3>
+                <p className="max-w-[700px] text-white/90 mx-auto xl:mx-0">
+                  {about.description}
+                </p>
+                <ul className="grid grid-cols-1 gap-y-6 max-w-[620px] mx-auto xl:mx-0">
+                  {about.info.map((item, index) => {
+                    let fieldValueElement;
 
-                      if (item.fieldName === "Email") {
-                        fieldValueElement = (
-                          <a
-                            href={`mailto:${item.fieldValue}`}
-                            target="_blank"
-                            className="text-xl text-accent hover:underline"
-                          >
-                            {item.fieldValue}
-                          </a>
-                        );
-                      } else if (item.fieldName === "Telefono") {
-                        fieldValueElement = (
-                          <a
-                            href="https://wa.me/573247773515"
-                            target="_blank"
-                            className="text-xl text-accent hover:underline"
-                          >
-                            {item.fieldValue}
-                          </a>
-                        );
-                      } else {
-                        fieldValueElement = (
-                          <span className="text-xl text-accent">
-                            {item.fieldValue}
-                          </span>
-                        );
-                      }
+                    if (item.fieldName === "Email") {
+                      fieldValueElement = (
+                        <a
+                          href={`mailto:${item.fieldValue}`}
+                          target="_blank"
+                          className="text-xl text-accent hover:underline"
+                        >
+                          {item.fieldValue}
+                        </a>
+                      );
+                    } else if (item.fieldName === "Telefono") {
+                      fieldValueElement = (
+                        <a
+                          href="https://wa.me/message/MC62R3PTOHVDN1"
+                          target="_blank"
+                          className="text-xl text-accent hover:underline"
+                        >
+                          {item.fieldValue}
+                        </a>
+                      );
+                    } else {
+                      fieldValueElement = (
+                        <span className="text-xl text-accent">
+                          {item.fieldValue}
+                        </span>
+                      );
+                    }
 
+                    return (
+                      <li
+                        key={index}
+                        className="flex items-center justify-center xl:justify-start gap-4"
+                      >
+                        <span className="text-white/90">{item.fieldName}</span>
+                        {fieldValueElement}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </TabsContent>
+
+            {/* Experiencia */}
+            <TabsContent value="experience" className="w-full">
+              <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                <h3 className="text-4xl font-secondary text-accent">
+                  {experience.title}
+                </h3>
+                <p className="max-w-[600px] text-white/90 mx-auto xl:mx-0">
+                  {experience.description}
+                </p>
+                <ScrollArea className="h-[400px]">
+                  <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px] pr-4">
+                    {experience.items.map((item, index) => {
                       return (
                         <li
                           key={index}
-                          className="flex items-center justify-center xl:justify-start gap-4"
+                          className="bg-secondary h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
                         >
-                          <span className="text-white/90">
-                            {item.fieldName}
-                          </span>
-                          {fieldValueElement}
+                          <span className="text-accent">{item.duration}</span>
+                          <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
+                            {item.position}
+                          </h3>
+                          <div className="flex items-center gap-3">
+                            <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
+                            <p className="text-white/90">{item.company}</p>
+                          </div>
                         </li>
                       );
                     })}
                   </ul>
-                </div>
-              </TabsContent>
+                </ScrollArea>
+              </div>
+            </TabsContent>
 
-              {/* Experiencia */}
-              <TabsContent value="experience" className="w-full">
+            {/* Educacion */}
+            <TabsContent value="education" className="w-full">
+              <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                <h3 className="text-4xl font-secondary text-accent">
+                  {education.title}
+                </h3>
+                <p className="max-w-[600px] text-white/80 mx-auto xl:mx-0">
+                  {education.description}
+                </p>
+                <ScrollArea className="h-[400px]">
+                  <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px] pr-4">
+                    {education.items.map((item, index) => {
+                      return (
+                        <li
+                          key={index}
+                          className="bg-secondary h-[220px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-4"
+                        >
+                          <span className="text-accent">{item.duration}</span>
+                          <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
+                            {item.degree}
+                          </h3>
+                          <div className="flex items-center gap-3">
+                            <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
+                            <p className="text-white/90">{item.institution}</p>
+                          </div>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </ScrollArea>
+              </div>
+            </TabsContent>
+
+            {/* Habilidades */}
+            <TabsContent value="skills" className="w-full">
+              <div className="flex flex-col gap-[30px]">
                 <div className="flex flex-col gap-[30px] text-center xl:text-left">
                   <h3 className="text-4xl font-secondary text-accent">
-                    {experience.title}
+                    {skills.title}
                   </h3>
-                  <p className="max-w-[600px] text-white/90 mx-auto xl:mx-0">
-                    {experience.description}
+                  <p className="text-white/70 mx-auto xl:mx-0">
+                    {skills.description}
                   </p>
-                  <ScrollArea className="h-[400px]">
-                    <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px] pr-4">
-                      {experience.items.map((item, index) => {
-                        return (
-                          <li
-                            key={index}
-                            className="bg-secondary h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
-                          >
-                            <span className="text-accent">{item.duration}</span>
-                            <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
-                              {item.position}
-                            </h3>
-                            <div className="flex items-center gap-3">
-                              <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                              <p className="text-white/90">{item.company}</p>
-                            </div>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </ScrollArea>
                 </div>
-              </TabsContent>
-
-              {/* Educacion */}
-              <TabsContent value="education" className="w-full">
-                <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                  <h3 className="text-4xl font-secondary text-accent">
-                    {education.title}
-                  </h3>
-                  <p className="max-w-[600px] text-white/80 mx-auto xl:mx-0">
-                    {education.description}
-                  </p>
-                  <ScrollArea className="h-[400px]">
-                    <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px] pr-4">
-                      {education.items.map((item, index) => {
-                        return (
-                          <li
-                            key={index}
-                            className="bg-secondary h-[220px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-4"
-                          >
-                            <span className="text-accent">{item.duration}</span>
-                            <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
-                              {item.degree}
-                            </h3>
-                            <div className="flex items-center gap-3">
-                              <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                              <p className="text-white/90">
-                                {item.institution}
-                              </p>
-                            </div>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </ScrollArea>
-                </div>
-              </TabsContent>
-
-              {/* Habilidades */}
-              <TabsContent value="skills" className="w-full">
-                <div className="flex flex-col gap-[30px]">
-                  <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                    <h3 className="text-4xl font-secondary text-accent">
-                      {skills.title}
-                    </h3>
-                    <p className="text-white/70 mx-auto xl:mx-0">
-                      {skills.description}
-                    </p>
-                  </div>
-                  <ScrollArea className="h-[450px] overflow-y-auto">
-                    {renderSkills("frontend", "FrontEnd")}
-                    {renderSkills("backend", "BackEnd")}
-                    {renderSkills("prgoram", "Programacion")}
-                    {renderSkills("design", "Design")}
-                    {renderSkills("database", "Base de Datos")}
-                    {renderSkills("study", "Estudio")}
-                  </ScrollArea>
-                </div>
-              </TabsContent>
-            </div>
-          </Tabs>
-        )}
+                <ScrollArea className="h-[450px] overflow-y-auto">
+                  {renderSkills("frontend", "FrontEnd")}
+                  {renderSkills("backend", "BackEnd")}
+                  {renderSkills("prgoram", "Programacion")}
+                  {renderSkills("design", "Design")}
+                  {renderSkills("database", "Base de Datos")}
+                  {renderSkills("study", "Estudio")}
+                </ScrollArea>
+              </div>
+            </TabsContent>
+          </div>
+        </Tabs>
       </div>
     </motion.div>
   );

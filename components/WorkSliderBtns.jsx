@@ -22,6 +22,22 @@ const WorkSliderBtns = ({ containerStyles, btnStyles, iconsStyles }) => {
     }
   }, [autoSlide, swiper]);
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "ArrowLeft") {
+        swiper.slidePrev();
+      } else if (event.key === "ArrowRight") {
+        swiper.slideNext();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [swiper]);
+
   return (
     <div className={containerStyles}>
       <button className={btnStyles} onClick={() => swiper.slidePrev()}>

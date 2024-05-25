@@ -62,7 +62,7 @@ const Services = () => {
               >
                 {/* Top */}
                 <div className="w-full flex justify-between items-center">
-                  <div className="text-5xl font-extrabold text-outline text-transparent transition-all duration-500">
+                  <div className="text-5xl text-white font-secondary text-transparent transition-all duration-500">
                     {service.num}
                   </div>
                   <Link

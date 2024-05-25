@@ -26,7 +26,10 @@ const Home = () => {
             </p>
             {/* Botones Extra & Redes Sociales */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
-              <a href="/" download>
+              <a
+                href="/assets/Curriculum-Mario Alfonso Forero Hernandez.pdf"
+                download="Curriculum-Mario Alfonso Forero Hernandez.pdf"
+              >
                 <Button
                   size="lg"
                   className="uppercase flex items-center gap-3 z-20"

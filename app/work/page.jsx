@@ -135,45 +135,12 @@ const projects = [
   },
 ];
 
-// Skeleton Loader
-const SkeletonLoader = () => {
-  return (
-    <div className="min-h-[70vh] flex flex-col justify-center py-12 xl:px-0">
-      <div className="container mx-auto">
-        <div className="flex flex-col xl:flex-row xl:gap-[30px]">
-          <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
-            <div className="flex flex-col gap-6 h-full">
-              <div className="h-10 bg-tertiary rounded w-1/3 animate-pulse"></div>
-              <div className="h-10 bg-tertiary rounded w-2/3 animate-pulse"></div>
-              <div className="h-6 bg-tertiary rounded w-1/4 animate-pulse"></div>
-              <div className="h-16 bg-tertiary rounded w-full animate-pulse"></div>
-              <div className="h-10 bg-tertiary rounded w-full animate-pulse"></div>
-              <div className="h-10 bg-tertiary rounded w-full animate-pulse"></div>
-              <div className="border border-tertiary rounded animate-pulse"></div>
-              <div className="flex items-center gap-4">
-                <div className="w-[70px] h-[70px] rounded-full bg-tertiary animate-pulse"></div>
-                <div className="w-[70px] h-[70px] rounded-full bg-tertiary animate-pulse"></div>
-              </div>
-            </div>
-          </div>
-          <div className="w-full xl:w-[50%]">
-            <div className="w-full h-full">
-              <div className="w-full h-[520px] mb-12 bg-tertiary animate-pulse"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 // Funciones Auxiliares
 const hasLiveLink = (project) => !!project.live;
 const hasGithubLink = (project) => !!project.github;
 
 const Work = () => {
   const [project, setProject] = useState(projects[0]);
-  const [loading, setLoading] = useState(true);
 
   const handleSlideChange = (swiper) => {
     // Reinicia el progreso a 0 cuando cambia el slider
@@ -204,15 +171,6 @@ const Work = () => {
     return () => clearInterval(interval); // Limpia el intervalo cuando el componente se desmonta
   }, []);
 
-  useEffect(() => {
-    // Simular una carga de datos
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2500); // Cambia este valor al tiempo de carga necesario
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -223,112 +181,108 @@ const Work = () => {
       className="min-h-[70vh] flex flex-col justify-center py-12 xl:px-0"
     >
       <div className="container mx-auto">
-        {loading ? (
-          <SkeletonLoader />
-        ) : (
-          <div className="flex flex-col xl:flex-row xl:gap-[30px]">
-            <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
-              <div className="flex flex-col gap-[30px] h-[50%]">
-                {/* Numero de proyecto */}
-                <div className="text-7xl font-secondary leading-none font-extrabold text-transparen text-accent z-20">
-                  {project.num}
-                </div>
-                {/* Nombre */}
-                <h2 className="text-[42px] leading-none font-secondary text-white z-20">
-                  {project.title}
-                </h2>
-                {/* Categoria */}
-                <h2 className="text-2xl font-semibold leading-none text-accent z-20">
-                  Proyecto {project.category}
-                </h2>
-                {/* Descripcion */}
-                <p className="text-white/70 z-20">{project.description}</p>
-                {/* Stack */}
-                <ul className="flex gap-4 z-20">
-                  {project.stack.map((item, index) => {
-                    return (
-                      <li key={index} className="text-accent font-semibold">
-                        {item.name}
-                        {index !== project.stack.length - 1 && ","}
-                      </li>
-                    );
-                  })}
-                </ul>
-                {/* Border */}
-                <div className="border border-white/20 z-20"></div>
-                {/* Botones */}
-                <div className="flex items-center gap-4 z-20">
-                  {/* Boton Live Proyecto */}
-                  {hasLiveLink(project) && (
-                    <Link href={project.live} target="_blank">
-                      <TooltipProvider delayDuration={100}>
-                        <Tooltip>
-                          <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                            <FiLink className="text-white text-3xl group-hover:text-accent" />
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>Live project</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-                    </Link>
-                  )}
-                  {/* Boton GitHub Proyecto */}
-                  {hasGithubLink(project) && (
-                    <Link href={project.github} target="_blank">
-                      <TooltipProvider delayDuration={100}>
-                        <Tooltip>
-                          <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                            <BsGithub className="text-white text-3xl group-hover:text-accent" />
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>GitHub Repositorio</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-                    </Link>
-                  )}
-                </div>
+        <div className="flex flex-col xl:flex-row xl:gap-[30px]">
+          <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
+            <div className="flex flex-col gap-[30px] h-[50%]">
+              {/* Numero de proyecto */}
+              <div className="text-7xl font-secondary leading-none font-extrabold text-transparen text-accent z-20">
+                {project.num}
               </div>
-            </div>
-            <div className="w-full xl:w-[50%]">
-              <Progress value={progress} className="w-full" />
-              <Swiper
-                spaceBetween={30}
-                slidesPerView={1}
-                className="xl:h-[520px] mb-12"
-                onSlideChange={handleSlideChange}
-              >
-                {projects.map((project, index) => {
+              {/* Nombre */}
+              <h2 className="text-[42px] leading-none font-secondary text-white z-20">
+                {project.title}
+              </h2>
+              {/* Categoria */}
+              <h2 className="text-2xl font-semibold leading-none text-accent z-20">
+                Proyecto {project.category}
+              </h2>
+              {/* Descripcion */}
+              <p className="text-white/70 z-20">{project.description}</p>
+              {/* Stack */}
+              <ul className="flex gap-4 z-20">
+                {project.stack.map((item, index) => {
                   return (
-                    <SwiperSlide key={index} className="w-full">
-                      <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
-                        {/* Overlay */}
-                        <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
-                        {/* Imagen */}
-                        <div className="relative w-full h-full">
-                          <Image
-                            src={project.image}
-                            fill
-                            sizes="(min-width: 640px) 640px, 100vw"
-                            priority
-                            className="object-cover"
-                            alt={project.title}
-                          />
-                        </div>
-                      </div>
-                    </SwiperSlide>
+                    <li key={index} className="text-accent font-semibold">
+                      {item.name}
+                      {index !== project.stack.length - 1 && ","}
+                    </li>
                   );
                 })}
-                {/* Botones Slider */}
-                <WorkSliderBtns
-                  containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
-                  btnStyles="bg-accent hover:bg-accent-hover text-white text-[22px] w-[44px] h-[44px] flex justify-center items-center rounded-xl transition-all"
-                />
-              </Swiper>
+              </ul>
+              {/* Border */}
+              <div className="border border-white/20 z-20"></div>
+              {/* Botones */}
+              <div className="flex items-center gap-4 z-20">
+                {/* Boton Live Proyecto */}
+                {hasLiveLink(project) && (
+                  <Link href={project.live} target="_blank">
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <FiLink className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Live project</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
+                {/* Boton GitHub Proyecto */}
+                {hasGithubLink(project) && (
+                  <Link href={project.github} target="_blank">
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsGithub className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>GitHub Repositorio</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
+              </div>
             </div>
           </div>
-        )}
+          <div className="w-full xl:w-[50%]">
+            <Progress value={progress} className="w-full" />
+            <Swiper
+              spaceBetween={30}
+              slidesPerView={1}
+              className="lg:h-[520px] h-[300px] mb-12"
+              onSlideChange={handleSlideChange}
+            >
+              {projects.map((project, index) => {
+                return (
+                  <SwiperSlide key={index} className="w-full">
+                    <div className="h-[300px] lg:h-[460px] w-full relative group flex justify-center items-center bg-black/10">
+                      {/* Overlay */}
+                      <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
+                      {/* Imagen */}
+                      <div className="relative w-full h-full">
+                        <Image
+                          src={project.image}
+                          fill
+                          sizes="(min-width: 640px) 640px, 100vw"
+                          priority
+                          className="object-contain xl:object-cover"
+                          alt={project.title}
+                        />
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                );
+              })}
+              {/* Botones Slider */}
+              <WorkSliderBtns
+                containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
+                btnStyles="bg-accent hover:bg-accent-hover text-white text-[22px] w-[44px] h-[44px] flex justify-center items-center rounded-xl transition-all"
+              />
+            </Swiper>
+          </div>
+        </div>
       </div>
     </motion.div>
   );
