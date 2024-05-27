@@ -12,7 +12,7 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="z-20">
-          <h1 className="text-4xl font-secondary">
+          <h1 className="text-4xl font-secondary hover:text-accent transition-all duration-500">
             MarioWebDesign<span className="text-accent">!</span>
           </h1>
         </Link>
@@ -21,7 +21,7 @@ const Header = () => {
         <div className="hidden xl:flex items-center gap-8 z-20">
           <Nav />
           <Link href="/contact">
-            <Button>Contactame!</Button>
+            <Button>Contáctame!</Button>
           </Link>
         </div>
 

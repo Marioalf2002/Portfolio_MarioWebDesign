@@ -9,7 +9,10 @@ const socials = [
     icon: <FaWhatsapp />,
     path: "https://wa.me/message/MC62R3PTOHVDN1",
   },
-  { icon: <FaLinkedin />, path: "" },
+  {
+    icon: <FaLinkedin />,
+    path: "www.linkedin.com/in/mario-hernandez-267223297",
+  },
 ];
 
 const Social = ({ containerStyles, iconStyles }) => {

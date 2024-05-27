@@ -47,7 +47,9 @@ const Contact = ({ formData }) => {
               </Text>
               <Text className="text-black text-[14px] leading-[24px]">
                 A continuación, te compartimos la información que nos
-                proporcionaste:
+                proporcionaste, por favor revísela y asegúrate de que sea
+                correcta de lo contrario, no dudes en responder a este correo
+                con la corrección:
               </Text>
               <Text className="text-black text-[14px] leading-[24px]">
                 <span className="font-semibold">Telefono:</span> {phone}

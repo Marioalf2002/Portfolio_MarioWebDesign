@@ -8,11 +8,11 @@ import { usePathname } from "next/navigation";
 import { CiMenuFries } from "react-icons/ci";
 
 const links = [
-  { name: "home", path: "/" },
-  { name: "services", path: "/services" },
-  { name: "resume", path: "/resume" },
-  { name: "work", path: "/work" },
-  { name: "contact", path: "/contact" },
+  { name: "inicio", path: "/" },
+  { name: "servicios", path: "/services" },
+  { name: "historia", path: "/resume" },
+  { name: "proyectos", path: "/work" },
+  { name: "Contáctame!", path: "/contact" },
 ];
 
 const MobileNav = () => {
@@ -26,7 +26,7 @@ const MobileNav = () => {
         {/* Logo */}
         <div className="mt-32 mb-20 flex justify-center">
           <Link href="/">
-            <h1 className="text-3xl font-secondary">
+            <h1 className="text-3xl font-secondary hover:text-accent transition-all duration-500">
               MarioWebDesign<span className="text-accent">!</span>
             </h1>
           </Link>

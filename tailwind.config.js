@@ -27,15 +27,15 @@ module.exports = {
       colors: {
         primary: "#09090b",
         secondary: "#222020",
-        tertiary: "#27272a", // #161311
+        tertiary: "#27272a", // #161311 #020403 #040406 #1c1c1c
         accent: {
-          DEFAULT: "#d62929", // #d62929 #dc2626
+          DEFAULT: "#fd3535", // #d62929 #dc2626 #fd3535
           hover: "#b91c1c",
         },
       },
       backgroundImage: {
         "custom-gradient":
-          "radial-gradient(circle, rgba(25,25,25,1) 0%, rgba(3,3,3,1) 100%)",
+          "radial-gradient(circle, rgba(25,25,25,1) 0%, rgba(2,4,3,1) 100%)",
       },
       keyframes: {
         "accordion-down": {
