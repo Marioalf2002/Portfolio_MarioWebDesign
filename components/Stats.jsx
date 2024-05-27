@@ -6,7 +6,7 @@ import CountUp from "react-countup";
 import axios from "axios";
 
 const stats = [
-  { num: 5, text: "Años de Experiencia" },
+  { num: 4, text: "Años de Experiencia" },
   { num: 18, text: "Proyectos Completados" },
   { num: 14, text: "Tecnologías Dominadas" },
 ];

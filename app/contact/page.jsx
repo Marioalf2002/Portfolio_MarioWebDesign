@@ -213,7 +213,6 @@ const Contact = (props) => {
                       <SelectLabel>Selecciona un Servicio</SelectLabel>
                       <SelectItem value="web">Desarrollo Web</SelectItem>
                       <SelectItem value="seo">SEO</SelectItem>
-                      <SelectItem value="fullstack">Full Stack</SelectItem>
                       <SelectItem value="mantenimiento">
                         Mantenimiento
                       </SelectItem>

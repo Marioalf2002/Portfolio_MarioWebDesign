@@ -25,9 +25,17 @@ const WorkSliderBtns = ({ containerStyles, btnStyles, iconsStyles }) => {
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "ArrowLeft") {
-        swiper.slidePrev();
+        if (swiper.isBeginning) {
+          swiper.slideTo(swiper.slides.length - 1);
+        } else {
+          swiper.slidePrev();
+        }
       } else if (event.key === "ArrowRight") {
-        swiper.slideNext();
+        if (swiper.isEnd) {
+          swiper.slideTo(0);
+        } else {
+          swiper.slideNext();
+        }
       }
     };
 
@@ -37,6 +45,22 @@ const WorkSliderBtns = ({ containerStyles, btnStyles, iconsStyles }) => {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [swiper]);
+
+  const handlePrev = () => {
+    if (swiper.isBeginning) {
+      swiper.slideTo(swiper.slides.length - 1);
+    } else {
+      swiper.slidePrev();
+    }
+  };
+
+  const handleNext = () => {
+    if (swiper.isEnd) {
+      swiper.slideTo(0);
+    } else {
+      swiper.slideNext();
+    }
+  };
 
   return (
     <div className={containerStyles}>

@@ -6,13 +6,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { CiMenuFries } from "react-icons/ci";
+import { Button } from "./ui/button";
 
 const links = [
   { name: "inicio", path: "/" },
   { name: "servicios", path: "/services" },
   { name: "historia", path: "/resume" },
   { name: "proyectos", path: "/work" },
-  { name: "Contáctame!", path: "/contact" },
 ];
 
 const MobileNav = () => {
@@ -48,6 +48,9 @@ const MobileNav = () => {
               </Link>
             );
           })}
+          <Link href="/contact">
+            <Button>Contáctame!</Button>
+          </Link>
         </nav>
       </SheetContent>
     </Sheet>

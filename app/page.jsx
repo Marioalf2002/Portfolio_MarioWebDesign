@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <section className="h-full z-20">
       <div className="container h-full mx-auto">
-        <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-2 xl:pb-24">
+        <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-2 xl:pb-20">
           {/* Texto */}
           <div className="text-center xl:text-left order-2 xl:order-none">
             <span className="text-xl text-white/90 font-secondary">
@@ -22,7 +22,7 @@ const Home = () => {
               <br /> <span className="text-accent h1">Mario Hernandez</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
-              Un desarrollador web Full Stack con amplia experiencia en diversas
+              Un desarrollador web Full-Stack con amplia experiencia en diversas
               tecnologías, apasionado por crear soluciones web innovadoras y
               funcionales.
             </p>

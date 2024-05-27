@@ -178,12 +178,12 @@ const Work = () => {
         opacity: 1,
         transition: { delay: 1, duration: 0.4, ease: "easeIn" },
       }}
-      className="min-h-[70vh] flex flex-col justify-center py-12 xl:px-0"
+      className="min-h-[70vh] flex flex-col justify-center py-6 xl:px-0"
     >
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row xl:gap-[30px]">
           <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
-            <div className="flex flex-col gap-[30px] h-[50%]">
+            <div className="flex flex-col gap-[25px] h-[50%]">
               {/* Numero de proyecto */}
               <div className="text-7xl font-secondary leading-none font-extrabold text-transparen text-accent z-20">
                 {project.num}

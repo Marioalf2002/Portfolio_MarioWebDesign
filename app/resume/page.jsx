@@ -365,7 +365,7 @@ const Resume = () => {
                         <a
                           href={`mailto:${item.fieldValue}`}
                           target="_blank"
-                          className="text-xl text-accent hover:underline"
+                          className="text-xl text-white hover:underline"
                         >
                           {item.fieldValue}
                         </a>
@@ -375,14 +375,14 @@ const Resume = () => {
                         <a
                           href="https://wa.me/message/MC62R3PTOHVDN1"
                           target="_blank"
-                          className="text-xl text-accent hover:underline"
+                          className="text-xl text-white hover:underline"
                         >
                           {item.fieldValue}
                         </a>
                       );
                     } else {
                       fieldValueElement = (
-                        <span className="text-xl text-accent">
+                        <span className="text-xl text-white">
                           {item.fieldValue}
                         </span>
                       );
@@ -393,7 +393,7 @@ const Resume = () => {
                         key={index}
                         className="flex items-center justify-center xl:justify-start gap-4"
                       >
-                        <span className="text-white/90">{item.fieldName}</span>
+                        <span className="text-accent">{item.fieldName}</span>
                         {fieldValueElement}
                       </li>
                     );
@@ -479,7 +479,7 @@ const Resume = () => {
                     {skills.description}
                   </p>
                 </div>
-                <ScrollArea className="h-[450px] overflow-y-auto">
+                <ScrollArea className="h-[410px] overflow-y-auto">
                   {renderSkills("frontend", "FrontEnd")}
                   {renderSkills("backend", "BackEnd")}
                   {renderSkills("prgoram", "Programacion")}

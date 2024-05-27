@@ -52,17 +52,17 @@ const Services = () => {
             opacity: 1,
             transition: { delay: 1, duration: 0.4, ease: "easeIn" },
           }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-[60px]"
+          className="grid grid-cols-1 md:grid-cols-2 gap-[55px]"
         >
           {services.map((service, index) => {
             return (
               <div
                 key={index}
-                className="flex-1 flex flex-col justify-center gap-6 group z-20"
+                className="flex-1 flex flex-col justify-center gap-3 group z-20"
               >
                 {/* Top */}
                 <div className="w-full flex justify-between items-center">
-                  <div className="text-5xl text-white font-secondary text-transparent transition-all duration-500">
+                  <div className="text-4xl text-white font-secondary text-transparent transition-all duration-500">
                     {service.num}
                   </div>
                   <Link
@@ -73,7 +73,7 @@ const Services = () => {
                   </Link>
                 </div>
                 {/* Titulo */}
-                <h2 className="font-secondary text-[42px] font-bold leading-none text-accent transition-all duration-500">
+                <h2 className="font-secondary text-[42px] leading-none text-accent transition-all duration-500">
                   {service.title}
                 </h2>
                 {/* Descripcion */}

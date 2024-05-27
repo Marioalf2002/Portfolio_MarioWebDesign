@@ -11,7 +11,7 @@ const socials = [
   },
   {
     icon: <FaLinkedin />,
-    path: "www.linkedin.com/in/mario-hernandez-267223297",
+    path: "https://www.linkedin.com/in/mariowebdesign",
   },
 ];
 

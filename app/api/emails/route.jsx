@@ -9,6 +9,11 @@ export async function POST(request) {
     const { firstname, lastname, email, phone, service, message } =
       await request.json();
 
+    // Verificar si hay campos vacíos o sospechosos
+    if (!firstname || !email || !message) {
+      throw new Error("Los campos nombre, email y mensaje son obligatorios.");
+    }
+
     await resend.emails.send({
       from: "MarioWebDesign <contacto@mariowebdesigns.com>",
       to: [email, "contacto@mariowebdesigns.com"],
