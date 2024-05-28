@@ -42,7 +42,6 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 // Informacion Data

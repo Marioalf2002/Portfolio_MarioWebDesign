@@ -1,7 +1,6 @@
 import Link from "next/link";
-import path from "path";
 
-import { FaGithub, FaWhatsapp, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaWhatsapp, FaLinkedin, FaDiscord } from "react-icons/fa";
 
 const socials = [
   { icon: <FaGithub />, path: "https://github.com/Marioalf2002" },
@@ -12,6 +11,10 @@ const socials = [
   {
     icon: <FaLinkedin />,
     path: "https://www.linkedin.com/in/mariowebdesign",
+  },
+  {
+    icon: <FaDiscord />,
+    path: "https://discordapp.com/users/744348258893168680",
   },
 ];
 

@@ -13,13 +13,12 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Progress } from "@/components/ui/progress";
-import { Skeleton } from "@/components/ui/skeleton";
 import Link from "next/link";
 import Image from "next/image";
 
 // Componentes
 import WorkSliderBtns from "@/components/WorkSliderBtns";
-import { FiLink } from "react-icons/fi";
+import { VscLiveShare } from "react-icons/vsc";
 
 // Proyectos
 const projects = [
@@ -218,8 +217,8 @@ const Work = () => {
                   <Link href={project.live} target="_blank">
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
-                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                          <FiLink className="text-white text-3xl group-hover:text-accent" />
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group hover:-rotate-12 transition-all duration-500">
+                          <VscLiveShare className="text-white text-3xl group-hover:text-accent" />
                         </TooltipTrigger>
                         <TooltipContent>
                           <p>Live project</p>
@@ -233,7 +232,7 @@ const Work = () => {
                   <Link href={project.github} target="_blank">
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
-                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group hover:-rotate-12 transition-all duration-500">
                           <BsGithub className="text-white text-3xl group-hover:text-accent" />
                         </TooltipTrigger>
                         <TooltipContent>
@@ -277,8 +276,8 @@ const Work = () => {
               })}
               {/* Botones Slider */}
               <WorkSliderBtns
-                containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
-                btnStyles="bg-accent hover:bg-accent-hover text-white text-[22px] w-[44px] h-[44px] flex justify-center items-center rounded-xl transition-all"
+                containerStyles="flex absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:justify-none"
+                btnStyles="bg-transparen md:text-white md:bg-accent hover:bg-accent-hover text- hover:text-white text-accent text-[22px] w-[44px] h-[44px] flex justify-center items-center rounded-xl transition-all duration-500"
               />
             </Swiper>
           </div>

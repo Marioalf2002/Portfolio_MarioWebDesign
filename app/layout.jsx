@@ -25,13 +25,13 @@ const galada = Galada({
 });
 
 export const metadata = {
-  title: "MarioWeb Design",
+  title: "MarioWebDesign",
   description: "Desarrollo Web Full Stack | MarioWeb Design",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <head>
         <link rel="icon" href="/favicon.ico" />
         <title>{metadata.title}</title>

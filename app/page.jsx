@@ -33,8 +33,8 @@ const Home = () => {
                 download="Curriculum-Mario Alfonso Forero Hernandez.pdf"
               >
                 <Button
-                  size="lg"
-                  className="uppercase flex items-center gap-3 z-20"
+                  size="md"
+                  className="uppercase flex items-center gap-3 z-20 transition-all duration-500"
                 >
                   <span className="font-bold text-white">Descargar CV</span>
                   <FaDownload className="text-xl text-white" />
@@ -42,8 +42,8 @@ const Home = () => {
               </a>
               <div className="mb-8 xl:mb-0 z-20">
                 <Social
-                  containerStyles="flex gap-6"
-                  iconStyles="w-11 h-11 border border-accent rounded-full flex justify-center items-center text-white text-base hover:bg-accent hover:text-primary hover:transition-all duration-500"
+                  containerStyles="flex gap-4"
+                  iconStyles="w-11 h-11 border border-accent rounded-full flex justify-center items-center text-white text-base hover:bg-accent hover:text-primary transition-all duration-500"
                 />
               </div>
             </div>
