@@ -39,9 +39,9 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${poppins.variable} ${galada.variable}`}>
         <Header />
+        <SpaceLayer />
         <StairTransition />
         <PageTransition>{children}</PageTransition>
-        <SpaceLayer />
       </body>
     </html>
   );

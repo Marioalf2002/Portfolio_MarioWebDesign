@@ -26,19 +26,6 @@
     -webkit-text-stroke: 1px #b91c1c;
   }
 
-  .space {
-    width: var(--size);
-    height: var(--size);
-    background: #fff;
-    box-shadow: var(--space-layer);
-    position: absolute;
-    border-radius: 100%;
-    top: 0;
-    left: 0;
-    opacity: 75%;
-    animation: moveStars var(--duration) linear infinite;
-  }
-
   @keyframes moveStars {
     from {
       transform: translateY(0);
@@ -84,13 +71,13 @@
   }
 
   canvas {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     pointer-events: none;
-    z-index: -1;
+    z-index: 10;
   }
 
   /* Estilos para la barra de desplazamiento */

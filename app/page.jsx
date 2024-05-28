@@ -9,11 +9,11 @@ import Stats from "@/components/Stats";
 
 const Home = () => {
   return (
-    <section className="h-full z-20">
+    <section className="h-full">
       <div className="container h-full mx-auto">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-2 xl:pb-20">
           {/* Texto */}
-          <div className="text-center xl:text-left order-2 xl:order-none">
+          <div className="text-center xl:text-left order-2 xl:order-none z-20">
             <span className="text-xl text-white/90 font-secondary">
               Web Developer
             </span>

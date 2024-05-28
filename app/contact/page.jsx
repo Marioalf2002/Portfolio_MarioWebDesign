@@ -98,14 +98,14 @@ const Contact = (props) => {
         transition: { delay: 1, duration: 0.4, ease: "easeIn" },
       }}
     >
-      <div className="container mx-auto">
-        <div className="flex flex-col xl:flex-row gap-[30px] items-center">
-          <div className="xl:w-[54%] order-2 xl:order-none">
+      <div className="container mx-auto z-20">
+        <div className="flex flex-col xl:flex-row gap-[30px] items-center z-20">
+          <div className="xl:w-[54%] order-2 xl:order-none z-20">
             <form
               className="flex flex-col gap-4 p-7 bg-secondary rounded-xl"
               onSubmit={handleSubmit(onSubmit)}
             >
-              <h3 className="text-5xl flex justify-center text-accent font-secondary">
+              <h3 className="text-4xl flex justify-center text-accent font-secondary">
                 Trabajemos juntos
               </h3>
               <p className="text-white/90">
@@ -114,6 +114,7 @@ const Contact = (props) => {
               </p>
               <TooltipProvider delayDuration={100}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Nombre */}
                   <div className="relative flex items-center">
                     <Input
                       type="text"
@@ -136,6 +137,7 @@ const Contact = (props) => {
                       </TooltipContent>
                     </Tooltip>
                   </div>
+                  {/* Apellido */}
                   <div className="relative flex items-center">
                     <Input
                       type="text"
@@ -157,6 +159,7 @@ const Contact = (props) => {
                       </TooltipContent>
                     </Tooltip>
                   </div>
+                  {/* Email */}
                   <div className="relative flex items-center">
                     <Input
                       type="email"
@@ -181,6 +184,7 @@ const Contact = (props) => {
                       </TooltipContent>
                     </Tooltip>
                   </div>
+                  {/* Teléfono */}
                   <div className="relative flex items-center">
                     <Input
                       type="tel"
@@ -204,6 +208,7 @@ const Contact = (props) => {
                     </Tooltip>
                   </div>
                 </div>
+                {/* Servicio */}
                 <Select onValueChange={setService}>
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Selecciona un Servicio" />
@@ -221,6 +226,7 @@ const Contact = (props) => {
                   </SelectContent>
                 </Select>
               </TooltipProvider>
+              {/* Mensaje */}
               <Textarea
                 className="max-h-[250px] h-[200px] overflow-auto"
                 placeholder="Escribe tus ideas o dudas."
@@ -234,7 +240,7 @@ const Contact = (props) => {
               </div>
             </form>
           </div>
-          <div className="flex-1 flex items-center justify-center order-1 xl:order-none mb-8 xl:mb-0">
+          <div className="z-20 flex-1 flex items-center justify-center order-1 xl:order-none mb-8 xl:mb-0">
             <ul className="flex flex-col gap-10">
               {info.map((item, index) => (
                 <li key={index} className="flex items-center gap-6">

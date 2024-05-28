@@ -52,7 +52,7 @@ const Services = () => {
             opacity: 1,
             transition: { delay: 1, duration: 0.4, ease: "easeIn" },
           }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-[55px]"
+          className="grid grid-cols-1 md:grid-cols-2 gap-[60px]"
         >
           {services.map((service, index) => {
             return (
@@ -79,7 +79,7 @@ const Services = () => {
                 {/* Descripcion */}
                 <p className="text-white/80">{service.description}</p>
                 {/* Border */}
-                <div className="border-b border-white/30 w-full"></div>
+                <div className="border-b border-accent/30 w-full"></div>
               </div>
             );
           })}
