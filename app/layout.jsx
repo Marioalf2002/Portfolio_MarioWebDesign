@@ -1,6 +1,9 @@
 // Global styles
 import "./globals.css";
 
+// Dependencias
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 // Componentes
 import Header from "@/components/Header";
 import StairTransition from "@/components/StairTransition";
@@ -42,6 +45,7 @@ export default function RootLayout({ children }) {
         <SpaceLayer />
         <StairTransition />
         <PageTransition>{children}</PageTransition>
+        <SpeedInsights />
       </body>
     </html>
   );
