@@ -196,7 +196,7 @@ const Work = () => {
                 Proyecto {project.category}
               </h2>
               {/* Descripcion */}
-              <p className="text-white/70 z-20">{project.description}</p>
+              <p className="text-white/90 z-20">{project.description}</p>
               {/* Stack */}
               <ul className="flex gap-4 z-20">
                 {project.stack.map((item, index) => {
@@ -273,6 +273,9 @@ const Work = () => {
               className="w-full"
               id="progress-bar"
               role="progressbar"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow={progress}
               aria-labelledby="progress-bar-label"
             />
             <Swiper

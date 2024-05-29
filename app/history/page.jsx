@@ -474,7 +474,7 @@ const Resume = () => {
                   <h1 className="text-4xl font-secondary text-accent">
                     {skills.title}
                   </h1>
-                  <p className="text-white/70 mx-auto xl:mx-0">
+                  <p className="text-white/90 mx-auto xl:mx-0">
                     {skills.description}
                   </p>
                 </div>

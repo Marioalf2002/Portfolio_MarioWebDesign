@@ -108,9 +108,9 @@ const Contact = (props) => {
               className="flex flex-col gap-4 p-7 bg-secondary rounded-xl"
               onSubmit={handleSubmit(onSubmit)}
             >
-              <h3 className="text-4xl flex justify-center text-white font-secondary">
+              <h1 className="text-4xl flex justify-center text-white font-secondary">
                 Trabajemos juntos <span className="text-accent">!</span>
-              </h3>
+              </h1>
               <p className="text-white/90">
                 Si tienes un proyecto en mente o una idea que te gustaría llevar
                 a cabo, no dudes en contactarme.
@@ -128,6 +128,8 @@ const Contact = (props) => {
                         pattern: /^[A-Za-z\s]+$/,
                       })}
                       className="w-[100%] placeholder:text-white/90"
+                      aria-label="Nombre"
+                      aria-required="true"
                     />
                     <Tooltip>
                       <TooltipTrigger className="h-8 hover:text-accent transition-all duration-500">
@@ -150,6 +152,8 @@ const Contact = (props) => {
                         pattern: /^[A-Za-z\s]+$/,
                       })}
                       className="w-[100%] placeholder:text-white/90"
+                      aria-label="Apellido"
+                      aria-required="true"
                     />
                     <Tooltip>
                       <TooltipTrigger className="h-8 hover:text-accent transition-all duration-500">
@@ -174,6 +178,8 @@ const Contact = (props) => {
                           /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
                       })}
                       className="w-[100%] placeholder:text-white/90"
+                      aria-label="Email"
+                      aria-required="true"
                     />
                     <Tooltip>
                       <TooltipTrigger className="h-8 hover:text-accent transition-all duration-500">
@@ -197,6 +203,8 @@ const Contact = (props) => {
                         pattern: /^[0-9]{10,15}$/,
                       })}
                       className="w-[100%] placeholder:text-white/90"
+                      aria-label="Celular"
+                      aria-required="true"
                     />
                     <Tooltip>
                       <TooltipTrigger className="h-8 hover:text-accent transition-all duration-500">
@@ -212,11 +220,12 @@ const Contact = (props) => {
                   </div>
                 </div>
                 {/* Servicio */}
-                <Select onValueChange={setService}>
+                <Select onValueChange={setService} aria-label="Servicios">
                   <SelectTrigger className="w-full placeholder:text-white">
                     <SelectValue
                       placeholder="Selecciona un Servicio!"
                       className="placeholder:text-white"
+                      aria-label="Selecciona un Servicio"
                     />
                   </SelectTrigger>
                   <SelectContent>
