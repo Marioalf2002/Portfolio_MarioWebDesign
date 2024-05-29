@@ -57,7 +57,7 @@ const projects = [
       "Spline es una empresa que ofrece una herramienta en línea para el diseño y modelado 3D interactivo. Su plataforma permite a los diseñadores crear, modificar y visualizar modelos 3D directamente en el navegador web sin necesidad de instalar software adicional.",
     stack: [{ name: "Next.js" }, { name: "Spline" }],
     image: "/assets/work/spline.webp",
-    live: "https://spline.design/",
+    live: "https://spline-jade.vercel.app/",
     github: "https://github.com/Marioalf2002/spline",
   },
   {
