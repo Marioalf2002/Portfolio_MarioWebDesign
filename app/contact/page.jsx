@@ -132,12 +132,18 @@ const Contact = (props) => {
                       aria-required="true"
                     />
                     <Tooltip>
-                      <TooltipTrigger className="h-8 hover:text-accent transition-all duration-500">
+                      <TooltipTrigger
+                        className="h-8 hover:text-accent transition-all duration-500"
+                        aria-label="Información"
+                      >
                         <span className="absolute inset-y-0 right-0 flex items-center pr-3">
                           <FaInfoCircle />
                         </span>
                       </TooltipTrigger>
-                      <TooltipContent className="text-black font-semibold">
+                      <TooltipContent
+                        className="text-black font-semibold"
+                        role="tooltip"
+                      >
                         Ingresa tu nombre. Solo se permiten letras y espacios.
                       </TooltipContent>
                     </Tooltip>
@@ -156,7 +162,10 @@ const Contact = (props) => {
                       aria-required="true"
                     />
                     <Tooltip>
-                      <TooltipTrigger className="h-8 hover:text-accent transition-all duration-500">
+                      <TooltipTrigger
+                        className="h-8 hover:text-accent transition-all duration-500"
+                        aria-label="Información"
+                      >
                         <span className="absolute inset-y-0 right-0 flex items-center pr-3">
                           <FaInfoCircle />
                         </span>
@@ -182,7 +191,10 @@ const Contact = (props) => {
                       aria-required="true"
                     />
                     <Tooltip>
-                      <TooltipTrigger className="h-8 hover:text-accent transition-all duration-500">
+                      <TooltipTrigger
+                        className="h-8 hover:text-accent transition-all duration-500"
+                        aria-label="Información"
+                      >
                         <span className="absolute inset-y-0 right-0 flex items-center pr-3">
                           <FaInfoCircle />
                         </span>
@@ -207,7 +219,10 @@ const Contact = (props) => {
                       aria-required="true"
                     />
                     <Tooltip>
-                      <TooltipTrigger className="h-8 hover:text-accent transition-all duration-500">
+                      <TooltipTrigger
+                        className="h-8 hover:text-accent transition-all duration-500"
+                        aria-label="Información"
+                      >
                         <span className="absolute inset-y-0 right-0 flex items-center pr-3">
                           <FaInfoCircle />
                         </span>
@@ -270,7 +285,7 @@ const Contact = (props) => {
                   <a href={item.path} target="_blank">
                     <div className="flex-1">
                       <p className="text-white/60">{item.title}</p>
-                      <h3 className="text-ml lg:text-xl">{item.description}</h3>
+                      <h1 className="text-ml lg:text-xl">{item.description}</h1>
                     </div>
                   </a>
                 </li>
