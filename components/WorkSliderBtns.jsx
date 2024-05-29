@@ -64,10 +64,20 @@ const WorkSliderBtns = ({ containerStyles, btnStyles, iconsStyles }) => {
 
   return (
     <div className={containerStyles}>
-      <button id="handlePrev" className={btnStyles} onClick={handlePrev}>
+      <button
+        id="handlePrev"
+        className={btnStyles}
+        onClick={handlePrev}
+        aria-label="Previous"
+      >
         <PiCaretLeftBold className={iconsStyles} />
       </button>
-      <button id="handleNext" className={btnStyles} onClick={handleNext}>
+      <button
+        id="handleNext"
+        className={btnStyles}
+        onClick={handleNext}
+        aria-label="Next"
+      >
         <PiCaretRightBold className={iconsStyles} />
       </button>
     </div>

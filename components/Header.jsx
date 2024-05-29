@@ -20,8 +20,10 @@ const Header = () => {
         {/* Desktop nav & hire me button*/}
         <div className="hidden xl:flex items-center gap-8 z-20">
           <Nav />
-          <Link href="/contact">
-            <Button>Contáctame!</Button>
+          <Link href="/contact" aria-label="Contact me">
+            <Button aria-label="Botón para contactarme" role="button">
+              Contáctame!
+            </Button>
           </Link>
         </div>
 

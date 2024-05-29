@@ -19,7 +19,10 @@ const MobileNav = () => {
   const pathname = usePathname();
   return (
     <Sheet>
-      <SheetTrigger className="flex justify-center items-center">
+      <SheetTrigger
+        className="flex justify-center items-center"
+        aria-label="Open menu"
+      >
         <CiMenuFries className="text-[32px] text-accent" id="Menu" />
       </SheetTrigger>
       <SheetContent className="flex flex-col">
@@ -48,8 +51,10 @@ const MobileNav = () => {
               </Link>
             );
           })}
-          <Link href="/contact">
-            <Button>Contáctame!</Button>
+          <Link href="/contact" aria-label="Contact me">
+            <Button aria-label="Botón para contactarme" role="button">
+              Contáctame!
+            </Button>
           </Link>
         </nav>
       </SheetContent>

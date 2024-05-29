@@ -214,7 +214,13 @@ const Work = () => {
               <div className="flex items-center gap-4 z-20">
                 {/* Boton Live Proyecto */}
                 {hasLiveLink(project) && (
-                  <Link href={project.live} target="_blank" id="live">
+                  <Link
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    id="live"
+                    aria-label="Live project"
+                  >
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
                         <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group hover:-rotate-12 transition-all duration-500 z-20">
@@ -229,7 +235,13 @@ const Work = () => {
                 )}
                 {/* Boton GitHub Proyecto */}
                 {hasGithubLink(project) && (
-                  <Link href={project.github} target="_blank" id="github">
+                  <Link
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    id="github"
+                    aria-label="GitHub repository"
+                  >
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
                         <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group hover:-rotate-12 transition-all duration-500">
