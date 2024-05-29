@@ -277,6 +277,7 @@ const Work = () => {
               aria-valuemax="100"
               aria-valuenow={progress}
               aria-labelledby="progress-bar-label"
+              aria-label="Progress bar"
             />
             <Swiper
               spaceBetween={30}
