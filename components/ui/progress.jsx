@@ -8,9 +8,6 @@ import { cn } from "@/lib/utils";
 const Progress = React.forwardRef(({ className, value, ...props }, ref) => (
   <ProgressPrimitive.Root
     ref={ref}
-    id="progress-bar"
-    role="progressbar"
-    aria-labelledby="progress-bar-label"
     className={cn(
       "relative h-1 mb-2 w-full overflow-hidden rounded-full bg-tertiary",
       className

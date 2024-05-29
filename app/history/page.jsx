@@ -362,7 +362,7 @@ const Resume = () => {
                     if (item.fieldName === "Email") {
                       fieldValueElement = (
                         <a
-                          href={`mailto:${item.fieldValue}`}
+                          href={`https://mail.google.com/mail/?view=cm&fs=1&to=${item.fieldValue}`}
                           target="_blank"
                           className="text-xl text-white hover:underline"
                         >

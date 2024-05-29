@@ -29,6 +29,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import path from "path";
 
 const info = [
   {
@@ -41,11 +42,13 @@ const info = [
     icon: <FaEnvelope />,
     title: "Email",
     description: "contacto@mariowebdesigns.com",
+    path: "https://mail.google.com/mail/?view=cm&fs=1&to=contacto@mariowebdesigns.com",
   },
   {
     icon: <FaMapMarkedAlt />,
     title: "Dirección",
     description: "Colombia, Antioquia, Sabaneta",
+    path: "",
   },
 ];
 
@@ -105,8 +108,8 @@ const Contact = (props) => {
               className="flex flex-col gap-4 p-7 bg-secondary rounded-xl"
               onSubmit={handleSubmit(onSubmit)}
             >
-              <h3 className="text-4xl flex justify-center text-accent font-secondary">
-                Trabajemos juntos
+              <h3 className="text-4xl flex justify-center text-white font-secondary">
+                Trabajemos juntos <span className="text-accent">!</span>
               </h3>
               <p className="text-white/90">
                 Si tienes un proyecto en mente o una idea que te gustaría llevar
@@ -124,7 +127,7 @@ const Contact = (props) => {
                         required: true,
                         pattern: /^[A-Za-z\s]+$/,
                       })}
-                      className="w-[100%]"
+                      className="w-[100%] placeholder:text-white/90"
                     />
                     <Tooltip>
                       <TooltipTrigger className="h-8 hover:text-accent transition-all duration-500">
@@ -146,7 +149,7 @@ const Contact = (props) => {
                       {...register("lastname", {
                         pattern: /^[A-Za-z\s]+$/,
                       })}
-                      className="w-[100%]"
+                      className="w-[100%] placeholder:text-white/90"
                     />
                     <Tooltip>
                       <TooltipTrigger className="h-8 hover:text-accent transition-all duration-500">
@@ -170,7 +173,7 @@ const Contact = (props) => {
                         pattern:
                           /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
                       })}
-                      className="w-[100%]"
+                      className="w-[100%] placeholder:text-white/90"
                     />
                     <Tooltip>
                       <TooltipTrigger className="h-8 hover:text-accent transition-all duration-500">
@@ -193,7 +196,7 @@ const Contact = (props) => {
                       {...register("phone", {
                         pattern: /^[0-9]{10,15}$/,
                       })}
-                      className="w-[100%]"
+                      className="w-[100%] placeholder:text-white/90"
                     />
                     <Tooltip>
                       <TooltipTrigger className="h-8 hover:text-accent transition-all duration-500">
@@ -210,8 +213,11 @@ const Contact = (props) => {
                 </div>
                 {/* Servicio */}
                 <Select onValueChange={setService}>
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Selecciona un Servicio" />
+                  <SelectTrigger className="w-full placeholder:text-white">
+                    <SelectValue
+                      placeholder="Selecciona un Servicio!"
+                      className="placeholder:text-white"
+                    />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup label="Servicios">
@@ -228,13 +234,18 @@ const Contact = (props) => {
               </TooltipProvider>
               {/* Mensaje */}
               <Textarea
-                className="max-h-[250px] h-[200px] overflow-auto"
+                className="max-h-[250px] h-[200px] overflow-auto placeholder:text-white/90"
                 placeholder="Escribe tus ideas o dudas."
                 title="Este campo es obligatorio. Por favor, introduce tu mensaje."
                 {...register("message", { required: true })}
               />
               <div className="flex justify-center items-center">
-                <Button size="md" className="w-[35%]" type="submit">
+                <Button
+                  size="md"
+                  className="w-[35%]"
+                  type="submit"
+                  aria-label="Enviar formulario"
+                >
                   ¡Envíame!
                 </Button>
               </div>
