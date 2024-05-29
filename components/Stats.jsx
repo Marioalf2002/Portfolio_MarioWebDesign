@@ -18,7 +18,6 @@ const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 // Componente de Estadísticas
 const Stats = () => {
   const [commits, setCommits] = useState(() => {
-    // Verificar si localStorage está disponible
     const savedCommits =
       typeof localStorage !== "undefined"
         ? localStorage.getItem("commits")
@@ -42,9 +41,9 @@ const Stats = () => {
                 Authorization: `token ${GITHUB_TOKEN}`,
               },
               params: {
-                visibility: "all", // Incluir todos los repositorios
-                per_page: 100, // Aumentar el límite por página
-                page: page, // Paginar los resultados
+                visibility: "all",
+                per_page: 100,
+                page: page,
               },
             }
           );
@@ -65,7 +64,7 @@ const Stats = () => {
                   Authorization: `token ${GITHUB_TOKEN}`,
                 },
                 params: {
-                  author: GITHUB_USERNAME, // Asegurarse de contar solo los commits del usuario especificado
+                  author: GITHUB_USERNAME,
                   per_page: 100,
                   page: commitPage,
                 },
@@ -78,24 +77,32 @@ const Stats = () => {
           }
         }
 
-        // Actualizar el estado de commits
         setCommits(totalCommits);
-
-        // Guardar la cantidad de commits en localStorage
         localStorage.setItem("commits", totalCommits.toString());
+        localStorage.setItem("lastUpdate", new Date().toISOString());
       } catch (error) {
         console.error("Error fetching commits from GitHub:", error);
       }
     };
 
-    // Llamar a la función para obtener la cantidad de commits inicialmente
-    fetchCommits();
+    const shouldFetchCommits = () => {
+      const lastUpdate = localStorage.getItem("lastUpdate");
+      if (!lastUpdate) return true;
+      const tenMinutes = 10 * 60 * 1000;
+      return new Date() - new Date(lastUpdate) > tenMinutes;
+    };
 
-    // Configurar una actualización periódica (cada 5 minutos)
-    const intervalId = setInterval(fetchCommits, 5 * 60 * 1000); // Actualizar cada 5 minutos
+    const updateCommits = () => {
+      if (shouldFetchCommits()) {
+        fetchCommits().then(() => {
+          setTimeout(updateCommits, 10 * 60 * 1000); // Llamar a fetchCommits después de 10 minutos
+        });
+      } else {
+        setTimeout(updateCommits, 10 * 60 * 1000); // Comprobar otra vez en 10 minutos
+      }
+    };
 
-    // Limpiar el intervalo cuando el componente se desmonta
-    return () => clearInterval(intervalId);
+    updateCommits();
   }, []);
 
   return (
