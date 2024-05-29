@@ -15,13 +15,13 @@ const Photo = () => {
         }}
       >
         {/* Imagen */}
-        <div className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten">
+        <div className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten flex items-center justify-center">
           <Image
-            src="/assets/perfil.jpg"
+            src="/assets/perfil.webp"
             priority
             quality={100}
-            width={498}
-            height={498}
+            width={450}
+            height={450}
             alt="MarioWebDesign"
             className="object-contain rounded-full animated"
           />
