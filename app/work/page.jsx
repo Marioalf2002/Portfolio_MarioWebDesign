@@ -68,7 +68,7 @@ const projects = [
       "Este proyecto es una página web interactiva que utiliza HTML, CSS y JavaScript para crear un efecto de paralaje de galaxia.",
     stack: [{ name: "Html 5" }, { name: "CSS" }, { name: "JavaScript" }],
     image: "/assets/work/galaxyparallax.webp",
-    live: "",
+    live: "https://marioalf2002.github.io/galaxy-parallax/",
     github: "https://github.com/Marioalf2002/galaxy-parallax",
   },
   {
@@ -85,7 +85,7 @@ const projects = [
       { name: "jQuery" },
     ],
     image: "/assets/work/medellinecologicoweb.webp",
-    live: "",
+    live: "https://marioalf2002.github.io/MedellinEcologicoWeb/",
     github: "https://github.com/Marioalf2002/MedellinEcologicoWeb",
   },
   {
@@ -101,11 +101,33 @@ const projects = [
       { name: "Google" },
     ],
     image: "/assets/work/ecommerce.webp",
-    live: "",
+    live: "https://e-commerce-gamma-peach.vercel.app/",
     github: "https://github.com/Marioalf2002/eCommerce",
   },
   {
-    num: "07",
+    num: "08",
+    category: "Frontend",
+    title: "Starts",
+    description:
+      "Star Generator es un programa JavaScript que genera una disposición aleatoria de estrellas en un lienzo. Utiliza lienzo HTML5 y JavaScript para crear un efecto de galaxia visualmente atractivo.",
+    stack: [{ name: "Html 5" }, { name: "CSS" }, { name: "JavaScript" }],
+    image: "/assets/work/starts.webp",
+    live: "https://marioalf2002.github.io/starts/",
+    github: "https://github.com/Marioalf2002/starts",
+  },
+  {
+    num: "08",
+    category: "Fullstack",
+    title: "PacCraft",
+    description:
+      "El juego fue creado, usando el lenguaje C++ y la Librería de Allegro 5 para implementar texturas, sonidos, entre otras funciones, es un juego creado bajo la lógica del juego PacMan usando diferentes texturas al estilo Minecraft.",
+    stack: [{ name: "C++" }, { name: "Allegro 5" }],
+    image: "/assets/work/paccraft.webp",
+    live: "",
+    github: "https://github.com/Marioalf2002/PacCraft",
+  },
+  {
+    num: "09",
     category: "Backend",
     title: "Plugin GitList-GLPI",
     description:
@@ -120,17 +142,6 @@ const projects = [
     image: "/assets/work/gitlistglpi.webp",
     live: "",
     github: "https://github.com/Marioalf2002/GitList-Plugin-Glpi",
-  },
-  {
-    num: "08",
-    category: "Fullstack",
-    title: "PacCraft",
-    description:
-      "El juego fue creado, usando el lenguaje C++ y la Librería de Allegro 5 para implementar texturas, sonidos, entre otras funciones, es un juego creado bajo la lógica del juego PacMan usando diferentes texturas al estilo Minecraft.",
-    stack: [{ name: "C++" }, { name: "Allegro 5" }],
-    image: "/assets/work/paccraft.webp",
-    live: "",
-    github: "https://github.com/Marioalf2002/PacCraft",
   },
 ];
 
