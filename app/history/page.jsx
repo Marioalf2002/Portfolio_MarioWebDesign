@@ -349,9 +349,9 @@ const Resume = () => {
               className="w-full text-center xl:text-left"
             >
               <div className="flex flex-col gap-[30px]">
-                <h3 className="text-4xl font-secondary text-accent">
+                <h1 className="text-4xl font-secondary text-accent">
                   {about.title}
-                </h3>
+                </h1>
                 <p className="max-w-[700px] text-white/90 mx-auto xl:mx-0">
                   {about.description}
                 </p>
@@ -404,9 +404,9 @@ const Resume = () => {
             {/* Experiencia */}
             <TabsContent value="experience" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                <h3 className="text-4xl font-secondary text-accent">
+                <h1 className="text-4xl font-secondary text-accent">
                   {experience.title}
-                </h3>
+                </h1>
                 <p className="max-w-[600px] text-white/90 mx-auto xl:mx-0">
                   {experience.description}
                 </p>
@@ -437,9 +437,9 @@ const Resume = () => {
             {/* Educacion */}
             <TabsContent value="education" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                <h3 className="text-4xl font-secondary text-accent">
+                <h1 className="text-4xl font-secondary text-accent">
                   {education.title}
-                </h3>
+                </h1>
                 <p className="max-w-[600px] text-white/80 mx-auto xl:mx-0">
                   {education.description}
                 </p>
@@ -471,9 +471,9 @@ const Resume = () => {
             <TabsContent value="skills" className="w-full">
               <div className="flex flex-col gap-[30px]">
                 <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                  <h3 className="text-4xl font-secondary text-accent">
+                  <h1 className="text-4xl font-secondary text-accent">
                     {skills.title}
-                  </h3>
+                  </h1>
                   <p className="text-white/70 mx-auto xl:mx-0">
                     {skills.description}
                   </p>
