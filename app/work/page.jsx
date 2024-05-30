@@ -105,7 +105,7 @@ const projects = [
     github: "https://github.com/Marioalf2002/eCommerce",
   },
   {
-    num: "08",
+    num: "07",
     category: "Frontend",
     title: "Starts",
     description:

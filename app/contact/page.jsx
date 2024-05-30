@@ -275,6 +275,7 @@ const Contact = (props) => {
               </div>
             </form>
           </div>
+          {/* Información de contacto */}
           <div className="z-20 flex-1 flex items-center justify-center order-1 xl:order-none mb-8 xl:mb-0">
             <ul className="flex flex-col gap-10">
               {info.map((item, index) => (
