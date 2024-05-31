@@ -21,7 +21,7 @@ const Home = () => {
               Hola<span className="text-accent">!</span> Soy
               <br /> <span className="text-accent h1">Mario Hernandez</span>
             </h1>
-            <p className="max-w-[500px] mb-9 text-white/80">
+            <p className="max-w-[500px] mb-9 text-white/90">
               Un desarrollador web Full-Stack con amplia experiencia en diversas
               tecnologías, apasionado por crear soluciones web innovadoras y
               funcionales.

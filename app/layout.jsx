@@ -4,6 +4,7 @@ import "./globals.css";
 // Dependencias
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import Head from "next/head";
 
 // Componentes
 import Header from "@/components/Header";
@@ -28,19 +29,26 @@ const galada = Galada({
   weight: ["400"],
 });
 
-export const metadata = {
-  title: "MarioWebDesign",
-  description: "Desarrollo Web Full Stack | MarioWeb Design",
-};
+export default function RootLayout({ children, title, description, image }) {
+  const defaultTitle = "MarioWebDesign";
+  const pageTitle = title ? `MarioWebDesign | ${title}` : defaultTitle;
+  const pageDescription =
+    description ||
+    "Hola! Soy Mario Hernandez, Un desarrollador web Full-Stack con amplia experiencia en diversas tecnologías, apasionado por crear soluciones web innovadoras y funcionales.";
+  const pageImage = image || "/opengraph-home.png";
 
-export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <head>
+      <Head>
+        <title>{pageTitle}</title>
         <link rel="icon" href="/favicon.ico" />
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-      </head>
+        <meta name="description" content={pageDescription} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:image" content={pageImage} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.mariowebdesign.com" />
+      </Head>
       <body className={`${poppins.variable} ${galada.variable}`}>
         <Header />
         <SpaceLayer />

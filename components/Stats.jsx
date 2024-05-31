@@ -7,8 +7,8 @@ import axios from "axios";
 
 const stats = [
   { num: 4, text: "Años de Experiencia" },
-  { num: 18, text: "Proyectos Completados" },
-  { num: 14, text: "Tecnologías Dominadas" },
+  { num: 16, text: "Proyectos Completados" },
+  { num: 14, text: "Tecnologías Estudiadas" },
 ];
 
 // Variables de entorno
@@ -123,7 +123,7 @@ const Stats = () => {
               <p
                 className={`${
                   item.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"
-                } leading-snug text-white/80`}
+                } leading-snug text-white/90`}
               >
                 {item.text}
               </p>
@@ -139,7 +139,7 @@ const Stats = () => {
               delay={2}
               className="text-4xl xl:text-6xl font-extrabold text-accent"
             />
-            <p className="max-w-[150px] leading-snug text-white/80">
+            <p className="max-w-[150px] leading-snug text-white/90">
               Code Commits
             </p>
           </div>
