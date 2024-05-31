@@ -9,15 +9,15 @@ export const metadata = {
   },
   description: {
     default:
-      "Hola! Soy Mario Hernandez, Un desarrollador web Full-Stack con amplia experiencia en diversas tecnologías, apasionado por crear soluciones web innovadoras y funcionales.",
-    home: "Hola! Soy Mario Hernandez, Un desarrollador web Full-Stack con amplia experiencia en diversas tecnologías, apasionado por crear soluciones web innovadoras y funcionales.",
+      "¡Hola! Soy Mario Hernández, un desarrollador web Full-Stack con una sólida experiencia en una variedad de tecnologías. Mi pasión radica en crear soluciones web innovadoras y funcionales que satisfagan las necesidades de mis clientes.",
+    home: "¡Hola! Soy Mario Hernández, un desarrollador web Full-Stack con una sólida experiencia en una variedad de tecnologías. Mi pasión radica en crear soluciones web innovadoras y funcionales que satisfagan las necesidades de mis clientes.",
     services:
-      "Descubre los servicios de desarrollo web que ofrezco, desde diseño UI/UX hasta SEO y mantenimiento, para ayudarte a alcanzar tus objetivos en línea.",
+      "Descubre los servicios de desarrollo web que ofrezco, desde diseño UI/UX hasta SEO y mantenimiento. Estoy aquí para ayudarte a alcanzar tus objetivos en línea de manera efectiva y eficiente.",
     history:
-      "Conoce mi historia y trayectoria como desarrollador web, desde mis inicios en la programación hasta mi experiencia profesional y mis proyectos más destacados.",
-    work: "Explora los proyectos de desarrollo web que he realizado, desde sitios web y aplicaciones hasta tiendas en línea, para inspirarte y conocer mi trabajo.",
+      "Conoce mi historia y trayectoria como desarrollador web, desde mis inicios en la programación hasta mi experiencia profesional y los proyectos más destacados en los que he trabajado.",
+    work: "Explora los proyectos de desarrollo web que he realizado, desde sitios web y aplicaciones hasta tiendas en línea. Estoy seguro de que encontrarás inspiración y calidad en mi trabajo.",
     contact:
-      "Contacta conmigo para discutir tus ideas y necesidades, y juntos crearemos una solución web personalizada que se adapte a tus objetivos y presupuesto.",
+      "Contáctame para discutir tus ideas y necesidades. Juntos, crearemos una solución web personalizada que se adapte a tus objetivos y presupuesto.",
   },
   url: {
     default: "https://mariowebdesigns.com",
@@ -32,7 +32,7 @@ export const metadata = {
     home: "/app/opengraph-home.png",
     services: "/app/opengraph-services.png",
     history: "/app/opengraph-history.png",
-    projects: "/app/opengraph-work.png",
+    work: "/app/opengraph-work.png",
     contact: "/app/opengraph-contact.png",
   },
 };
