@@ -4,7 +4,6 @@ import "./globals.css";
 // Dependencias
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-import Head from "next/head";
 
 // Componentes
 import Header from "@/components/Header";
@@ -39,7 +38,7 @@ export default function RootLayout({ children, title, description, image }) {
 
   return (
     <html lang="es">
-      <Head>
+      <head>
         <title>{pageTitle}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content={pageDescription} />
@@ -48,7 +47,7 @@ export default function RootLayout({ children, title, description, image }) {
         <meta property="og:image" content={pageImage} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.mariowebdesign.com" />
-      </Head>
+      </head>
       <body className={`${poppins.variable} ${galada.variable}`}>
         <Header />
         <SpaceLayer />
