@@ -29,7 +29,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import RootLayout from "../layout";
 
 const info = [
   {
@@ -93,242 +92,232 @@ const Contact = (props) => {
     reset();
   };
 
-  const title = "Contacto";
-  const description =
-    "¡Colaboremos juntos! Si tienes un proyecto o una idea innovadora, no dudes en ponerte en contacto conmigo. Estoy aquí para ayudarte a llevar tus ideas a la realidad. ¡Envíame un mensaje y comencemos a trabajar juntos!";
-  const image = "/app/opengraph-contact.png";
-
   return (
-    <RootLayout title={title} description={description} image={image}>
-      <motion.section
-        initial={{ opacity: 0 }}
-        animate={{
-          opacity: 1,
-          transition: { delay: 1, duration: 0.4, ease: "easeIn" },
-        }}
-      >
-        <div className="container mx-auto z-20">
-          <div className="flex flex-col xl:flex-row gap-[30px] items-center z-20">
-            <div className="xl:w-[54%] order-2 xl:order-none z-20">
-              <form
-                className="flex flex-col gap-4 p-7 bg-secondary rounded-xl"
-                onSubmit={handleSubmit(onSubmit)}
-              >
-                <h1 className="text-4xl flex justify-center text-white font-secondary">
-                  Trabajemos juntos <span className="text-accent">!</span>
-                </h1>
-                <p className="text-white/90">
-                  Si tienes un proyecto en mente o una idea que te gustaría
-                  llevar a cabo, no dudes en contactarme.
-                </p>
-                <TooltipProvider delayDuration={100}>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Nombre */}
-                    <div className="relative flex items-center">
-                      <Input
-                        type="text"
-                        placeholder="Nombre"
-                        title="Solo se permiten letras y espacios."
-                        {...register("firstname", {
-                          required: true,
-                          pattern: /^[A-Za-z\s]+$/,
-                        })}
-                        className="w-[100%] placeholder:text-white/90"
-                        aria-label="Nombre"
-                        aria-required="true"
-                      />
-                      <Tooltip>
-                        <TooltipTrigger
-                          className="h-8 hover:text-accent transition-all duration-500"
-                          aria-label="Información"
-                        >
-                          <span className="absolute inset-y-0 right-0 flex items-center pr-3">
-                            <FaInfoCircle />
-                          </span>
-                        </TooltipTrigger>
-                        <TooltipContent
-                          className="text-black font-semibold"
-                          role="tooltip"
-                        >
-                          Ingresa tu nombre. Solo se permiten letras y espacios.
-                        </TooltipContent>
-                      </Tooltip>
-                    </div>
-                    {/* Apellido */}
-                    <div className="relative flex items-center">
-                      <Input
-                        type="text"
-                        placeholder="Apellido"
-                        title="Solo se permiten letras y espacios."
-                        {...register("lastname", {
-                          pattern: /^[A-Za-z\s]+$/,
-                        })}
-                        className="w-[100%] placeholder:text-white/90"
-                        aria-label="Apellido"
-                        aria-required="true"
-                      />
-                      <Tooltip>
-                        <TooltipTrigger
-                          className="h-8 hover:text-accent transition-all duration-500"
-                          aria-label="Información"
-                        >
-                          <span className="absolute inset-y-0 right-0 flex items-center pr-3">
-                            <FaInfoCircle />
-                          </span>
-                        </TooltipTrigger>
-                        <TooltipContent className="text-black font-semibold">
-                          Ingresa tu apellido. Solo se permiten letras y
-                          espacios.
-                        </TooltipContent>
-                      </Tooltip>
-                    </div>
-                    {/* Email */}
-                    <div className="relative flex items-center">
-                      <Input
-                        type="email"
-                        placeholder="Email"
-                        title="Este campo es obligatorio. Debe ser un correo electrónico válido."
-                        {...register("email", {
-                          required: true,
-                          pattern:
-                            /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
-                        })}
-                        className="w-[100%] placeholder:text-white/90"
-                        aria-label="Email"
-                        aria-required="true"
-                      />
-                      <Tooltip>
-                        <TooltipTrigger
-                          className="h-8 hover:text-accent transition-all duration-500"
-                          aria-label="Información"
-                        >
-                          <span className="absolute inset-y-0 right-0 flex items-center pr-3">
-                            <FaInfoCircle />
-                          </span>
-                        </TooltipTrigger>
-                        <TooltipContent className="text-black font-semibold">
-                          Ingresa tu dirección de correo electrónico. Debe ser
-                          válido.
-                        </TooltipContent>
-                      </Tooltip>
-                    </div>
-                    {/* Teléfono */}
-                    <div className="relative flex items-center">
-                      <Input
-                        type="tel"
-                        placeholder="Celular"
-                        title="Solo se permiten números, y debe tener entre 10 y 15 dígitos."
-                        {...register("phone", {
-                          pattern: /^[0-9]{10,15}$/,
-                        })}
-                        className="w-[100%] placeholder:text-white/90"
-                        aria-label="Celular"
-                        aria-required="true"
-                      />
-                      <Tooltip>
-                        <TooltipTrigger
-                          className="h-8 hover:text-accent transition-all duration-500"
-                          aria-label="Información"
-                        >
-                          <span className="absolute inset-y-0 right-0 flex items-center pr-3">
-                            <FaInfoCircle />
-                          </span>
-                        </TooltipTrigger>
-                        <TooltipContent className="text-black font-semibold">
-                          Ingresa tu número de celular. Debe contener entre 10 y
-                          15 dígitos.
-                        </TooltipContent>
-                      </Tooltip>
-                    </div>
-                  </div>
-                  {/* Servicio */}
-                  <Select onValueChange={setService} aria-label="Servicios">
-                    <SelectTrigger className="w-full placeholder:text-white">
-                      <SelectValue
-                        placeholder="Selecciona un Servicio!"
-                        className="placeholder:text-white"
-                        aria-label="Selecciona un Servicio"
-                      />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectGroup label="Servicios">
-                        <SelectLabel>Selecciona un Servicio</SelectLabel>
-                        <SelectItem value="web">Desarrollo Web</SelectItem>
-                        <SelectItem value="seo">SEO</SelectItem>
-                        <SelectItem value="mantenimiento">
-                          Mantenimiento
-                        </SelectItem>
-                        <SelectItem value="dudas">Dudas</SelectItem>
-                      </SelectGroup>
-                    </SelectContent>
-                  </Select>
-                </TooltipProvider>
-                {/* Mensaje */}
-                <Textarea
-                  className="max-h-[250px] h-[200px] overflow-auto placeholder:text-white/90"
-                  placeholder="Escribe tus ideas o dudas."
-                  title="Este campo es obligatorio. Por favor, introduce tu mensaje."
-                  {...register("message", { required: true })}
-                />
-                <div className="flex justify-center items-center">
-                  <Button
-                    size="md"
-                    className="w-[35%]"
-                    type="submit"
-                    aria-label="Enviar formulario"
-                  >
-                    ¡Envíame!
-                  </Button>
-                </div>
-              </form>
-            </div>
-            {/* Información de contacto */}
-            <div className="z-20 flex-1 flex items-center justify-center order-1 xl:order-none mb-8 xl:mb-0">
-              <ul className="flex flex-col gap-10">
-                {info.map((item, index) => (
-                  <li key={index} className="flex items-center gap-6">
-                    <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-secondary text-accent rounded-md flex items-center justify-center">
-                      <div className="text-[28px]">{item.icon}</div>
-                    </div>
-                    <a href={item.path} target="_blank">
-                      <div className="flex-1">
-                        <p className="text-white/60">{item.title}</p>
-                        <h1 className="text-ml lg:text-xl">
-                          {item.description}
-                        </h1>
-                      </div>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          {/* Renderizar el componente Alert */}
-          {isVisible && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{
-                opacity: 1,
-                transition: { duration: 0.4, ease: "easeInOut" },
-              }}
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { delay: 1, duration: 0.4, ease: "easeIn" },
+      }}
+    >
+      <div className="container mx-auto z-20">
+        <div className="flex flex-col xl:flex-row gap-[30px] items-center z-20">
+          <div className="xl:w-[54%] order-2 xl:order-none z-20">
+            <form
+              className="flex flex-col gap-4 p-7 bg-secondary rounded-xl"
+              onSubmit={handleSubmit(onSubmit)}
             >
-              <Alert
-                status={alertData.status === "success" ? "success" : "error"}
-                className="z-30"
-              >
-                <FaTerminal className="h-4 w-4 text-white" />
-                <AlertTitle>
-                  {alertData.status === "success"
-                    ? "¡Correo Enviado!"
-                    : "Error al enviar el correo!"}
-                </AlertTitle>
-                <AlertDescription>{alertData.message}</AlertDescription>
-              </Alert>
-            </motion.div>
-          )}
+              <h1 className="text-4xl flex justify-center text-white font-secondary">
+                Trabajemos juntos <span className="text-accent">!</span>
+              </h1>
+              <p className="text-white/90">
+                Si tienes un proyecto en mente o una idea que te gustaría llevar
+                a cabo, no dudes en contactarme.
+              </p>
+              <TooltipProvider delayDuration={100}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Nombre */}
+                  <div className="relative flex items-center">
+                    <Input
+                      type="text"
+                      placeholder="Nombre"
+                      title="Solo se permiten letras y espacios."
+                      {...register("firstname", {
+                        required: true,
+                        pattern: /^[A-Za-z\s]+$/,
+                      })}
+                      className="w-[100%] placeholder:text-white/90"
+                      aria-label="Nombre"
+                      aria-required="true"
+                    />
+                    <Tooltip>
+                      <TooltipTrigger
+                        className="h-8 hover:text-accent transition-all duration-500"
+                        aria-label="Información"
+                      >
+                        <span className="absolute inset-y-0 right-0 flex items-center pr-3">
+                          <FaInfoCircle />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent
+                        className="text-black font-semibold"
+                        role="tooltip"
+                      >
+                        Ingresa tu nombre. Solo se permiten letras y espacios.
+                      </TooltipContent>
+                    </Tooltip>
+                  </div>
+                  {/* Apellido */}
+                  <div className="relative flex items-center">
+                    <Input
+                      type="text"
+                      placeholder="Apellido"
+                      title="Solo se permiten letras y espacios."
+                      {...register("lastname", {
+                        pattern: /^[A-Za-z\s]+$/,
+                      })}
+                      className="w-[100%] placeholder:text-white/90"
+                      aria-label="Apellido"
+                      aria-required="true"
+                    />
+                    <Tooltip>
+                      <TooltipTrigger
+                        className="h-8 hover:text-accent transition-all duration-500"
+                        aria-label="Información"
+                      >
+                        <span className="absolute inset-y-0 right-0 flex items-center pr-3">
+                          <FaInfoCircle />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent className="text-black font-semibold">
+                        Ingresa tu apellido. Solo se permiten letras y espacios.
+                      </TooltipContent>
+                    </Tooltip>
+                  </div>
+                  {/* Email */}
+                  <div className="relative flex items-center">
+                    <Input
+                      type="email"
+                      placeholder="Email"
+                      title="Este campo es obligatorio. Debe ser un correo electrónico válido."
+                      {...register("email", {
+                        required: true,
+                        pattern:
+                          /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
+                      })}
+                      className="w-[100%] placeholder:text-white/90"
+                      aria-label="Email"
+                      aria-required="true"
+                    />
+                    <Tooltip>
+                      <TooltipTrigger
+                        className="h-8 hover:text-accent transition-all duration-500"
+                        aria-label="Información"
+                      >
+                        <span className="absolute inset-y-0 right-0 flex items-center pr-3">
+                          <FaInfoCircle />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent className="text-black font-semibold">
+                        Ingresa tu dirección de correo electrónico. Debe ser
+                        válido.
+                      </TooltipContent>
+                    </Tooltip>
+                  </div>
+                  {/* Teléfono */}
+                  <div className="relative flex items-center">
+                    <Input
+                      type="tel"
+                      placeholder="Celular"
+                      title="Solo se permiten números, y debe tener entre 10 y 15 dígitos."
+                      {...register("phone", {
+                        pattern: /^[0-9]{10,15}$/,
+                      })}
+                      className="w-[100%] placeholder:text-white/90"
+                      aria-label="Celular"
+                      aria-required="true"
+                    />
+                    <Tooltip>
+                      <TooltipTrigger
+                        className="h-8 hover:text-accent transition-all duration-500"
+                        aria-label="Información"
+                      >
+                        <span className="absolute inset-y-0 right-0 flex items-center pr-3">
+                          <FaInfoCircle />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent className="text-black font-semibold">
+                        Ingresa tu número de celular. Debe contener entre 10 y
+                        15 dígitos.
+                      </TooltipContent>
+                    </Tooltip>
+                  </div>
+                </div>
+                {/* Servicio */}
+                <Select onValueChange={setService} aria-label="Servicios">
+                  <SelectTrigger className="w-full placeholder:text-white">
+                    <SelectValue
+                      placeholder="Selecciona un Servicio!"
+                      className="placeholder:text-white"
+                      aria-label="Selecciona un Servicio"
+                    />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup label="Servicios">
+                      <SelectLabel>Selecciona un Servicio</SelectLabel>
+                      <SelectItem value="web">Desarrollo Web</SelectItem>
+                      <SelectItem value="seo">SEO</SelectItem>
+                      <SelectItem value="mantenimiento">
+                        Mantenimiento
+                      </SelectItem>
+                      <SelectItem value="dudas">Dudas</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </TooltipProvider>
+              {/* Mensaje */}
+              <Textarea
+                className="max-h-[250px] h-[200px] overflow-auto placeholder:text-white/90"
+                placeholder="Escribe tus ideas o dudas."
+                title="Este campo es obligatorio. Por favor, introduce tu mensaje."
+                {...register("message", { required: true })}
+              />
+              <div className="flex justify-center items-center">
+                <Button
+                  size="md"
+                  className="w-[35%]"
+                  type="submit"
+                  aria-label="Enviar formulario"
+                >
+                  ¡Envíame!
+                </Button>
+              </div>
+            </form>
+          </div>
+          {/* Información de contacto */}
+          <div className="z-20 flex-1 flex items-center justify-center order-1 xl:order-none mb-8 xl:mb-0">
+            <ul className="flex flex-col gap-10">
+              {info.map((item, index) => (
+                <li key={index} className="flex items-center gap-6">
+                  <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-secondary text-accent rounded-md flex items-center justify-center">
+                    <div className="text-[28px]">{item.icon}</div>
+                  </div>
+                  <a href={item.path} target="_blank">
+                    <div className="flex-1">
+                      <p className="text-white/60">{item.title}</p>
+                      <h1 className="text-ml lg:text-xl">{item.description}</h1>
+                    </div>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </motion.section>
-    </RootLayout>
+        {/* Renderizar el componente Alert */}
+        {isVisible && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: 1,
+              transition: { duration: 0.4, ease: "easeInOut" },
+            }}
+          >
+            <Alert
+              status={alertData.status === "success" ? "success" : "error"}
+              className="z-30"
+            >
+              <FaTerminal className="h-4 w-4 text-white" />
+              <AlertTitle>
+                {alertData.status === "success"
+                  ? "¡Correo Enviado!"
+                  : "Error al enviar el correo!"}
+              </AlertTitle>
+              <AlertDescription>{alertData.message}</AlertDescription>
+            </Alert>
+          </motion.div>
+        )}
+      </div>
+    </motion.section>
   );
 };
 

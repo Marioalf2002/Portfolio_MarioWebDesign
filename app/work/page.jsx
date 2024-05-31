@@ -15,7 +15,6 @@ import {
 import { Progress } from "@/components/ui/progress";
 import Link from "next/link";
 import Image from "next/image";
-import RootLayout from "../layout";
 
 // Componentes
 import WorkSliderBtns from "@/components/WorkSliderBtns";
@@ -182,159 +181,152 @@ const Work = () => {
     return () => clearInterval(interval); // Limpia el intervalo cuando el componente se desmonta
   }, []);
 
-  const title = "Proyectos";
-  const description =
-    "Explora una selección de mis proyectos más recientes, que incluyen aplicaciones web interactivas y sitios web personalizados. Cada proyecto representa una oportunidad para demostrar y mejorar mis habilidades como desarrollador web.";
-  const image = "/app/opengraph-work.png";
-
   return (
-    <RootLayout title={title} description={description} image={image}>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{
-          opacity: 1,
-          transition: { delay: 1, duration: 0.4, ease: "easeIn" },
-        }}
-        className="min-h-[70vh] flex flex-col justify-center py-6 xl:px-0"
-      >
-        <div className="container mx-auto">
-          <div className="flex flex-col xl:flex-row xl:gap-[30px]">
-            <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
-              <div className="flex flex-col gap-[25px] h-[50%]">
-                {/* Numero de proyecto */}
-                <div className="text-7xl font-secondary leading-none font-extrabold text-transparen text-accent z-20">
-                  {project.num}
-                </div>
-                {/* Nombre */}
-                <h2 className="text-[42px] leading-none font-secondary text-white z-20">
-                  {project.title}
-                </h2>
-                {/* Categoria */}
-                <h2 className="text-2xl font-semibold leading-none text-accent z-20">
-                  Proyecto {project.category}
-                </h2>
-                {/* Descripcion */}
-                <p className="text-white/90 z-20">{project.description}</p>
-                {/* Stack */}
-                <ul className="flex gap-4 z-20">
-                  {project.stack.map((item, index) => {
-                    return (
-                      <li key={index} className="text-accent font-semibold">
-                        {item.name}
-                        {index !== project.stack.length - 1 && ","}
-                      </li>
-                    );
-                  })}
-                </ul>
-                {/* Border */}
-                <div className="border border-white/20 z-20"></div>
-                {/* Botones */}
-                <div className="flex items-center gap-4 z-20">
-                  {/* Boton Live Proyecto */}
-                  {hasLiveLink(project) && (
-                    <Link
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      id="live"
-                      aria-label="Live project"
-                    >
-                      <TooltipProvider delayDuration={100}>
-                        <Tooltip>
-                          <TooltipTrigger
-                            rel="noopener noreferrer"
-                            id="live"
-                            aria-label="Live project"
-                            className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group hover:-rotate-12 transition-all duration-500 z-20"
-                          >
-                            <VscLiveShare className="text-white text-3xl group-hover:text-accent" />
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>Live project</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-                    </Link>
-                  )}
-                  {/* Boton GitHub Proyecto */}
-                  {hasGithubLink(project) && (
-                    <Link
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      id="github"
-                      aria-label="GitHub repository"
-                    >
-                      <TooltipProvider delayDuration={100}>
-                        <Tooltip>
-                          <TooltipTrigger
-                            rel="noopener noreferrer"
-                            id="github"
-                            aria-label="GitHub repository"
-                            className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group hover:-rotate-12 transition-all duration-500"
-                          >
-                            <BsGithub className="text-white text-3xl group-hover:text-accent" />
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>GitHub Repositorio</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-                    </Link>
-                  )}
-                </div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { delay: 1, duration: 0.4, ease: "easeIn" },
+      }}
+      className="min-h-[70vh] flex flex-col justify-center py-6 xl:px-0"
+    >
+      <div className="container mx-auto">
+        <div className="flex flex-col xl:flex-row xl:gap-[30px]">
+          <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
+            <div className="flex flex-col gap-[25px] h-[50%]">
+              {/* Numero de proyecto */}
+              <div className="text-7xl font-secondary leading-none font-extrabold text-transparen text-accent z-20">
+                {project.num}
               </div>
-            </div>
-            <div className="w-full xl:w-[50%] z-20">
-              <Progress
-                value={progress}
-                className="w-full"
-                id="progress-bar"
-                role="progressbar"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                aria-valuenow={progress}
-                aria-labelledby="progress-bar-label"
-                aria-label="Progress bar"
-              />
-              <Swiper
-                spaceBetween={30}
-                slidesPerView={1}
-                className="lg:h-[520px] h-[300px] mb-12"
-                onSlideChange={handleSlideChange}
-              >
-                {projects.map((project, index) => {
+              {/* Nombre */}
+              <h2 className="text-[42px] leading-none font-secondary text-white z-20">
+                {project.title}
+              </h2>
+              {/* Categoria */}
+              <h2 className="text-2xl font-semibold leading-none text-accent z-20">
+                Proyecto {project.category}
+              </h2>
+              {/* Descripcion */}
+              <p className="text-white/90 z-20">{project.description}</p>
+              {/* Stack */}
+              <ul className="flex gap-4 z-20">
+                {project.stack.map((item, index) => {
                   return (
-                    <SwiperSlide key={index} className="w-full">
-                      <div className="h-[300px] lg:h-[460px] w-full relative group flex justify-center items-center bg-black/10">
-                        {/* Overlay */}
-                        <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
-                        {/* Imagen */}
-                        <div className="relative w-full h-full">
-                          <Image
-                            src={project.image}
-                            fill
-                            sizes="(min-width: 640px) 640px, 100vw"
-                            priority
-                            className="object-contain xl:object-cover"
-                            alt={project.title}
-                          />
-                        </div>
-                      </div>
-                    </SwiperSlide>
+                    <li key={index} className="text-accent font-semibold">
+                      {item.name}
+                      {index !== project.stack.length - 1 && ","}
+                    </li>
                   );
                 })}
-                {/* Botones Slider */}
-                <WorkSliderBtns
-                  containerStyles="flex absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:justify-none"
-                  btnStyles="bg-transparen md:text-white md:bg-accent hover:bg-accent-hover text- hover:text-white text-accent text-[22px] w-[44px] h-[44px] flex justify-center items-center rounded-xl transition-all duration-500"
-                />
-              </Swiper>
+              </ul>
+              {/* Border */}
+              <div className="border border-white/20 z-20"></div>
+              {/* Botones */}
+              <div className="flex items-center gap-4 z-20">
+                {/* Boton Live Proyecto */}
+                {hasLiveLink(project) && (
+                  <Link
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    id="live"
+                    aria-label="Live project"
+                  >
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger
+                          rel="noopener noreferrer"
+                          id="live"
+                          aria-label="Live project"
+                          className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group hover:-rotate-12 transition-all duration-500 z-20"
+                        >
+                          <VscLiveShare className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Live project</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
+                {/* Boton GitHub Proyecto */}
+                {hasGithubLink(project) && (
+                  <Link
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    id="github"
+                    aria-label="GitHub repository"
+                  >
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger
+                          rel="noopener noreferrer"
+                          id="github"
+                          aria-label="GitHub repository"
+                          className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group hover:-rotate-12 transition-all duration-500"
+                        >
+                          <BsGithub className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>GitHub Repositorio</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
+              </div>
             </div>
           </div>
+          <div className="w-full xl:w-[50%] z-20">
+            <Progress
+              value={progress}
+              className="w-full"
+              id="progress-bar"
+              role="progressbar"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow={progress}
+              aria-labelledby="progress-bar-label"
+              aria-label="Progress bar"
+            />
+            <Swiper
+              spaceBetween={30}
+              slidesPerView={1}
+              className="lg:h-[520px] h-[300px] mb-12"
+              onSlideChange={handleSlideChange}
+            >
+              {projects.map((project, index) => {
+                return (
+                  <SwiperSlide key={index} className="w-full">
+                    <div className="h-[300px] lg:h-[460px] w-full relative group flex justify-center items-center bg-black/10">
+                      {/* Overlay */}
+                      <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
+                      {/* Imagen */}
+                      <div className="relative w-full h-full">
+                        <Image
+                          src={project.image}
+                          fill
+                          sizes="(min-width: 640px) 640px, 100vw"
+                          priority
+                          className="object-contain xl:object-cover"
+                          alt={project.title}
+                        />
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                );
+              })}
+              {/* Botones Slider */}
+              <WorkSliderBtns
+                containerStyles="flex absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:justify-none"
+                btnStyles="bg-transparen md:text-white md:bg-accent hover:bg-accent-hover text- hover:text-white text-accent text-[22px] w-[44px] h-[44px] flex justify-center items-center rounded-xl transition-all duration-500"
+              />
+            </Swiper>
+          </div>
         </div>
-      </motion.div>
-    </RootLayout>
+      </div>
+    </motion.div>
   );
 };
 
