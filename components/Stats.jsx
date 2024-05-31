@@ -7,8 +7,8 @@ import axios from "axios";
 
 const stats = [
   { num: 4, text: "Años de Experiencia" },
-  { num: 18, text: "Proyectos Completados" },
-  { num: 14, text: "Tecnologías Dominadas" },
+  { num: 16, text: "Proyectos Completados" },
+  { num: 14, text: "Tecnologías Estudiadas" },
 ];
 
 // Variables de entorno
