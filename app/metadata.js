@@ -28,7 +28,7 @@ export const metadata = {
     contact: "https://mariowebdesigns.com/contact",
   },
   image: {
-    default: "/app/opengraph-home.png",
+    default: "/app/opengraph-image.png",
     home: "/app/opengraph-image.png",
     services: "/app/opengraph-services.png",
     history: "/app/opengraph-history.png",
