@@ -11,7 +11,7 @@ export async function POST(request) {
 
     // Verificar si hay campos vacíos o sospechosos
     if (!firstname || !email || !message) {
-      throw new Error("Los campos nombre, email y mensaje son obligatorios.");
+      throw new Error("Los campos nombre, email & mensaje son obligatorios.");
     }
 
     await resend.emails.send({

@@ -140,7 +140,8 @@ const Stats = () => {
               className="text-4xl xl:text-6xl font-extrabold text-accent"
             />
             <p className="max-w-[150px] leading-snug text-white/90">
-              Code Commits
+              <span style={{ display: "block" }}>Code</span>
+              <span style={{ display: "block" }}>Commits</span>
             </p>
           </div>
         </div>

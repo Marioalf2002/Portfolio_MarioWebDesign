@@ -21,7 +21,7 @@ Portafolio de Mario Hernandez - Web Designer & Developer - Full Stack Developer 
 
 ## Acerca de mi
 
-Soy un apasionado del diseño y desarrollo web, me encanta crear sitios web y aplicaciones web que sean atractivas, funcionales y accesibles para todos. Me especializo en el desarrollo de sitios web y aplicaciones web utilizando tecnologías modernas como HTML5, CSS3, JavaScript, React, Node.js, MongoDB, entre otras.
+Soy un apasionado del diseño & desarrollo web, me encanta crear sitios web & aplicaciones web que sean atractivas, funcionales & accesibles para todos. Me especializo en el desarrollo de sitios web & aplicaciones web utilizando tecnologías modernas como HTML5, CSS3, JavaScript, React, Node.js, MongoDB, entre otras.
 
 ## Links
 

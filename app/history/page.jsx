@@ -49,7 +49,7 @@ import RootLayout from "../layout";
 const about = {
   title: "Sobre mi",
   description:
-    "Soy un desarrollador web full stack con experiencia en tecnologías modernas y escalables. Mi objetivo es impulsar el éxito de tu proyecto con soluciones web innovadoras y eficientes. ¡Trabajemos juntos para llevar tus ideas al siguiente nivel!",
+    "Soy un desarrollador web full stack con experiencia en tecnologías modernas & escalables. Mi objetivo es impulsar el éxito de tu proyecto con soluciones web innovadoras & eficientes. ¡Trabajemos juntos para llevar tus ideas al siguiente nivel!",
   info: [
     {
       fieldName: "Nombre",
@@ -125,7 +125,7 @@ const education = {
 const skills = {
   title: "Mis Habilidades",
   description:
-    "Poseo un conjunto diverso de habilidades que me permiten crear proyectos de alta calidad utilizando tecnologías modernas y escalables. Mi experiencia abarca desde el desarrollo frontend y backend hasta el diseño, gestión de bases de datos y herramientas de programación.",
+    "Poseo un conjunto diverso de habilidades que me permiten crear proyectos de alta calidad utilizando tecnologías modernas & escalables. Mi experiencia abarca desde el desarrollo frontend & backend hasta el diseño, gestión de bases de datos & herramientas de programación.",
   skillList: {
     frontend: [
       {

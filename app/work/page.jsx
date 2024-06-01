@@ -28,7 +28,7 @@ const projects = [
     category: "Frontend",
     title: "Asociación Asorredecol E.S.P.",
     description:
-      "Asorredecol lidera un modelo de empresa basado en la contribución a la preservación de medio ambiente, afianzando la cultura del reciclaje, al cuidado de los recursos naturales y su aprovechamiento moderado a través de la utilización de técnicas para la transformación de los materiales aprovechables y de este modo contribuir a la protección en el medio ambiente, es nuestra mayor promesa.",
+      "Asorredecol lidera un modelo de empresa basado en la contribución a la preservación de medio ambiente, afianzando la cultura del reciclaje, al cuidado de los recursos naturales & su aprovechamiento moderado a través de la utilización de técnicas para la transformación de los materiales aprovechables & de este modo contribuir a la protección en el medio ambiente, es nuestra mayor promesa.",
     stack: [{ name: "WordPress" }, { name: "Elementor" }],
     image: "/assets/work/asociacionasorredecol.webp",
     live: "https://asociacionasorredecol.com/",
@@ -39,7 +39,7 @@ const projects = [
     category: "Fullstack",
     title: "IC TERRAQUANTUM S.A.S.",
     description:
-      "Es una empresa dedicada a la prestación de servicios en las diferentes áreas de la construcción, diseño e interventoría de toda clase de obras civiles privadas y públicas y bienes raíces; que nace en la ciudad de Medellín como una Sociedad Anónima Simplificada, con la misión de suministrar soluciones y servicios para el mercado de la construcción.",
+      "Es una empresa dedicada a la prestación de servicios en las diferentes áreas de la construcción, diseño e interventoría de toda clase de obras civiles privadas, públicas & bienes raíces; que nace en la ciudad de Medellín como una Sociedad Anónima Simplificada, con la misión de suministrar soluciones & servicios para el mercado de la construcción.",
     stack: [
       { name: "Html 5" },
       { name: "CSS" },
@@ -55,7 +55,7 @@ const projects = [
     category: "3D",
     title: "Spline 3D",
     description:
-      "Spline es una empresa que ofrece una herramienta en línea para el diseño y modelado 3D interactivo. Su plataforma permite a los diseñadores crear, modificar y visualizar modelos 3D directamente en el navegador web sin necesidad de instalar software adicional.",
+      "Spline es una empresa que ofrece una herramienta en línea para el diseño & modelado 3D interactivo. Su plataforma permite a los diseñadores crear, modificar & visualizar modelos 3D directamente en el navegador web sin necesidad de instalar software adicional.",
     stack: [{ name: "Next.js" }, { name: "Spline" }],
     image: "/assets/work/spline.webp",
     live: "https://spline-jade.vercel.app/",
@@ -66,7 +66,7 @@ const projects = [
     category: "Frontend",
     title: "Galaxy Parallax",
     description:
-      "Este proyecto es una página web interactiva que utiliza HTML, CSS y JavaScript para crear un efecto de paralaje de galaxia.",
+      "Este proyecto es una página web interactiva que utiliza HTML, CSS & JavaScript para crear un efecto de paralaje de galaxia.",
     stack: [{ name: "Html 5" }, { name: "CSS" }, { name: "JavaScript" }],
     image: "/assets/work/galaxyparallax.webp",
     live: "https://marioalf2002.github.io/galaxy-parallax/",
@@ -77,7 +77,7 @@ const projects = [
     category: "Frontend",
     title: "Medellín Ecologico",
     description:
-      "El sitio web presenta información sobre diferentes lugares turísticos en Medellín que están relacionados con la ecología, como parques naturales, museos y áreas naturales protegidas. También incluye fotografías y testimonios de visitantes.",
+      "El sitio web presenta información sobre diferentes lugares turísticos en Medellín que están relacionados con la ecología, como parques naturales, museos & áreas naturales protegidas. También incluye fotografías & testimonios de visitantes.",
     stack: [
       { name: "Html 5" },
       { name: "CSS" },
@@ -110,7 +110,7 @@ const projects = [
     category: "Frontend",
     title: "Starts",
     description:
-      "Star Generator es un programa JavaScript que genera una disposición aleatoria de estrellas en un lienzo. Utiliza lienzo HTML5 y JavaScript para crear un efecto de galaxia visualmente atractivo.",
+      "Star Generator es un programa JavaScript que genera una disposición aleatoria de estrellas en un lienzo. Utiliza lienzo HTML5 & JavaScript para crear un efecto de galaxia visualmente atractivo.",
     stack: [{ name: "Html 5" }, { name: "CSS" }, { name: "JavaScript" }],
     image: "/assets/work/starts.webp",
     live: "https://marioalf2002.github.io/starts/",
@@ -121,7 +121,7 @@ const projects = [
     category: "Fullstack",
     title: "PacCraft",
     description:
-      "El juego fue creado, usando el lenguaje C++ y la Librería de Allegro 5 para implementar texturas, sonidos, entre otras funciones, es un juego creado bajo la lógica del juego PacMan usando diferentes texturas al estilo Minecraft.",
+      "El juego fue creado, usando el lenguaje C++ & la Librería de Allegro 5 para implementar texturas, sonidos, entre otras funciones, es un juego creado bajo la lógica del juego PacMan usando diferentes texturas al estilo Minecraft.",
     stack: [{ name: "C++" }, { name: "Allegro 5" }],
     image: "/assets/work/paccraft.webp",
     live: "",

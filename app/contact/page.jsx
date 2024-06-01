@@ -123,7 +123,7 @@ const Contact = (props) => {
                       <Input
                         type="text"
                         placeholder="Nombre"
-                        title="Solo se permiten letras y espacios."
+                        title="Solo se permiten letras & espacios."
                         {...register("firstname", {
                           required: true,
                           pattern: /^[A-Za-z\s]+$/,
@@ -145,7 +145,7 @@ const Contact = (props) => {
                           className="text-black font-semibold"
                           role="tooltip"
                         >
-                          Ingresa tu nombre. Solo se permiten letras y espacios.
+                          Ingresa tu nombre. Solo se permiten letras & espacios.
                         </TooltipContent>
                       </Tooltip>
                     </div>
@@ -154,7 +154,7 @@ const Contact = (props) => {
                       <Input
                         type="text"
                         placeholder="Apellido"
-                        title="Solo se permiten letras y espacios."
+                        title="Solo se permiten letras & espacios."
                         {...register("lastname", {
                           pattern: /^[A-Za-z\s]+$/,
                         })}
@@ -172,7 +172,7 @@ const Contact = (props) => {
                           </span>
                         </TooltipTrigger>
                         <TooltipContent className="text-black font-semibold">
-                          Ingresa tu apellido. Solo se permiten letras y
+                          Ingresa tu apellido. Solo se permiten letras &
                           espacios.
                         </TooltipContent>
                       </Tooltip>
@@ -212,7 +212,7 @@ const Contact = (props) => {
                       <Input
                         type="tel"
                         placeholder="Celular"
-                        title="Solo se permiten números, y debe tener entre 10 y 15 dígitos."
+                        title="Solo se permiten números, & debe tener entre 10 & 15 dígitos."
                         {...register("phone", {
                           pattern: /^[0-9]{10,15}$/,
                         })}
@@ -230,7 +230,7 @@ const Contact = (props) => {
                           </span>
                         </TooltipTrigger>
                         <TooltipContent className="text-black font-semibold">
-                          Ingresa tu número de celular. Debe contener entre 10 y
+                          Ingresa tu número de celular. Debe contener entre 10 &
                           15 dígitos.
                         </TooltipContent>
                       </Tooltip>
