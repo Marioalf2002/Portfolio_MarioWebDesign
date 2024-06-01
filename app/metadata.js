@@ -28,11 +28,11 @@ export const metadata = {
     contact: "https://mariowebdesigns.com/contact",
   },
   image: {
-    default: "/app/opengraph-home.webp",
-    home: "/app/opengraph-home.webp",
-    services: "/app/opengraph-services.webp",
-    history: "/app/opengraph-history.webp",
-    work: "/app/opengraph-work.webp",
-    contact: "/app/opengraph-contact.webp",
+    default: "/app/opengraph-home.png",
+    home: "/app/opengraph-image.png",
+    services: "/app/opengraph-services.png",
+    history: "/app/opengraph-history.png",
+    work: "/app/opengraph-work.png",
+    contact: "/app/opengraph-contact.png",
   },
 };
