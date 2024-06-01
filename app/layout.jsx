@@ -34,6 +34,7 @@ export default function RootLayout({ children, page }) {
   const description =
     metadata.description[page] || metadata.description.default;
   const url = metadata.url[page] || metadata.url.default;
+  const image = metadata.image[page] || metadata.image.default;
 
   return (
     <html lang="es">
@@ -44,6 +45,7 @@ export default function RootLayout({ children, page }) {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={url} />
+        <meta property="og:image" content={image} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:type" content="image/png" />
@@ -51,6 +53,8 @@ export default function RootLayout({ children, page }) {
         <meta property="og:locale" content="es_ES" />
         <meta property="og:site_name" content="MarioWebDesign" />
         <meta property="og:type" content="website" />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
       </head>
       <body className={`${poppins.variable} ${galada.variable}`}>
         <Header />
