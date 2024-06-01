@@ -27,12 +27,4 @@ export const metadata = {
     work: "https://mariowebdesigns.com/work",
     contact: "https://mariowebdesigns.com/contact",
   },
-  image: {
-    default: "/app/opengraph-image.png",
-    home: "/app/opengraph-image.png",
-    services: "/app/opengraph-services.png",
-    history: "/app/opengraph-history.png",
-    work: "/app/opengraph-work.png",
-    contact: "/app/opengraph-contact.png",
-  },
 };
