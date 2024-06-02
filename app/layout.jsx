@@ -34,19 +34,20 @@ export default function RootLayout({ children, page }) {
   const description =
     metadata.description[page] || metadata.description.default;
   const url = metadata.url[page] || metadata.url.default;
-  // const image = metadata.image[page] || metadata.image.default;
+  const image = metadata.image[page] || metadata.image.default;
 
   return (
     <html lang="es">
       <head>
         <title>{title}</title>
+        <link rel="icon" href="/favicon.ico" />
         <meta name="author" content="Mario Hernández" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content={description} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={url} />
-        {/* <meta property="og:image" content={image} /> */}
+        <meta property="og:image" content={image} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:type" content="image/png" />
@@ -56,38 +57,6 @@ export default function RootLayout({ children, page }) {
         <meta property="og:type" content="website" />
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
-
-        {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/assets/favicon/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/assets/favicon/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/assets/favicon/site.webmanifest" />
-        <link
-          rel="mask-icon"
-          href="/assets/favicon/safari-pinned-tab.svg"
-          color="#5bbad5"
-        />
-        <link
-          rel="apple-touch-icon"
-          href="/assets/favicon/apple-touch-icon.png"
-        />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#ffffff" />
       </head>
       <body className={`${poppins.variable} ${galada.variable}`}>
         <Header />
