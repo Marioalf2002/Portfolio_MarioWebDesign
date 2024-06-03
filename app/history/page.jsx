@@ -394,7 +394,9 @@ const Resume = () => {
                           key={index}
                           className="flex items-center justify-center xl:justify-start gap-4"
                         >
-                          <span className="text-accent">{item.fieldName}</span>
+                          <span className="text-accent-hover font-semibold">
+                            {item.fieldName} :
+                          </span>
                           {fieldValueElement}
                         </li>
                       );
