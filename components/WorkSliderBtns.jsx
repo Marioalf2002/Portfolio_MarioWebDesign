@@ -16,7 +16,7 @@ const WorkSliderBtns = ({ containerStyles, btnStyles, iconsStyles }) => {
         } else {
           swiper.slideNext();
         }
-      }, 15000); // 15 seconds
+      }, 20000); // 15 seconds
 
       return () => clearInterval(interval);
     }

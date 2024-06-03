@@ -166,7 +166,7 @@ const Work = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const totalDuration = 15000; // Duración total en milisegundos (15 segundos)
+    const totalDuration = 20000; // Duración total en milisegundos (15 segundos)
     const incrementInterval = 100; // Intervalo de incremento en milisegundos (100 ms)
     const incrementAmount = (100 / totalDuration) * incrementInterval;
 
