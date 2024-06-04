@@ -2,15 +2,15 @@
 import "./globals.css";
 
 // Dependencias
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react";
 import { metadata } from "./metadata";
+import React, { Suspense } from "react";
 
 // Componentes
 import Header from "@/components/Header";
 import StairTransition from "@/components/StairTransition";
 import PageTransition from "@/components/PageTransition";
-import SpaceLayer from "@/components/SpaceLayer";
+const SpaceLayer = React.lazy(() => import("@/components/SpaceLayer"));
+import AnalyticsNext from "@/components/AnalyticsNext";
 
 // Tipografia
 import { Poppins, Galada } from "next/font/google";
@@ -60,11 +60,12 @@ export default function RootLayout({ children, page }) {
       </head>
       <body className={`${poppins.variable} ${galada.variable}`}>
         <Header />
-        <SpaceLayer />
+        <Suspense>
+          <SpaceLayer />
+        </Suspense>
         <StairTransition />
         <PageTransition>{children}</PageTransition>
-        <SpeedInsights />
-        <Analytics />
+        <AnalyticsNext />
       </body>
     </html>
   );
