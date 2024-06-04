@@ -44,7 +44,10 @@ const Social = ({ containerStyles, iconStyles }) => {
           >
             <TooltipProvider delayDuration={100}>
               <Tooltip>
-                <TooltipTrigger className={iconStyles}>
+                <TooltipTrigger
+                  className="w-12 h-12 border border-accent rounded-full flex justify-center items-center text-white text-base hover:bg-accent hover:text-primary transition-all duration-500"
+                  aria-label={item.name}
+                >
                   {item.icon}
                 </TooltipTrigger>
                 <TooltipContent>
