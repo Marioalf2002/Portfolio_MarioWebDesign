@@ -38,16 +38,13 @@ const Social = ({ containerStyles, iconStyles }) => {
           <Link
             key={index}
             href={item.path}
-            className={iconStyles}
+            className={containerStyles}
             target="_blank"
             aria-label={item.name}
           >
             <TooltipProvider delayDuration={100}>
               <Tooltip>
-                <TooltipTrigger
-                  className="w-12 h-12 border border-accent rounded-full flex justify-center items-center text-white text-base hover:bg-accent hover:text-primary transition-all duration-500"
-                  aria-label={item.name}
-                >
+                <TooltipTrigger className={iconStyles} aria-label={item.name}>
                   {item.icon}
                 </TooltipTrigger>
                 <TooltipContent>
