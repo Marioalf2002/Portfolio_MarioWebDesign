@@ -322,7 +322,7 @@ const Work = () => {
                 {/* Botones Slider */}
                 <WorkSliderBtns
                   containerStyles="flex absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:justify-none"
-                  btnStyles="bg-transparen md:text-white md:bg-accent hover:bg-accent-hover text- hover:text-white text-accent text-[22px] w-[44px] h-[44px] flex justify-center items-center rounded-xl transition-all duration-500"
+                  btnStyles="bg-transparen md:text-white md:button-gradient hover:bg-accent-hover text- hover:text-white text-accent text-[22px] w-[44px] h-[44px] flex justify-center items-center rounded-xl transition-all duration-500"
                 />
               </Swiper>
             </div>
