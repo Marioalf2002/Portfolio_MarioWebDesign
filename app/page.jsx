@@ -39,7 +39,7 @@ const Home = () => {
                     className="uppercase flex items-center gap-3 z-20 transition-all duration-500"
                     aria-label="Descargar CV"
                   >
-                    <span className="font-bold text-white">Descargar CV</span>
+                    <span className="font-semibold text-white">Descargar CV</span>
                     <FaDownload className="text-xl text-white" />
                   </Button>
                 </a>
