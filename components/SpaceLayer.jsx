@@ -1,11 +1,20 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const SpaceLayer = ({ className }) => {
   const canvasRef = useRef(null);
+  const [isBrowser, setIsBrowser] = useState(false);
 
   useEffect(() => {
+    setIsBrowser(typeof window !== "undefined");
+  }, []);
+
+  useEffect(() => {
+    if (!isBrowser) {
+      return;
+    }
+
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
@@ -93,7 +102,7 @@ const SpaceLayer = ({ className }) => {
         generateGalaxy();
       });
     };
-  }, []);
+  }, [isBrowser]);
 
   return <canvas ref={canvasRef} className={className} />;
 };

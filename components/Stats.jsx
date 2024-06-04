@@ -5,8 +5,11 @@ import { useEffect, useState } from "react";
 import CountUp from "react-countup";
 import axios from "axios";
 
+const currentYear = new Date().getFullYear();
+const years = currentYear - 2020;
+
 const stats = [
-  { num: 4, text: "Años de Experiencia" },
+  { num: years, text: "Años de Experiencia" },
   { num: 16, text: "Proyectos Completados" },
   { num: 14, text: "Tecnologías Estudiadas" },
 ];

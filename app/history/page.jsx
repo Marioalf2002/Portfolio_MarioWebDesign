@@ -45,6 +45,9 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
 import RootLayout from "../layout";
 
+const currentYear = new Date().getFullYear();
+const years = currentYear - 2020;
+
 // Informacion Data
 const about = {
   title: "Sobre mi",
@@ -61,7 +64,7 @@ const about = {
     },
     {
       fieldName: "Experiencia",
-      fieldValue: "4 años",
+      fieldValue: `${years} años`,
     },
     {
       fieldName: "Nacionalidad",

@@ -1,6 +1,11 @@
 import Link from "next/link";
-
 import { FaGithub, FaWhatsapp, FaLinkedin, FaDiscord } from "react-icons/fa";
+import {
+  TooltipProvider,
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@/components/ui/tooltip";
 
 const socials = [
   {
@@ -37,7 +42,16 @@ const Social = ({ containerStyles, iconStyles }) => {
             target="_blank"
             aria-label={item.name}
           >
-            {item.icon}
+            <TooltipProvider delayDuration={100}>
+              <Tooltip>
+                <TooltipTrigger className="w-11 h-11 border border-accent rounded-full flex justify-center items-center text-white text-base hover:bg-accent hover:text-primary transition-all duration-500">
+                  {item.icon}
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p className="capitalize font-semibold">{item.name}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </Link>
         );
       })}
