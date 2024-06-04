@@ -9,7 +9,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-accent text-white hover:bg-accent-hover",
+        default: "button-gradient text-white ",
         primary: "bg-primary text-white",
         outline:
           "border border-accent bg-transparent text-accent hover:bg-accent hover:text-primary",
@@ -30,13 +30,9 @@ const buttonVariants = cva(
 const Button = React.forwardRef(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
-    return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      />
-    );
+    const classes = cn(buttonVariants({ variant, size, className }));
+    console.log(classes); // Agregar esto para verificar las clases aplicadas
+    return <Comp className={classes} ref={ref} {...props} />;
   }
 );
 Button.displayName = "Button";

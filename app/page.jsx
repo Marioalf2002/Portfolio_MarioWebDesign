@@ -36,7 +36,7 @@ const Home = () => {
                 >
                   <Button
                     size="md"
-                    className="uppercase flex items-center gap-3 z-20 transition-all duration-500"
+                    className="uppercase flex items-center gap-3 z-20 transition-all duration-500 button-gradient"
                     aria-label="Descargar CV"
                   >
                     <span className="font-bold text-white">Descargar CV</span>
@@ -46,7 +46,7 @@ const Home = () => {
                 <div className="mb-8 xl:mb-0 z-20">
                   <Social
                     containerStyles="flex gap-4"
-                    iconStyles="w-12 h-12 mr-2 border border-accent rounded-full flex justify-center items-center text-white text-base hover:bg-accent hover:text-primary transition-all duration-500"
+                    iconStyles="button-gradient-social w-12 h-12 mr-2 border border-accent rounded-full flex justify-center items-center text-white text-base hover:bg-accent hover:text-primary transition-all duration-500"
                   />
                 </div>
               </div>
