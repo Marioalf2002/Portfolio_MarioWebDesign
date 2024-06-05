@@ -88,19 +88,24 @@ const experience = {
     "Durante mi carrera he trabajado con diferentes tecnologías, lo que me ha permitido adquirir experiencia en diferentes áreas.",
   items: [
     {
+      company: "Freelancer",
+      position: "Web Developer",
+      duration: "Presente - 2019",
+    },
+    {
       company: "Asociación Asorredecol E.S.P.",
       position: "Web Developer",
-      duration: "2023 - Presente",
+      duration: "Presente - 2023",
     },
     {
       company: "IC TERRAQUANTUM S.A.S.",
       position: "Web Developer",
-      duration: "2021 - 2022",
+      duration: "2022 - 2021",
     },
     {
       company: "Soluciones Globales S.A.S.",
       position: "Developer Backend",
-      duration: "2019 - 2020",
+      duration: "2020 - 2019",
     },
   ],
 };
@@ -112,14 +117,14 @@ const education = {
     "Mi formación académica me ha permitido adquirir conocimientos en diferentes áreas, lo que me ha permitido ser un profesional integral.",
   items: [
     {
+      institution: "Institución Universitaria Pascual Bravo",
+      degree: "Tecnología en Desarrollo de Software",
+      duration: "En Curso - 2022",
+    },
+    {
       institution: "SENA",
       degree: "Técnico en Programación de Software",
       duration: "2020",
-    },
-    {
-      institution: "Institución Universitaria Pascual Bravo",
-      degree: "Tecnología en Desarrollo de Software",
-      duration: "2022 - En Curso",
     },
   ],
 };

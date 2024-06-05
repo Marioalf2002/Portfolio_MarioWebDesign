@@ -1,13 +1,77 @@
+"use client";
+
 // Dependencias
 import { Button } from "@/components/ui/button";
 import { FaDownload } from "react-icons/fa6";
 import RootLayout from "./layout";
+import React, { useEffect, useState, useMemo } from "react";
 
 // Componentes
 import Social from "@/components/Social";
 import Photo from "@/components/Photo";
 import Stats from "@/components/Stats";
 
+const AnimatedText = () => {
+  const [index, setIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
+  const [reverse, setReverse] = useState(false);
+  const [waiting, setWaiting] = useState(false);
+  const [text, setText] = useState("");
+
+  const words = useMemo(
+    () => [
+      "Web Developer",
+      "Full-Stack Developer",
+      "SEO",
+      "Mantenimiento Web",
+      "UX/UI",
+      "Front-End Developer",
+      "Back-End Developer",
+      "React Developer",
+    ],
+    []
+  );
+
+  useEffect(() => {
+    if (waiting) return;
+
+    if (subIndex === words[index].length + 1 && !reverse) {
+      setWaiting(true);
+      setTimeout(() => {
+        setReverse(true);
+        setWaiting(false);
+      }, 2000);
+      return;
+    }
+
+    if (subIndex === 0 && reverse) {
+      setReverse(false);
+      setIndex((prev) => (prev + 1) % words.length);
+      setWaiting(true);
+      setTimeout(() => {
+        setWaiting(false);
+      }, 250);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      setSubIndex((prev) => prev + (reverse ? -1 : 1));
+    }, 100);
+
+    return () => clearTimeout(timeout);
+  }, [subIndex, index, reverse, waiting, words]);
+
+  useEffect(() => {
+    setText(words[index].substring(0, subIndex));
+  }, [index, subIndex, words]);
+
+  return (
+    <span className="text-lg text-white/60 font-secondary">
+      {text}
+      <span className="cursor-blink text-accent font-extrabold">|</span>
+    </span>
+  );
+};
 const Home = () => {
   return (
     <RootLayout page="home">
@@ -16,10 +80,8 @@ const Home = () => {
           <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-2 xl:pb-20">
             {/* Texto */}
             <div className="text-center xl:text-left order-2 xl:order-none z-20">
-              <span className="text-xl text-white/90 font-secondary">
-                Web Developer
-              </span>
-              <h1 className="h1 mb-5 text-[51px]">
+              <AnimatedText />
+              <h1 className="h1 mb-3 text-[40px]">
                 Hola<span className="text-accent">!</span> Soy
                 <br /> <span className="text-accent h1">Mario Hernandez</span>
               </h1>
@@ -42,13 +104,13 @@ const Home = () => {
                     <span className="font-semibold text-white">
                       Descargar CV
                     </span>
-                    <FaDownload className="text-xl text-white" />
+                    <FaDownload className="text-lg text-white" />
                   </Button>
                 </a>
                 <div className="mb-8 xl:mb-0 z-20">
                   <Social
                     containerStyles="flex gap-4"
-                    iconStyles="button-gradient-social w-12 h-12 mr-2 border border-accent rounded-full flex justify-center items-center text-white text-base hover:bg-accent hover:text-primary transition-all duration-500"
+                    iconStyles="button-gradient-social w-12 h-12 mr-2 border border-accent rounded-full flex justify-center items-center text-white text-base hover:bg-accent transition-all duration-500"
                   />
                 </div>
               </div>

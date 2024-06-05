@@ -18,7 +18,6 @@ const stats = [
 const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
 const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 
-// Componente de Estadísticas
 const Stats = () => {
   const [commits, setCommits] = useState(() => {
     const savedCommits =
