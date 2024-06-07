@@ -43,11 +43,11 @@ const Contact = ({ formData }) => {
               </Text>
               <Text className="text-black text-[14px] leading-[24px]">
                 Si tienes alguna pregunta adicional, no dudes en responder a
-                este correo. Estamos aquí para a&udarte.
+                este correo. Estamos aquí para ayudarte.
               </Text>
               <Text className="text-black text-[14px] leading-[24px]">
                 A continuación, te compartimos la información que nos
-                proporcionaste, por favor revísela & asegúrate de que sea
+                proporcionaste, por favor revísela y asegúrate de que sea
                 correcta de lo contrario, no dudes en responder a este correo
                 con la corrección:
               </Text>
