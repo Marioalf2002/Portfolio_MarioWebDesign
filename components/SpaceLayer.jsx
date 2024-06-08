@@ -1,23 +1,19 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const SpaceLayer = ({ className }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    let isMounted = true;
-
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
     const resizeCanvas = () => {
-      if (!isMounted) {
-        return;
+      if (typeof window !== "undefined") {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
       }
-
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
     };
     resizeCanvas();
 
@@ -28,10 +24,6 @@ const SpaceLayer = ({ className }) => {
     };
 
     const generateGalaxy = () => {
-      if (!isMounted) {
-        return;
-      }
-
       stars.length = 0;
       const numStars = Math.floor(Math.random() * 500) + 100;
 
@@ -58,9 +50,6 @@ const SpaceLayer = ({ className }) => {
     };
 
     const animate = () => {
-      if (!isMounted) {
-        return;
-      }
       requestAnimationFrame(animate);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -80,17 +69,17 @@ const SpaceLayer = ({ className }) => {
     animate();
 
     const handleResize = () => {
-      if (!isMounted) {
-        return;
-      }
       resizeCanvas();
       generateGalaxy();
     };
-    window.addEventListener("resize", handleResize);
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", handleResize);
+    }
 
     return () => {
-      isMounted = false;
-      window.removeEventListener("resize", handleResize);
+      if (typeof window !== "undefined") {
+        window.removeEventListener("resize", handleResize);
+      }
     };
   }, []);
 

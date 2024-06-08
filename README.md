@@ -34,3 +34,23 @@ Soy un apasionado del diseño & desarrollo web, me encanta crear sitios web & ap
 
 - Email: [contacto@mariowebdesigns.com](https://mail.google.com/mail/?view=cm&fs=1&to=contacto@mariowebdesigns.com)
 - Teléfono: [(+57) 324 777 3515](https://wa.me/message/MC62R3PTOHVDN1)
+
+## Instalación
+
+1. Clona el repositorio
+
+   ```sh
+   git clone https://github.com/Marioalf2002/<nombre_del_proyecto>.git
+   ```
+
+2. Instala los paquetes NPM
+
+   ```sh
+    npm install
+   ```
+
+3. Actualiza Dependencias
+
+   ```sh
+    npm update
+   ```

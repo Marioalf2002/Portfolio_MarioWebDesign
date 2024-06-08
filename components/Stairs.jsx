@@ -1,5 +1,6 @@
 // Dependencias
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
 
 // Variantes
 const waveAnimation = {
@@ -17,6 +18,12 @@ const reverseIndex = (index) => {
 };
 
 const Stairs = () => {
+  const controls = useAnimation();
+
+  useEffect(() => {
+    controls.start("animate");
+  }, [controls]);
+
   return (
     <>
       {[...Array(steps)].map((_, index) => {
@@ -24,7 +31,7 @@ const Stairs = () => {
           <motion.div
             key={index}
             variants={waveAnimation}
-            animate="animate"
+            animate={controls}
             transition={{
               duration: 0.8,
               ease: "easeInOut",
