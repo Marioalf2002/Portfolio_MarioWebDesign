@@ -20,14 +20,15 @@ const AnimatedText = () => {
 
   const words = useMemo(
     () => [
-      "Web Developer",
-      "Full-Stack Developer",
+      "Desarrollador Web",
+      "Desarrollador Full-Stack",
       "SEO",
       "Mantenimiento Web",
       "UX/UI",
-      "Front-End Developer",
-      "Back-End Developer",
-      "React Developer",
+      "Desarrollador Front-End",
+      "Desarrollador Back-End",
+      "Desarrollador React",
+      "Desarrollador Next.js",
     ],
     []
   );

@@ -11,7 +11,7 @@ import RootLayout from "../layout";
 const services = [
   {
     num: "01",
-    title: "UI / UX",
+    title: "Desarrollador Web",
     description:
       "Diseño & desarrollo personalizado de interfaces de usuario & experiencias de usuario envolventes, utilizando tecnologías modernas & escalables para sitios web.",
     href: "",
