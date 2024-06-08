@@ -14,6 +14,7 @@ import AnalyticsNext from "@/components/AnalyticsNext";
 
 // Tipografia
 import { Poppins, Galada } from "next/font/google";
+import Script from "next/script";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -57,6 +58,21 @@ export default function RootLayout({ children, page }) {
         <meta property="og:type" content="website" />
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
+
+        {/* Google tag (gtag.js) */}
+        <Script
+          id="gtag-src"
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-8TP31QR28T"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-8TP31QR28T');
+      `}
+        </Script>
       </head>
       <body className={`${poppins.variable} ${galada.variable}`}>
         <Header />

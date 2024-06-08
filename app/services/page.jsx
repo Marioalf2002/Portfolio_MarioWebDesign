@@ -13,7 +13,7 @@ const services = [
     num: "01",
     title: "Desarrollador Web",
     description:
-      "Diseño & desarrollo personalizado de interfaces de usuario & experiencias de usuario envolventes, utilizando tecnologías modernas & escalables para sitios web.",
+      "Diseño & desarrollo personalizado de interfaces de usuario & experiencias de usuario envolventes, utilizando tecnologías modernas & escalables para sitios web. Con Tecnologías como React, Next.js, WordPress, entre otros.",
     href: "",
     icon: <MdDesignServices className="text-primary text-3xl" />,
   },
@@ -21,7 +21,7 @@ const services = [
     num: "02",
     title: "Full Stack",
     description:
-      "Desarrollo integral de aplicaciones web & de escritorio, desde la creación del frontend hasta la implementación del backend, ofreciendo soluciones completas & adaptadas a las necesidades específicas del cliente.",
+      "Desarrollo integral de aplicaciones web & de escritorio, desde la creación del frontend hasta la implementación del backend, ofreciendo soluciones completas & adaptadas a las necesidades específicas del cliente. Con tecnologías como Node.js, Express, MongoDB, entre otros.",
     href: "",
     icon: <MdDevices className="text-primary text-3xl" />,
   },
@@ -29,7 +29,7 @@ const services = [
     num: "03",
     title: "SEO",
     description:
-      "Optimización de sitios web para mejorar su visibilidad & posicionamiento en los motores de búsqueda, mediante estrategias & técnicas probadas que aumentan el tráfico orgánico & la presencia en línea.",
+      "Optimización de sitios web para mejorar su visibilidad & posicionamiento en los motores de búsqueda, mediante estrategias & técnicas probadas que aumentan el tráfico orgánico & la presencia en línea. Con herramientas como Google Analytics, Google Search Console, Google Speed Insights, entre otros.",
     href: "",
     icon: <MdWeb className="text-primary text-3xl" />,
   },
