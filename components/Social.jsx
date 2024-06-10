@@ -1,5 +1,11 @@
 import Link from "next/link";
-import { FaGithub, FaWhatsapp, FaLinkedin, FaDiscord } from "react-icons/fa";
+import {
+  FaGithub,
+  FaWhatsapp,
+  FaLinkedin,
+  FaDiscord,
+  FaTelegramPlane,
+} from "react-icons/fa";
 import {
   TooltipProvider,
   Tooltip,
@@ -22,6 +28,11 @@ const socials = [
     name: "LinkedIn",
     icon: <FaLinkedin />,
     path: "https://www.linkedin.com/in/mariowebdesign",
+  },
+  {
+    name: "Telegram",
+    icon: <FaTelegramPlane />,
+    path: "https://t.me/mariowebdesing",
   },
   {
     name: "Discord",

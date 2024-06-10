@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { FaCode } from "react-icons/fa";
 import RootLayout from "../layout";
 
-//
+// Servicios
 const services = [
   {
     num: "01",
@@ -46,7 +46,7 @@ const services = [
 const Services = ({ page }) => {
   return (
     <RootLayout page="services">
-      <section className="min-h-[80] flex flex-col justify-center py-6">
+      <section className="min-h-[80] flex flex-col justify-center py-4">
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0 }}
@@ -54,7 +54,7 @@ const Services = ({ page }) => {
               opacity: 1,
               transition: { delay: 1, duration: 0.4, ease: "easeIn" },
             }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-[60px]"
+            className="grid grid-cols-1 md:grid-cols-2 gap-y-[30px] gap-x-[60px]"
           >
             {services.map((service, index) => {
               return (
