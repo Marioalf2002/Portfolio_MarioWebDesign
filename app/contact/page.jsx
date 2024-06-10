@@ -31,6 +31,7 @@ import {
 } from "@/components/ui/tooltip";
 import RootLayout from "../layout";
 
+// Información de contacto
 const info = [
   {
     icon: <FaPhoneAlt />,
@@ -134,7 +135,7 @@ const Contact = (props) => {
                       />
                       <Tooltip>
                         <TooltipTrigger
-                          className="h-8 hover:text-accent transition-all duration-500"
+                          className="h-10 hover:text-accent transition-all duration-500"
                           aria-label="Información"
                         >
                           <span className="absolute inset-y-0 right-0 flex items-center pr-3">
@@ -142,7 +143,7 @@ const Contact = (props) => {
                           </span>
                         </TooltipTrigger>
                         <TooltipContent
-                          className="text-black font-semibold"
+                          className="text-black font-semibold z-21"
                           role="tooltip"
                         >
                           Ingresa tu nombre. Solo se permiten letras & espacios.
@@ -278,7 +279,7 @@ const Contact = (props) => {
               </form>
             </div>
             {/* Información de contacto */}
-            <div className="z-20 flex-1 flex items-center justify-center order-1 xl:order-none mb-8 xl:mb-0">
+            <div className="z-10 flex-1 flex items-center justify-center order-1 xl:order-none mb-8 xl:mb-0">
               <ul className="flex flex-col gap-10">
                 {info.map((item, index) => (
                   <li key={index} className="flex items-center gap-6">
