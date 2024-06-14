@@ -94,8 +94,8 @@ const Home = () => {
               {/* Botones Extra & Redes Sociales */}
               <div className="flex flex-col xl:flex-row items-center gap-8">
                 <a
-                  href="/assets/Curriculum-Mario Alfonso Forero Hernandez.pdf"
-                  download="Curriculum-Mario Alfonso Forero Hernandez.pdf"
+                  href="/assets/Curriculum-Mario Forero Hernandez.pdf"
+                  download="Curriculum-Mario Forero Hernandez.pdf"
                 >
                   <Button
                     size="md"
