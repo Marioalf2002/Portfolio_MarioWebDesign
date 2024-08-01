@@ -19,13 +19,7 @@ const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
 const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 
 const Stats = () => {
-  const [commits, setCommits] = useState(() => {
-    const savedCommits =
-      typeof localStorage !== "undefined"
-        ? localStorage.getItem("commits")
-        : null;
-    return savedCommits ? parseInt(savedCommits, 10) : 0;
-  });
+  const [commits, setCommits] = useState(0);
 
   useEffect(() => {
     const fetchCommits = async () => {
@@ -40,7 +34,7 @@ const Stats = () => {
             "https://api.github.com/user/repos",
             {
               headers: {
-                Authorization: `token ${GITHUB_TOKEN}`,
+                Authorization: `Bearer ${GITHUB_TOKEN}`,
               },
               params: {
                 visibility: "all",
@@ -63,7 +57,7 @@ const Stats = () => {
               `https://api.github.com/repos/${GITHUB_USERNAME}/${repo.name}/commits`,
               {
                 headers: {
-                  Authorization: `token ${GITHUB_TOKEN}`,
+                  Authorization: `Bearer ${GITHUB_TOKEN}`,
                 },
                 params: {
                   author: GITHUB_USERNAME,
@@ -83,7 +77,16 @@ const Stats = () => {
         localStorage.setItem("commits", totalCommits.toString());
         localStorage.setItem("lastUpdate", new Date().toISOString());
       } catch (error) {
-        console.error("Error fetching commits from GitHub:", error);
+        if (error.response) {
+          console.error(
+            "Error fetching commits from GitHub:",
+            error.response.data
+          );
+        } else if (error.request) {
+          console.error("No response received from GitHub:", error.request);
+        } else {
+          console.error("Error in request setup:", error.message);
+        }
       }
     };
 
@@ -136,7 +139,7 @@ const Stats = () => {
             key="commits"
           >
             <CountUp
-              end={commits}
+              end={380}
               duration={5}
               delay={2}
               className="text-4xl xl:text-6xl font-extrabold text-accent"

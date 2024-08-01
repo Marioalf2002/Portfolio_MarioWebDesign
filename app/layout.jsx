@@ -57,20 +57,6 @@ export default function RootLayout({ children, page }) {
         <meta property="og:type" content="website" />
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
-
-        {/* Google tag (gtag.js) */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-8TP31QR28T"
-        ></script>
-        <script>
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-8TP31QR28T');
-          `}
-        </script>
       </head>
       <body className={`${poppins.variable} ${galada.variable}`}>
         <Header />
