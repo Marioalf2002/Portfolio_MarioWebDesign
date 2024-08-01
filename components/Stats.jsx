@@ -136,7 +136,7 @@ const Stats = () => {
             key="commits"
           >
             <CountUp
-              end={commits}
+              end={380}
               duration={5}
               delay={2}
               className="text-4xl xl:text-6xl font-extrabold text-accent"
