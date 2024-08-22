@@ -266,6 +266,16 @@ const Contact = (props) => {
                   title="Este campo es obligatorio. Por favor, introduce tu mensaje."
                   {...register("message", { required: true })}
                 />
+                <p className="text-white/90">
+                  Al usar este formulario estas Aceptando los{" "}
+                  <a
+                    href="/terms"
+                    className="text-accent font-semibold hover:text-accent-hover"
+                    target="_blank"
+                  >
+                    Términos y Condiciones.
+                  </a>
+                </p>
                 <div className="flex justify-center items-center">
                   <Button
                     size="md"

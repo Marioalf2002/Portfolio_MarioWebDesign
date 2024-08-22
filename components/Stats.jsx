@@ -138,7 +138,7 @@ const Stats = () => {
             className="flex-1 flex gap-4 items-center justify-center xl:justify-start z-20"
             key="commits"
           >
-            +
+            <p className="text-4xl xl:text-6xl font-extrabold text-accent">+</p>
             <CountUp
               end={380}
               duration={5}

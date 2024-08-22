@@ -6,6 +6,7 @@ export const metadata = {
     history: "Historia | MarioWebDesign",
     work: "Proyectos | MarioWebDesign",
     contact: "Contacto | MarioWebDesign",
+    terms: "Términos y Condiciones | MarioWebDesign",
   },
   description: {
     default:
@@ -18,6 +19,8 @@ export const metadata = {
     work: "Explora los proyectos de desarrollo web que he realizado, desde sitios web & aplicaciones hasta tiendas en línea. Esto& seguro de que encontrarás inspiración & calidad en mi trabajo.",
     contact:
       "Contáctame para discutir tus ideas & necesidades. Juntos, crearemos una solución web personalizada que se adapte a tus objetivos & presupuesto.",
+    terms:
+      "Lee los términos & condiciones de uso de este sitio web, incluyendo la política de privacidad & cookies. Al navegar por este sitio, aceptas estos términos.",
   },
   url: {
     default: "https://mariowebdesigns.com",
@@ -26,6 +29,7 @@ export const metadata = {
     history: "https://mariowebdesigns.com/history",
     work: "https://mariowebdesigns.com/work",
     contact: "https://mariowebdesigns.com/contact",
+    terms: "https://mariowebdesigns.com/terms",
   },
   image: {
     default: "https://mariowebdesigns.com/opengraph-image.png",
@@ -34,5 +38,6 @@ export const metadata = {
     history: "https://mariowebdesigns.com/history/opengraph-image.png",
     work: "https://mariowebdesigns.com/work/opengraph-image.png",
     contact: "https://mariowebdesigns.com/contact/opengraph-image.png",
+    terms: "https://mariowebdesigns.com/terms/opengraph-image.png",
   },
 };
