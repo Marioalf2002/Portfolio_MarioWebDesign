@@ -15,100 +15,100 @@ const stats = [
 ];
 
 // Variables de entorno
-const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
-const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
+// const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
+// const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 
 const Stats = () => {
-  const [commits, setCommits] = useState(0);
+  // const [commits, setCommits] = useState(0);
 
-  useEffect(() => {
-    const fetchCommits = async () => {
-      try {
-        let page = 1;
-        let repos = [];
-        let totalCommits = 0;
+  // useEffect(() => {
+  //   const fetchCommits = async () => {
+  //     try {
+  //       let page = 1;
+  //       let repos = [];
+  //       let totalCommits = 0;
 
-        // Obtener lista de todos los repositorios, incluyendo los privados, paginados
-        while (true) {
-          const reposResponse = await axios.get(
-            "https://api.github.com/user/repos",
-            {
-              headers: {
-                Authorization: `Bearer ${GITHUB_TOKEN}`,
-              },
-              params: {
-                visibility: "all",
-                per_page: 100,
-                page: page,
-              },
-            }
-          );
+  //       // Obtener lista de todos los repositorios, incluyendo los privados, paginados
+  //       while (true) {
+  //         const reposResponse = await axios.get(
+  //           "https://api.github.com/user/repos",
+  //           {
+  //             headers: {
+  //               Authorization: `Bearer ${GITHUB_TOKEN}`,
+  //             },
+  //             params: {
+  //               visibility: "all",
+  //               per_page: 100,
+  //               page: page,
+  //             },
+  //           }
+  //         );
 
-          if (reposResponse.data.length === 0) break;
-          repos = repos.concat(reposResponse.data);
-          page++;
-        }
+  //         if (reposResponse.data.length === 0) break;
+  //         repos = repos.concat(reposResponse.data);
+  //         page++;
+  //       }
 
-        // Obtener commits para cada repositorio
-        for (const repo of repos) {
-          let commitPage = 1;
-          while (true) {
-            const commitsResponse = await axios.get(
-              `https://api.github.com/repos/${GITHUB_USERNAME}/${repo.name}/commits`,
-              {
-                headers: {
-                  Authorization: `Bearer ${GITHUB_TOKEN}`,
-                },
-                params: {
-                  author: GITHUB_USERNAME,
-                  per_page: 100,
-                  page: commitPage,
-                },
-              }
-            );
+  //       // Obtener commits para cada repositorio
+  //       for (const repo of repos) {
+  //         let commitPage = 1;
+  //         while (true) {
+  //           const commitsResponse = await axios.get(
+  //             `https://api.github.com/repos/${GITHUB_USERNAME}/${repo.name}/commits`,
+  //             {
+  //               headers: {
+  //                 Authorization: `Bearer ${GITHUB_TOKEN}`,
+  //               },
+  //               params: {
+  //                 author: GITHUB_USERNAME,
+  //                 per_page: 100,
+  //                 page: commitPage,
+  //               },
+  //             }
+  //           );
 
-            if (commitsResponse.data.length === 0) break;
-            totalCommits += commitsResponse.data.length;
-            commitPage++;
-          }
-        }
+  //           if (commitsResponse.data.length === 0) break;
+  //           totalCommits += commitsResponse.data.length;
+  //           commitPage++;
+  //         }
+  //       }
 
-        setCommits(totalCommits);
-        localStorage.setItem("commits", totalCommits.toString());
-        localStorage.setItem("lastUpdate", new Date().toISOString());
-      } catch (error) {
-        if (error.response) {
-          console.error(
-            "Error fetching commits from GitHub:",
-            error.response.data
-          );
-        } else if (error.request) {
-          console.error("No response received from GitHub:", error.request);
-        } else {
-          console.error("Error in request setup:", error.message);
-        }
-      }
-    };
+  //       setCommits(totalCommits);
+  //       localStorage.setItem("commits", totalCommits.toString());
+  //       localStorage.setItem("lastUpdate", new Date().toISOString());
+  //     } catch (error) {
+  //       if (error.response) {
+  //         console.error(
+  //           "Error fetching commits from GitHub:",
+  //           error.response.data
+  //         );
+  //       } else if (error.request) {
+  //         console.error("No response received from GitHub:", error.request);
+  //       } else {
+  //         console.error("Error in request setup:", error.message);
+  //       }
+  //     }
+  //   };
 
-    const shouldFetchCommits = () => {
-      const lastUpdate = localStorage.getItem("lastUpdate");
-      if (!lastUpdate) return true;
-      const tenMinutes = 10 * 60 * 1000;
-      return new Date() - new Date(lastUpdate) > tenMinutes;
-    };
+  //   const shouldFetchCommits = () => {
+  //     const lastUpdate = localStorage.getItem("lastUpdate");
+  //     if (!lastUpdate) return true;
+  //     const tenMinutes = 10 * 60 * 1000;
+  //     return new Date() - new Date(lastUpdate) > tenMinutes;
+  //   };
 
-    const updateCommits = () => {
-      if (shouldFetchCommits()) {
-        fetchCommits().then(() => {
-          setTimeout(updateCommits, 10 * 60 * 1000); // Llamar a fetchCommits después de 10 minutos
-        });
-      } else {
-        setTimeout(updateCommits, 10 * 60 * 1000); // Comprobar otra vez en 10 minutos
-      }
-    };
+  //   const updateCommits = () => {
+  //     if (shouldFetchCommits()) {
+  //       fetchCommits().then(() => {
+  //         setTimeout(updateCommits, 10 * 60 * 1000); // Llamar a fetchCommits después de 10 minutos
+  //       });
+  //     } else {
+  //       setTimeout(updateCommits, 10 * 60 * 1000); // Comprobar otra vez en 10 minutos
+  //     }
+  //   };
 
-    updateCommits();
-  }, []);
+  //   updateCommits();
+  // }, []);
 
   return (
     <section className="pt-4 pb-12 xl:pt-0 xl:pb-0">
@@ -138,6 +138,7 @@ const Stats = () => {
             className="flex-1 flex gap-4 items-center justify-center xl:justify-start z-20"
             key="commits"
           >
+            +
             <CountUp
               end={380}
               duration={5}
