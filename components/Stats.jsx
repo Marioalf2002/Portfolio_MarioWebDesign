@@ -121,11 +121,10 @@ const Stats = () => {
               className="text-4xl xl:text-6xl font-extrabold text-accent"
             />
             <p className="max-w-[150px] leading-snug text-white/90">
-              Code Commits
+              {loading ? "Cargando commits..." : "Code Commits"}
             </p>
           </div>
         </div>
-        {loading && <p className="text-white">Cargando commits...</p>}
       </div>
     </section>
   );
