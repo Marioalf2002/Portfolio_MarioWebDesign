@@ -8,6 +8,9 @@ import axios from "axios";
 const currentYear = new Date().getFullYear();
 const years = currentYear - 2020;
 
+const CACHE_KEY = "githubCommitsCache";
+const CACHE_DURATION = 1000 * 60 * 60 * 12; // 12 horas
+
 const stats = [
   { num: years, text: "Años de Experiencia" },
   { num: 16, text: "Proyectos Completados" },
@@ -24,6 +27,16 @@ const Stats = () => {
   useEffect(() => {
     const fetchCommits = async () => {
       try {
+        const now = new Date().getTime();
+        const cachedData = JSON.parse(localStorage.getItem(CACHE_KEY));
+
+        // Verificar si existe la cache y si no ha caducado
+        if (cachedData && now - cachedData.timestamp < CACHE_DURATION) {
+          setCommitCount(cachedData.data);
+          setLoading(false);
+          return;
+        }
+
         let totalCommits = 0;
         let page = 1;
         const perPage = 100; // Número de repositorios por página
@@ -73,6 +86,15 @@ const Stats = () => {
 
           page++;
         }
+
+        // Guardar los datos en el cache
+        localStorage.setItem(
+          CACHE_KEY,
+          JSON.stringify({
+            timestamp: now,
+            data: totalCommits,
+          })
+        );
 
         setCommitCount(totalCommits);
       } catch (error) {
