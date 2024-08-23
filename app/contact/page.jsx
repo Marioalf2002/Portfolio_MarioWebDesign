@@ -107,7 +107,7 @@ const Contact = (props) => {
           <div className="flex flex-col xl:flex-row gap-[30px] items-center z-20">
             <div className="xl:w-[54%] order-2 xl:order-none z-20">
               <form
-                className="flex flex-col gap-4 p-7 bg-secondary rounded-xl"
+                className="flex flex-col gap-3 p-5 bg-secondary rounded-xl"
                 onSubmit={handleSubmit(onSubmit)}
               >
                 <h1 className="text-4xl flex justify-center text-white font-secondary">
