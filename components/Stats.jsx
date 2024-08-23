@@ -15,100 +15,75 @@ const stats = [
 ];
 
 // Variables de entorno
-// const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
-// const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
+const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 
 const Stats = () => {
-  // const [commits, setCommits] = useState(0);
+  const [commitCount, setCommitCount] = useState(0);
+  const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   const fetchCommits = async () => {
-  //     try {
-  //       let page = 1;
-  //       let repos = [];
-  //       let totalCommits = 0;
+  useEffect(() => {
+    const fetchCommits = async () => {
+      try {
+        let totalCommits = 0;
+        let page = 1;
+        const perPage = 100; // Número de repositorios por página
 
-  //       // Obtener lista de todos los repositorios, incluyendo los privados, paginados
-  //       while (true) {
-  //         const reposResponse = await axios.get(
-  //           "https://api.github.com/user/repos",
-  //           {
-  //             headers: {
-  //               Authorization: `Bearer ${GITHUB_TOKEN}`,
-  //             },
-  //             params: {
-  //               visibility: "all",
-  //               per_page: 100,
-  //               page: page,
-  //             },
-  //           }
-  //         );
+        while (true) {
+          // Obtén los repositorios de la página actual
+          const reposResponse = await axios.get(
+            "https://api.github.com/user/repos",
+            {
+              headers: {
+                Authorization: `token ${GITHUB_TOKEN}`,
+                Accept: "application/vnd.github.v3+json",
+              },
+              params: {
+                per_page: perPage,
+                page: page,
+              },
+            }
+          );
 
-  //         if (reposResponse.data.length === 0) break;
-  //         repos = repos.concat(reposResponse.data);
-  //         page++;
-  //       }
+          if (reposResponse.data.length === 0) break; // Salir si no hay más repositorios
 
-  //       // Obtener commits para cada repositorio
-  //       for (const repo of repos) {
-  //         let commitPage = 1;
-  //         while (true) {
-  //           const commitsResponse = await axios.get(
-  //             `https://api.github.com/repos/${GITHUB_USERNAME}/${repo.name}/commits`,
-  //             {
-  //               headers: {
-  //                 Authorization: `Bearer ${GITHUB_TOKEN}`,
-  //               },
-  //               params: {
-  //                 author: GITHUB_USERNAME,
-  //                 per_page: 100,
-  //                 page: commitPage,
-  //               },
-  //             }
-  //           );
+          const repos = reposResponse.data;
 
-  //           if (commitsResponse.data.length === 0) break;
-  //           totalCommits += commitsResponse.data.length;
-  //           commitPage++;
-  //         }
-  //       }
+          for (const repo of repos) {
+            try {
+              // Obtén los commits del repositorio
+              const commitsResponse = await axios.get(
+                `https://api.github.com/repos/${repo.owner.login}/${repo.name}/commits`,
+                {
+                  headers: {
+                    Authorization: `token ${GITHUB_TOKEN}`,
+                    Accept: "application/vnd.github.v3+json",
+                  },
+                }
+              );
 
-  //       setCommits(totalCommits);
-  //       localStorage.setItem("commits", totalCommits.toString());
-  //       localStorage.setItem("lastUpdate", new Date().toISOString());
-  //     } catch (error) {
-  //       if (error.response) {
-  //         console.error(
-  //           "Error fetching commits from GitHub:",
-  //           error.response.data
-  //         );
-  //       } else if (error.request) {
-  //         console.error("No response received from GitHub:", error.request);
-  //       } else {
-  //         console.error("Error in request setup:", error.message);
-  //       }
-  //     }
-  //   };
+              // Suma el número de commits
+              totalCommits += commitsResponse.data.length;
+            } catch (commitError) {
+              console.error(
+                `Error fetching commits for ${repo.name}:`,
+                commitError
+              );
+            }
+          }
 
-  //   const shouldFetchCommits = () => {
-  //     const lastUpdate = localStorage.getItem("lastUpdate");
-  //     if (!lastUpdate) return true;
-  //     const tenMinutes = 10 * 60 * 1000;
-  //     return new Date() - new Date(lastUpdate) > tenMinutes;
-  //   };
+          page++;
+        }
 
-  //   const updateCommits = () => {
-  //     if (shouldFetchCommits()) {
-  //       fetchCommits().then(() => {
-  //         setTimeout(updateCommits, 10 * 60 * 1000); // Llamar a fetchCommits después de 10 minutos
-  //       });
-  //     } else {
-  //       setTimeout(updateCommits, 10 * 60 * 1000); // Comprobar otra vez en 10 minutos
-  //     }
-  //   };
+        setCommitCount(totalCommits);
+      } catch (error) {
+        console.error("Error fetching repos:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  //   updateCommits();
-  // }, []);
+    fetchCommits();
+  }, []);
 
   return (
     <section className="pt-4 pb-12 xl:pt-0 xl:pb-0">
@@ -138,18 +113,19 @@ const Stats = () => {
             className="flex-1 flex gap-4 items-center justify-center xl:justify-start z-20"
             key="commits"
           >
-            <p className="text-4xl xl:text-6xl font-extrabold text-accent">+</p>
+            {/* <p className="text-4xl xl:text-6xl font-extrabold text-accent">+</p> */}
             <CountUp
-              end={380}
+              end={commitCount}
               duration={5}
               delay={2}
               className="text-4xl xl:text-6xl font-extrabold text-accent"
             />
             <p className="max-w-[150px] leading-snug text-white/90">
-              Confirmaciones de Código
+              Code Commits
             </p>
           </div>
         </div>
+        {loading && <p className="text-white">Cargando commits...</p>}
       </div>
     </section>
   );
