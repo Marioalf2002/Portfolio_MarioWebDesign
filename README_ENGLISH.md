@@ -16,17 +16,17 @@
 
 </div>
 
-# English
+# Spanish
 
-Read this in other languages: [English](README_ENGLISH.md)
+Read this in other languages: [Spanish](README.md)
 
 # MarioWebDesign
 
-Portafolio de Mario Hernandez - Web Designer & Developer - Full Stack Developer - Frontend Developer - Backend Developer
+Portfolio Mario Hernandez - Web Designer & Developer - Full Stack Developer - Frontend Developer - Backend Developer
 
-## Acerca de mi
+## About me
 
-Soy un apasionado del diseño & desarrollo web, me encanta crear sitios web & aplicaciones web que sean atractivas, funcionales & accesibles para todos. Me especializo en el desarrollo de sitios web & aplicaciones web utilizando tecnologías modernas como HTML5, CSS3, JavaScript, ReactJS, Next.js, Node.js, MongoDB, PHP, entre otras.
+I am passionate about web design & development. I love creating websites & web applications that are attractive, functional, & accessible to everyone. I specialize in developing websites & web applications using modern technologies such as HTML5, CSS3, JavaScript, ReactJS, Next.js, Node.js, MongoDB, PHP, among others.
 
 ## Links
 
@@ -36,34 +36,34 @@ Soy un apasionado del diseño & desarrollo web, me encanta crear sitios web & ap
 - [GitHub](https://github.com/Marioalf2002)
 - [Discord](https://discordapp.com/users/744348258893168680)
 
-## Contacto
+## Contact
 
 - Email: [contacto@mariowebdesigns.com](https://mail.google.com/mail/?view=cm&fs=1&to=contacto@mariowebdesigns.com)
 - Teléfono: [(+57) 324 777 3515](https://wa.me/message/MC62R3PTOHVDN1)
 
-## Instalación
+## Instalation
 
-1. Clona el repositorio
+1. Clone the repository
 
    ```sh
    git clone https://github.com/Marioalf2002/Portfolio.git
    ```
 
-2. Instala los paquetes NPM
+2. Install NPM packages
 
    ```sh
     npm install
    ```
 
-3. Actualiza Dependencias
+3. Update Dependencies
 
    ```sh
     npm update
    ```
 
-## Crear archivo .env.local
+## Create .env.local file
 
-Agrega las siguientes variables de entorno en el archivo .env.local
+Add the following environment variables to the .env.local file
 
 ```sh
 NEXT_PUBLIC_GITHUB_TOKEN= TOKEN_GITHUB
@@ -71,4 +71,4 @@ NEXT_PUBLIC_GITHUB_USERNAME= USERNAME_GITHUB
 RESEND_API_KEY= TOKEN_API_KEY
 ```
 
-El Token de Github lo puedes obtener en [Github Developer](https://docs.github.com/en/rest/guides/getting-started-with-the-rest-api), y debe tener los permisos de lectura de repositorios (Contents y Metadata).
+The Github Token can be obtained at [Github Developer](https://docs.github.com/en/rest/guides/getting-started-with-the-rest-api), and must have read permissions for repositories (Contents and Metadata).
