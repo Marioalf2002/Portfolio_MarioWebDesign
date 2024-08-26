@@ -1,4 +1,4 @@
-![https://mariowebdesigns.com/](image.png)
+![MarioWebDesign](image.png)
 
 <div align="center">
 
@@ -16,19 +16,19 @@
 
 </div>
 
-# English
+# [English](README_ENGLISH.md)
 
 Read this in other languages: [English](README_ENGLISH.md)
 
-# MarioWebDesign
+# [MarioWebDesign](https://mariowebdesigns.com/)
 
-Portafolio de Mario Hernandez - Web Designer & Developer - Full Stack Developer - Frontend Developer - Backend Developer
+[Portafolio de Mario Hernandez - Web Designer & Developer - Full Stack Developer - Frontend Developer - Backend Developer](https://mariowebdesigns.com/)
 
-## Acerca de mi
+## [Acerca de mi](https://mariowebdesigns.com/)
 
 Soy un apasionado del diseño & desarrollo web, me encanta crear sitios web & aplicaciones web que sean atractivas, funcionales & accesibles para todos. Me especializo en el desarrollo de sitios web & aplicaciones web utilizando tecnologías modernas como HTML5, CSS3, JavaScript, ReactJS, Next.js, Node.js, MongoDB, PHP, entre otras.
 
-## Links
+## [Links](https://mariowebdesigns.com/)
 
 - [Website](https://mariowebdesigns.com/)
 - [Telegram](https://t.me/mariowebdesing)
@@ -36,7 +36,7 @@ Soy un apasionado del diseño & desarrollo web, me encanta crear sitios web & ap
 - [GitHub](https://github.com/Marioalf2002)
 - [Discord](https://discordapp.com/users/744348258893168680)
 
-## Contacto
+## [Contacto](https://mariowebdesigns.com/)
 
 - Email: [contacto@mariowebdesigns.com](https://mail.google.com/mail/?view=cm&fs=1&to=contacto@mariowebdesigns.com)
 - Teléfono: [(+57) 324 777 3515](https://wa.me/message/MC62R3PTOHVDN1)

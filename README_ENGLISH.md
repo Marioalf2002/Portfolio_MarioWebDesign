@@ -16,19 +16,19 @@
 
 </div>
 
-# Spanish
+# [Spanish](README.md)
 
 Read this in other languages: [Spanish](README.md)
 
-# MarioWebDesign
+# [MarioWebDesign](https://mariowebdesigns.com/)
 
-Portfolio Mario Hernandez - Web Designer & Developer - Full Stack Developer - Frontend Developer - Backend Developer
+[Portfolio Mario Hernandez - Web Designer & Developer - Full Stack Developer - Frontend Developer - Backend Developer](https://mariowebdesigns.com/)
 
-## About me
+## [About me](https://mariowebdesigns.com/)
 
 I am passionate about web design & development. I love creating websites & web applications that are attractive, functional, & accessible to everyone. I specialize in developing websites & web applications using modern technologies such as HTML5, CSS3, JavaScript, ReactJS, Next.js, Node.js, MongoDB, PHP, among others.
 
-## Links
+## [Links](https://mariowebdesigns.com/)
 
 - [Website](https://mariowebdesigns.com/)
 - [Telegram](https://t.me/mariowebdesing)
@@ -36,7 +36,7 @@ I am passionate about web design & development. I love creating websites & web a
 - [GitHub](https://github.com/Marioalf2002)
 - [Discord](https://discordapp.com/users/744348258893168680)
 
-## Contact
+## [Contact](https://mariowebdesigns.com/)
 
 - Email: [contacto@mariowebdesigns.com](https://mail.google.com/mail/?view=cm&fs=1&to=contacto@mariowebdesigns.com)
 - Teléfono: [(+57) 324 777 3515](https://wa.me/message/MC62R3PTOHVDN1)
