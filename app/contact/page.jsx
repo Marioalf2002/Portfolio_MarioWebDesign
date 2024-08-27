@@ -276,7 +276,12 @@ const Contact = (props) => {
                     Términos y Condiciones.
                   </a>
                 </p>
-                <div className="flex justify-center items-center">
+                <motion.div
+                  className="flex justify-center items-center"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
                   <Button
                     size="md"
                     className="w-[35%]"
@@ -285,7 +290,7 @@ const Contact = (props) => {
                   >
                     ¡Envíame!
                   </Button>
-                </div>
+                </motion.div>
               </form>
             </div>
             {/* Información de contacto */}

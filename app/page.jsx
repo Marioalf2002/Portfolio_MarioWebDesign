@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { FaDownload } from "react-icons/fa6";
 import RootLayout from "./layout";
 import React, { useEffect, useState, useMemo } from "react";
+import { motion } from "framer-motion";
 
 // Componentes
 import Social from "@/components/Social";
@@ -93,21 +94,28 @@ const Home = () => {
               </p>
               {/* Botones Extra & Redes Sociales */}
               <div className="flex flex-col xl:flex-row items-center gap-8">
-                <a
-                  href="/assets/Curriculum-Mario Forero Hernandez.pdf"
-                  download="Curriculum-Mario Forero Hernandez.pdf"
+                <motion.div
+                  className="box"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  <Button
-                    size="md"
-                    className="uppercase flex items-center gap-3 z-20 transition-all duration-500 button-gradient"
-                    aria-label="Descargar CV"
+                  <a
+                    href="/assets/Curriculum-Mario Forero Hernandez.pdf"
+                    download="Curriculum-Mario Forero Hernandez.pdf"
                   >
-                    <span className="font-semibold text-white">
-                      Descargar CV
-                    </span>
-                    <FaDownload className="text-lg text-white" />
-                  </Button>
-                </a>
+                    <Button
+                      size="md"
+                      className="uppercase flex items-center gap-3 z-20 transition-all duration-500 button-gradient"
+                      aria-label="Descargar CV"
+                    >
+                      <span className="font-semibold text-white">
+                        Descargar CV
+                      </span>
+                      <FaDownload className="text-lg text-white" />
+                    </Button>
+                  </a>
+                </motion.div>
                 <div className="mb-8 xl:mb-0 z-20">
                   <Social
                     containerStyles="flex gap-4"

@@ -345,10 +345,54 @@ const Resume = () => {
           >
             {/* Tabs */}
             <TabsList className="flex flex-col w-full max-w-[350px] justify-center mx-auto xl:mx-0 gap-6 z-20">
-              <TabsTrigger value="about">Sobre Mi</TabsTrigger>
-              <TabsTrigger value="experience">Experiencia</TabsTrigger>
-              <TabsTrigger value="education">Educacion</TabsTrigger>
-              <TabsTrigger value="skills">Habilidades</TabsTrigger>
+              <motion.div
+                className="box"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 15,
+                }}
+              >
+                <TabsTrigger value="about">Sobre Mi</TabsTrigger>
+              </motion.div>
+              <motion.div
+                className="box"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 15,
+                }}
+              >
+                <TabsTrigger value="experience">Experiencia</TabsTrigger>
+              </motion.div>
+              <motion.div
+                className="box"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 15,
+                }}
+              >
+                <TabsTrigger value="education">Educacion</TabsTrigger>
+              </motion.div>
+              <motion.div
+                className="box"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 15,
+                }}
+              >
+                <TabsTrigger value="skills">Habilidades</TabsTrigger>
+              </motion.div>
             </TabsList>
 
             {/* Contenido */}

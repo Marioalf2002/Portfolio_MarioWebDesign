@@ -12,6 +12,7 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from "@/components/ui/tooltip";
+import { motion } from "framer-motion";
 
 const socials = [
   {
@@ -53,16 +54,23 @@ const Social = ({ containerStyles, iconStyles }) => {
             target="_blank"
             aria-label={item.name}
           >
-            <TooltipProvider delayDuration={100}>
-              <Tooltip>
-                <TooltipTrigger className={iconStyles} aria-label={item.name}>
-                  {item.icon}
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p className="capitalize font-semibold">{item.name}</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
+            <motion.div
+              className="box"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 13 }}
+            >
+              <TooltipProvider delayDuration={100}>
+                <Tooltip>
+                  <TooltipTrigger className={iconStyles} aria-label={item.name}>
+                    {item.icon}
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p className="capitalize font-semibold">{item.name}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </motion.div>
           </Link>
         );
       })}

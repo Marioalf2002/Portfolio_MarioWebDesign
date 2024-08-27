@@ -234,21 +234,32 @@ const Work = () => {
                       id="live"
                       aria-label="Live project"
                     >
-                      <TooltipProvider delayDuration={100}>
-                        <Tooltip>
-                          <TooltipTrigger
-                            rel="noopener noreferrer"
-                            id="live"
-                            aria-label="Live project"
-                            className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group hover:-rotate-12 transition-all duration-500 z-20"
-                          >
-                            <VscLiveShare className="text-white text-3xl group-hover:text-accent" />
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>Live project</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
+                      <motion.div
+                        className="box"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 1 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 10,
+                        }}
+                      >
+                        <TooltipProvider delayDuration={100}>
+                          <Tooltip>
+                            <TooltipTrigger
+                              rel="noopener noreferrer"
+                              id="live"
+                              aria-label="Live project"
+                              className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group hover:-rotate-12 transition-all duration-500 z-20"
+                            >
+                              <VscLiveShare className="text-white text-3xl group-hover:text-accent" />
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>Live project</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </motion.div>
                     </Link>
                   )}
                   {/* Boton GitHub Proyecto */}
@@ -260,21 +271,32 @@ const Work = () => {
                       id="github"
                       aria-label="GitHub repository"
                     >
-                      <TooltipProvider delayDuration={100}>
-                        <Tooltip>
-                          <TooltipTrigger
-                            rel="noopener noreferrer"
-                            id="github"
-                            aria-label="GitHub repository"
-                            className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group hover:-rotate-12 transition-all duration-500"
-                          >
-                            <BsGithub className="text-white text-3xl group-hover:text-accent" />
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>GitHub Repositorio</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
+                      <motion.div
+                        className="box"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 1 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 10,
+                        }}
+                      >
+                        <TooltipProvider delayDuration={100}>
+                          <Tooltip>
+                            <TooltipTrigger
+                              rel="noopener noreferrer"
+                              id="github"
+                              aria-label="GitHub repository"
+                              className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group hover:-rotate-12 transition-all duration-500"
+                            >
+                              <BsGithub className="text-white text-3xl group-hover:text-accent" />
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>GitHub Repositorio</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </motion.div>
                     </Link>
                   )}
                 </div>

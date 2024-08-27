@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { PiCaretLeftBold, PiCaretRightBold } from "react-icons/pi";
 import { useSwiper } from "swiper/react";
+import { motion } from "framer-motion";
 
 const WorkSliderBtns = ({ containerStyles, btnStyles, iconsStyles }) => {
   const swiper = useSwiper();
@@ -64,22 +65,44 @@ const WorkSliderBtns = ({ containerStyles, btnStyles, iconsStyles }) => {
 
   return (
     <div className={containerStyles}>
-      <button
-        id="handlePrev"
-        className={btnStyles}
-        onClick={handlePrev}
-        aria-label="Previous"
+      <motion.div
+        className="box"
+        whileHover={{ scale: 0.9 }}
+        whileTap={{ scale: 0.8 }}
+        transition={{
+          type: "spring",
+          stiffness: 400,
+          damping: 15,
+        }}
       >
-        <PiCaretLeftBold className={iconsStyles} />
-      </button>
-      <button
-        id="handleNext"
-        className={btnStyles}
-        onClick={handleNext}
-        aria-label="Next"
+        <button
+          id="handlePrev"
+          className={btnStyles}
+          onClick={handlePrev}
+          aria-label="Previous"
+        >
+          <PiCaretLeftBold className={iconsStyles} />
+        </button>
+      </motion.div>
+      <motion.div
+        className="box"
+        whileHover={{ scale: 0.9 }}
+        whileTap={{ scale: 0.8 }}
+        transition={{
+          type: "spring",
+          stiffness: 400,
+          damping: 15,
+        }}
       >
-        <PiCaretRightBold className={iconsStyles} />
-      </button>
+        <button
+          id="handleNext"
+          className={btnStyles}
+          onClick={handleNext}
+          aria-label="Next"
+        >
+          <PiCaretRightBold className={iconsStyles} />
+        </button>
+      </motion.div>
     </div>
   );
 };
