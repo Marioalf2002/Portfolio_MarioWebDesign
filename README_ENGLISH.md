@@ -46,7 +46,7 @@ I am passionate about web design & development. I love creating websites & web a
 1. Clone the repository
 
    ```sh
-   git clone https://github.com/Marioalf2002/Portfolio.git
+   git clone https://github.com/Marioalf2002/Portfolio_MarioWebDesign.git
    ```
 
 2. Install NPM packages

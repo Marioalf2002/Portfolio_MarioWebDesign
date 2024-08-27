@@ -51,7 +51,7 @@ Soy un apasionado del diseño & desarrollo web, me encanta crear sitios web & ap
 1. Clona el repositorio
 
    ```sh
-   git clone https://github.com/Marioalf2002/Portfolio.git
+   git clone https://github.com/Marioalf2002/Portfolio_MarioWebDesign.git
    ```
 
 2. Instala los paquetes NPM
