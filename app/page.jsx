@@ -22,9 +22,9 @@ const AnimatedText = () => {
   const words = useMemo(
     () => [
       "Desarrollador Web",
+      "Mantenimiento Web",
       "Desarrollador Full-Stack",
       "SEO",
-      "Mantenimiento Web",
       "Desarrollador Front-End",
       "Desarrollador Back-End",
     ],
