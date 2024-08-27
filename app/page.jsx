@@ -25,7 +25,6 @@ const AnimatedText = () => {
       "Desarrollador Full-Stack",
       "SEO",
       "Mantenimiento Web",
-      "UX/UI",
       "Desarrollador Front-End",
       "Desarrollador Back-End",
     ],
