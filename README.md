@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://mariowebdesigns.com">
+  <a href="https://mariowebdesigns.com" target="_blank">
    <img src="image.png" alt="Website">
   </a>
 </div>
