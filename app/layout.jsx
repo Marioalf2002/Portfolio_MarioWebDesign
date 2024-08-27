@@ -57,6 +57,17 @@ export default function RootLayout({ children, page }) {
         <meta property="og:type" content="website" />
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
+
+        {/* Meticulous */}
+        {(process.env.NODE_ENV === "development" ||
+          process.env.VERCEL_ENV === "preview") && (
+          // eslint-disable-next-line @next/next/no-sync-scripts
+          <script
+            data-project-id="BHPqIC60ngN0pebdii6cJ6sgnMhs5B2SoIyXyfWI"
+            data-is-production-environment="false"
+            src="https://snippet.meticulous.ai/v1/meticulous.js"
+          />
+        )}
       </head>
       <body className={`${poppins.variable} ${galada.variable}`}>
         <Header />
