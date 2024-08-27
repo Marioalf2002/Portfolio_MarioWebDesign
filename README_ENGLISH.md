@@ -1,12 +1,17 @@
-![https://mariowebdesigns.com/](image.png)
-
 <div align="center">
+  <a href="https://mariowebdesigns.com" target="_blank">
+   <img src="image.png" alt="Website">
+  </a>
+</div>
+
+<br>
+<div align="center">
+
+[![Website](https://img.shields.io/badge/Website-Portfolio-blue?style=flat&logo=google-chrome)](https://mariowebdesigns.com)
 
 [![GitHub](https://img.shields.io/badge/GitHub-Profile-black?style=flat&logo=github)](https://github.com/Marioalf2002)
 ![GitHub Followers](https://img.shields.io/github/followers/Marioalf2002?style=social)
 ![GitHub Followers](https://img.shields.io/github/stars/Marioalf2002?style=social)
-
-<br>
 
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-Chat-green?style=flat&logo=whatsapp)](https://wa.me/message/MC62R3PTOHVDN1)
 [![Telegram](https://img.shields.io/badge/Telegram-Chat-blue?style=flat&logo=telegram)](https://t.me/mariowebdesing)
