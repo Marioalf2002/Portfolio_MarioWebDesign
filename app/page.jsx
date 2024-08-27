@@ -28,8 +28,6 @@ const AnimatedText = () => {
       "UX/UI",
       "Desarrollador Front-End",
       "Desarrollador Back-End",
-      "Desarrollador React",
-      "Desarrollador Next.js",
     ],
     []
   );
