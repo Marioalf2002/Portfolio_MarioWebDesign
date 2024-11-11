@@ -45,7 +45,7 @@
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.15",
     "glob": "^11.0.0",
-    "postcss": "^8.4.47",
+    "postcss": "^8.4.48",
     "rimraf": "^6.0.1",
     "tailwindcss": "^3.4.14"
   }
