@@ -43,7 +43,7 @@
     "@types/node": "22.9.0",
     "@types/react": "18.3.12",
     "eslint": "^8.57.0",
-    "eslint-config-next": "^14.2.15",
+    "eslint-config-next": "^15.0.3",
     "glob": "^11.0.0",
     "postcss": "^8.4.48",
     "rimraf": "^6.0.1",
