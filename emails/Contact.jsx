@@ -9,7 +9,7 @@ import {
   Text,
   Tailwind,
 } from "@react-email/components";
-import * as React from "react";
+import React from "react";
 
 const Contact = ({ formData }) => {
   const { firstname, lastname, email, phone, service, message } = formData;
@@ -52,14 +52,15 @@ const Contact = ({ formData }) => {
                 con la corrección:
               </Text>
               <Text className="text-black text-[14px] leading-[24px]">
-                <span className="font-semibold">Telefono:</span> {phone}
+                <span className="font-semibold">Telefono:</span>{" "}
+                {phone || "No proporcionado"}
               </Text>
               <Text className="text-black text-[14px] leading-[24px]">
                 <span className="font-semibold">Correo:</span> {email}
               </Text>
               <Text className="text-black text-[14px] leading-[24px]">
                 <span className="font-semibold">Servicio Requerido: </span>
-                {service}
+                {service || "No especificado"}
               </Text>
               <Text className="text-black text-[14px] leading-[24px]">
                 <span className="font-semibold">Mensaje:</span> {message}

@@ -1,4 +1,4 @@
-import React from "react";
+import { renderAsync } from "@react-email/components";
 import Contact from "@/emails/Contact";
 import { Resend } from "resend";
 
@@ -28,15 +28,18 @@ export async function POST(request) {
       );
     }
 
+    // Renderizar el componente Contact a HTML
+    const contactComponent = Contact({
+      formData: { firstname, lastname, email, phone, service, message },
+    });
+
+    const html = await renderAsync(contactComponent);
+
     await resend.emails.send({
       from: "MarioWebDesign <contacto@mariowebdesigns.com>",
       to: [email, "contacto@mariowebdesigns.com"],
       subject: `Contacto de ${firstname} ${lastname} para MarioWebDesign`,
-      react: (
-        <Contact
-          formData={{ firstname, lastname, email, phone, service, message }}
-        />
-      ),
+      html: html,
     });
 
     // Actualizar la hora del último correo electrónico enviado
