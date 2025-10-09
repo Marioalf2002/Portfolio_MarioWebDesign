@@ -13,6 +13,7 @@ import {
   FaGitAlt,
   FaGithub,
   FaLaravel,
+  FaChevronDown,
 } from "react-icons/fa";
 import {
   SiTailwindcss,
@@ -81,9 +82,9 @@ const experience = {
     "Durante mi carrera he trabajado con diferentes tecnologías, lo que me ha permitido adquirir experiencia en diferentes áreas.",
   items: [
     {
-      company: "Freelancer",
+      company: "Estrucutrate Construcciones S.A.S.",
       position: "Web Developer",
-      duration: "Presente - 2019",
+      duration: "Presente - 2025",
     },
     {
       company: "Asociación Asorredecol E.S.P.",
@@ -101,9 +102,9 @@ const experience = {
       duration: "2020 - 2019",
     },
     {
-      company: "Estrucutrate Construcciones S.A.S.",
+      company: "Freelancer",
       position: "Web Developer",
-      duration: "Presente - 2025",
+      duration: "Presente - 2019",
     },
   ],
 };
@@ -349,10 +350,32 @@ const renderSkills = (category, title) => {
 
 const Resume = () => {
   const [isClient, setIsClient] = React.useState(false);
+  const [showScrollIndicator, setShowScrollIndicator] = React.useState({
+    experience: true,
+    skills: true,
+  });
 
   React.useEffect(() => {
     setIsClient(true);
   }, []);
+
+  const handleScroll = (e, section) => {
+    const element = e.target;
+    const isNearBottom =
+      element.scrollHeight - element.scrollTop - element.clientHeight < 50;
+
+    if (isNearBottom && showScrollIndicator[section]) {
+      setShowScrollIndicator((prev) => ({
+        ...prev,
+        [section]: false,
+      }));
+    } else if (!isNearBottom && !showScrollIndicator[section]) {
+      setShowScrollIndicator((prev) => ({
+        ...prev,
+        [section]: true,
+      }));
+    }
+  };
 
   return (
     <RootLayout page="history">
@@ -493,29 +516,63 @@ const Resume = () => {
                     <p className="max-w-[600px] text-white/90 mx-auto xl:mx-0">
                       {experience.description}
                     </p>
-                    <ScrollArea className="h-[400px]">
-                      <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px] pr-4">
-                        {experience.items.map((item, index) => {
-                          return (
-                            <li
-                              key={index}
-                              className="bg-secondary h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
-                            >
-                              <span className="text-accent">
-                                {item.duration}
-                              </span>
-                              <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
-                                {item.position}
-                              </h3>
-                              <div className="flex items-center gap-3">
-                                <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                                <p className="text-white/90">{item.company}</p>
-                              </div>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </ScrollArea>
+                    <div className="relative">
+                      <ScrollArea
+                        className="h-[400px]"
+                        onScrollCapture={(e) => handleScroll(e, "experience")}
+                      >
+                        <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px] pr-4">
+                          {experience.items.map((item, index) => {
+                            return (
+                              <li
+                                key={index}
+                                className="bg-secondary h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
+                              >
+                                <span className="text-accent">
+                                  {item.duration}
+                                </span>
+                                <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
+                                  {item.position}
+                                </h3>
+                                <div className="flex items-center gap-3">
+                                  <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
+                                  <p className="text-white/90">
+                                    {item.company}
+                                  </p>
+                                </div>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </ScrollArea>
+
+                      {/* Indicador de scroll */}
+                      {showScrollIndicator.experience && (
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          className="absolute bottom-0 left-0 right-0 pointer-events-none flex items-end justify-center pb-2"
+                        >
+                          <motion.div
+                            animate={{
+                              y: [0, 5, 0],
+                            }}
+                            transition={{
+                              duration: 2,
+                              repeat: Infinity,
+                              ease: "easeInOut",
+                            }}
+                            className="flex flex-col items-center gap-0.5 bg-primary/60 px-2.5 py-1.5 rounded-md backdrop-blur-sm"
+                          >
+                            <span className="text-[10px] text-white/60 font-medium">
+                              Desliza para ver más
+                            </span>
+                            <FaChevronDown className="text-accent/70 text-sm" />
+                          </motion.div>
+                        </motion.div>
+                      )}
+                    </div>
                   </div>
                 </TabsContent>
 
@@ -567,18 +624,50 @@ const Resume = () => {
                         {skills.description}
                       </p>
                     </div>
-                    <ScrollArea className="h-[410px]">
-                      <div className="pr-4">
-                        {renderSkills("frontend", "Front-End")}
-                        {renderSkills("backend", "Back-End")}
-                        {renderSkills("design", "Diseño")}
-                        {renderSkills("database", "Base de Datos")}
-                        {renderSkills(
-                          "program",
-                          "Tecnología de Desarrollo de Software"
-                        )}
-                      </div>
-                    </ScrollArea>
+                    <div className="relative">
+                      <ScrollArea
+                        className="h-[410px]"
+                        onScrollCapture={(e) => handleScroll(e, "skills")}
+                      >
+                        <div className="pr-4">
+                          {renderSkills("frontend", "Front-End")}
+                          {renderSkills("backend", "Back-End")}
+                          {renderSkills("design", "Diseño")}
+                          {renderSkills("database", "Base de Datos")}
+                          {renderSkills(
+                            "program",
+                            "Tecnología de Desarrollo de Software"
+                          )}
+                        </div>
+                      </ScrollArea>
+
+                      {/* Indicador de scroll */}
+                      {showScrollIndicator.skills && (
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          className="absolute bottom-0 left-0 right-0 pointer-events-none flex items-end justify-center pb-3"
+                        >
+                          <motion.div
+                            animate={{
+                              y: [0, 5, 0],
+                            }}
+                            transition={{
+                              duration: 2,
+                              repeat: Infinity,
+                              ease: "easeInOut",
+                            }}
+                            className="flex flex-col items-center gap-0.5 bg-primary/60 px-2.5 py-1.5 rounded-md backdrop-blur-sm"
+                          >
+                            <span className="text-[10px] text-white/60 font-medium">
+                              Desliza para ver más
+                            </span>
+                            <FaChevronDown className="text-accent/70 text-sm" />
+                          </motion.div>
+                        </motion.div>
+                      )}
+                    </div>
                   </div>
                 </TabsContent>
               </div>
