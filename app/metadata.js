@@ -1,26 +1,45 @@
 export const metadata = {
   title: {
-    default: "MarioWebDesign | Desarrollador Web Full-Stack",
-    home: "MarioWebDesign | Desarrollador Web Full-Stack",
-    services: "Servicios | MarioWebDesign",
-    history: "Historia | MarioWebDesign",
-    work: "Proyectos | MarioWebDesign",
-    contact: "Contacto | MarioWebDesign",
-    terms: "Términos & Condiciones | MarioWebDesign",
+    default:
+      "Mario Hernández | Desarrollador Web Full-Stack en Colombia - Next.js & React",
+    home: "Mario Hernández | Desarrollador Web Full-Stack en Colombia - Next.js & React",
+    services:
+      "Servicios de Desarrollo Web | SEO, Full-Stack & Mantenimiento - MarioWebDesign",
+    history:
+      "Experiencia & Formación | +5 Años Desarrollo Web - MarioWebDesign",
+    work: "Portafolio de Proyectos | Aplicaciones Web Modernas - MarioWebDesign",
+    contact:
+      "Contacto | Solicita tu Proyecto Web - Desarrollador Freelance Colombia",
+    terms:
+      "Términos & Condiciones de Servicio | MarioWebDesign - Desarrollo Web",
   },
   description: {
     default:
-      "¡Hola! Soy Mario Hernández, un desarrollador web Full-Stack con una sólida experiencia en una variedad de tecnologías. Mi pasión radica en crear soluciones web innovadoras & funcionales que satisfagan las necesidades de mis clientes.",
-    home: "¡Hola! Soy Mario Hernández, un desarrollador web Full-Stack con una sólida experiencia en una variedad de tecnologías. Mi pasión radica en crear soluciones web innovadoras & funcionales que satisfagan las necesidades de mis clientes.",
+      "Mario Hernández - Desarrollador Web Full-Stack con +5 años de experiencia en Colombia. Especializado en Next.js, React, Node.js, y PHP. Creo soluciones web modernas, escalables y optimizadas para SEO que impulsan tu negocio digital.",
+    home: "Desarrollador Web Full-Stack en Medellín, Colombia con +5 años de experiencia. Especializado en Next.js, React, TypeScript, Node.js, NestJS, y Laravel. Soluciones web innovadoras, rápidas y optimizadas para tu negocio. ¡Cotiza tu proyecto hoy!",
     services:
-      "Descubre los servicios de desarrollo web que ofrezco, desde diseño UI/UX hasta SEO & mantenimiento. Esto& aquí para ayudarte a alcanzar tus objetivos en línea de manera efectiva & eficiente.",
+      "Servicios profesionales de desarrollo web: Diseño & desarrollo Full-Stack, optimización SEO avanzada, mantenimiento web continuo y soporte técnico. Tecnologías modernas: Next.js, React, WordPress, Node.js, Laravel. ¡Solicita tu presupuesto gratis!",
     history:
-      "Conoce mi historia & trayectoria como desarrollador web, desde mis inicios en la programación hasta mi experiencia profesional & los proyectos más destacados en los que he trabajado.",
-    work: "Explora los proyectos de desarrollo web que he realizado, desde sitios web & aplicaciones hasta tiendas en línea. Esto& seguro de que encontrarás inspiración & calidad en mi trabajo.",
+      "Conoce mi trayectoria profesional como desarrollador web: +5 años de experiencia, Ingeniería de Software en curso, proyectos para empresas en Colombia. Especialización en tecnologías modernas: Next.js, React, TypeScript, NestJS, PostgreSQL.",
+    work: "Explora mi portafolio de 11+ proyectos web: Plataformas SaaS, aplicaciones Full-Stack, sitios corporativos y e-commerce. Tecnologías: Next.js, React, NestJS, GraphQL, PostgreSQL, Tailwind CSS. Soluciones reales para clientes reales.",
     contact:
-      "Contáctame para discutir tus ideas & necesidades. Juntos, crearemos una solución web personalizada que se adapte a tus objetivos & presupuesto.",
+      "¿Necesitas un desarrollador web en Colombia? Contáctame para discutir tu proyecto. Respuesta en 24 horas. Presupuestos personalizados. Email: marioalf200216@gmail.com | WhatsApp: +57 324 777 3515. ¡Trabajemos juntos!",
     terms:
-      "Lee los Términos & Condiciones de uso de MarioWebDesign para comprender cómo se recopila, utiliza & protege tu información personal en este sitio web.",
+      "Términos y Condiciones de uso del sitio web MarioWebDesign. Información sobre privacidad, uso de datos, cookies y derechos de propiedad intelectual. Última actualización: 2025.",
+  },
+  keywords: {
+    default:
+      "desarrollador web colombia, desarrollador full-stack medellín, next.js developer, react developer colombia, desarrollo web freelance, programador web colombia",
+    home: "mario hernández desarrollador, desarrollador web full-stack, next.js developer colombia, react developer medellín, typescript developer, programador freelance colombia",
+    services:
+      "servicios desarrollo web, seo colombia, mantenimiento web, desarrollo full-stack, diseño web profesional, optimización seo medellín",
+    history:
+      "experiencia desarrollador web, formación programación colombia, ingeniero software medellín, portafolio desarrollador, trayectoria profesional",
+    work: "portafolio desarrollo web, proyectos next.js, aplicaciones react, saas development, full-stack projects, desarrollo web colombia",
+    contact:
+      "contactar desarrollador web, freelance colombia, presupuesto desarrollo web, cotizar proyecto web, desarrollador medellín contacto",
+    terms:
+      "términos condiciones, política privacidad, uso datos, derechos autor",
   },
   url: {
     default: "https://mariowebdesigns.com",

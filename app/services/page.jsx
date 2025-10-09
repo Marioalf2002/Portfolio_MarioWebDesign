@@ -6,6 +6,11 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { FaCode } from "react-icons/fa";
 import RootLayout from "../layout";
+import StructuredData, {
+  professionalServiceSchema,
+  servicesOfferedSchema,
+  breadcrumbSchema,
+} from "@/components/StructuredData";
 
 // Servicios
 const services = [
@@ -44,51 +49,74 @@ const services = [
 ];
 
 const Services = ({ page }) => {
+  const breadcrumbs = breadcrumbSchema([
+    {
+      name: "Inicio",
+      url: "https://mariowebdesigns.com",
+    },
+    {
+      name: "Servicios",
+      url: "https://mariowebdesigns.com/services",
+    },
+  ]);
+
   return (
     <RootLayout page="services">
-      <section className="min-h-[80] flex flex-col justify-center py-4">
-        <div className="container mx-auto">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: 1,
-              transition: { delay: 1, duration: 0.4, ease: "easeIn" },
-            }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-y-[30px] gap-x-[60px]"
-          >
-            {services.map((service, index) => {
-              return (
-                <div
-                  key={index}
-                  className="flex-1 flex flex-col justify-center gap-3 group z-20"
-                >
-                  {/* Top */}
-                  <div className="w-full flex justify-between items-center">
-                    <div className="text-4xl text-white font-secondary transition-all duration-500">
-                      {service.num}
+      {/* Structured Data para SEO */}
+      <StructuredData data={professionalServiceSchema} />
+      {servicesOfferedSchema.map((schema, index) => (
+        <StructuredData key={index} data={schema} />
+      ))}
+      <StructuredData data={breadcrumbs} />
+
+      <main>
+        <section
+          className="min-h-[80] flex flex-col justify-center py-4"
+          aria-label="Servicios de desarrollo web"
+        >
+          <div className="container mx-auto">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: 1,
+                transition: { delay: 1, duration: 0.4, ease: "easeIn" },
+              }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-y-[30px] gap-x-[60px]"
+            >
+              {services.map((service, index) => {
+                return (
+                  <article
+                    key={index}
+                    className="flex-1 flex flex-col justify-center gap-3 group z-20"
+                  >
+                    {/* Top */}
+                    <div className="w-full flex justify-between items-center">
+                      <div className="text-4xl text-white font-secondary transition-all duration-500">
+                        {service.num}
+                      </div>
+                      <Link
+                        href={service.href || "/contact"}
+                        aria-label={`Más información sobre ${service.title}`}
+                        className="w-[70px] h-[70px] rounded-full bg-white group-hover:bg-accent transition-all duration-500 flex justify-center items-center hover:-rotate-12"
+                      >
+                        {service.icon}
+                      </Link>
                     </div>
-                    <Link
-                      href={service.href}
-                      aria-label={service.title}
-                      className="w-[70px] h-[70px] rounded-full bg-white group-hover:bg-accent transition-all duration-500 flex justify-center items-center hover:-rotate-12"
-                    >
-                      {service.icon}
-                    </Link>
-                  </div>
-                  {/* Titulo */}
-                  <h2 className="font-secondary text-[42px] leading-none text-accent transition-all duration-500">
-                    {service.title}
-                  </h2>
-                  {/* Descripcion */}
-                  <p className="text-white/90">{service.description}</p>
-                  {/* Border */}
-                  <div className="border-b border-accent/30 w-full"></div>
-                </div>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
+                    {/* Titulo */}
+                    <h2 className="font-secondary text-[42px] leading-none text-accent transition-all duration-500">
+                      {service.title}
+                    </h2>
+                    {/* Descripcion */}
+                    <p className="text-white/90">{service.description}</p>
+                    {/* Border */}
+                    <div className="border-b border-accent/30 w-full"></div>
+                  </article>
+                );
+              })}
+            </motion.div>
+          </div>
+        </section>
+      </main>
     </RootLayout>
   );
 };

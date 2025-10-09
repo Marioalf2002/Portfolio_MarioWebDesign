@@ -9,6 +9,7 @@ import React, { Suspense } from "react";
 import Header from "@/components/Header";
 import StairTransition from "@/components/StairTransition";
 import PageTransition from "@/components/PageTransition";
+import ErrorBoundary from "@/components/ErrorBoundary";
 const SpaceLayer = React.lazy(() => import("@/components/SpaceLayer"));
 import AnalyticsNext from "@/components/AnalyticsNext";
 
@@ -33,17 +34,36 @@ export default function RootLayout({ children, page }) {
   const title = metadata.title[page] || metadata.title.default;
   const description =
     metadata.description[page] || metadata.description.default;
+  const keywords = metadata.keywords[page] || metadata.keywords.default;
   const url = metadata.url[page] || metadata.url.default;
   const image = metadata.image[page] || metadata.image.default;
 
+  // Si se llama con prop 'page', es desde una página individual - renderizar componentes UI
+  // Si NO tiene 'page', es el layout root de Next.js - solo wrapper
+  const isPageLayout = !!page;
+
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <head>
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
+
+        {/* Meta tags básicos */}
         <meta name="author" content="Mario Hernández" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+
+        {/* Resource Hints para mejorar performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
+        {/* Open Graph para redes sociales */}
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={url} />
@@ -55,14 +75,28 @@ export default function RootLayout({ children, page }) {
         <meta property="og:locale" content="es_ES" />
         <meta property="og:site_name" content="MarioWebDesign" />
         <meta property="og:type" content="website" />
-        <meta property="twitter:title" content={title} />
-        <meta property="twitter:description" content={description} />
 
-        {/* Meticulous */}
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={image} />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href={url} />
+
+        {/* Robots meta - permitir indexación */}
+        <meta
+          name="robots"
+          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        />
+        <meta name="googlebot" content="index, follow" />
+
+        {/* Meticulous - Solo en desarrollo/preview con async para evitar bloqueos */}
         {(process.env.NODE_ENV === "development" ||
           process.env.VERCEL_ENV === "preview") && (
-          // eslint-disable-next-line @next/next/no-sync-scripts
           <script
+            async
             data-project-id="BHPqIC60ngN0pebdii6cJ6sgnMhs5B2SoIyXyfWI"
             data-is-production-environment="false"
             src="https://snippet.meticulous.ai/v1/meticulous.js"
@@ -70,13 +104,21 @@ export default function RootLayout({ children, page }) {
         )}
       </head>
       <body className={`${poppins.variable} ${galada.variable}`}>
-        <Header />
-        <Suspense>
-          <SpaceLayer />
-        </Suspense>
-        <StairTransition />
-        <PageTransition>{children}</PageTransition>
-        <AnalyticsNext />
+        <ErrorBoundary>
+          <Suspense fallback={<div className="bg-primary min-h-screen" />}>
+            <SpaceLayer />
+          </Suspense>
+          {isPageLayout ? (
+            <>
+              <Header />
+              <StairTransition />
+              <PageTransition>{children}</PageTransition>
+            </>
+          ) : (
+            children
+          )}
+          <AnalyticsNext />
+        </ErrorBoundary>
       </body>
     </html>
   );

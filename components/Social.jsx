@@ -23,7 +23,7 @@ const socials = [
   {
     name: "WhatsApp",
     icon: <FaWhatsapp />,
-    path: "https://wa.me/message/MC62R3PTOHVDN1",
+    path: "https://wa.me/573247773515?text=Hola%20Mario%2C%20estoy%20interesado%20en%20tus%20servicios.%20Me%20gustar%C3%ADa%20saber%20m%C3%A1s.",
   },
   {
     name: "LinkedIn",
@@ -52,6 +52,7 @@ const Social = ({ containerStyles, iconStyles }) => {
             href={item.path}
             className={containerStyles}
             target="_blank"
+            rel="noopener noreferrer"
             aria-label={item.name}
           >
             <motion.div

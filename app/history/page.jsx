@@ -12,28 +12,23 @@ import {
   FaCloudflare,
   FaGitAlt,
   FaGithub,
-  FaFigma,
-  FaPython,
   FaLaravel,
 } from "react-icons/fa";
 import {
   SiTailwindcss,
   SiNextdotjs,
   SiTypescript,
-  SiCplusplus,
   SiAdobephotoshop,
   SiAdobeillustrator,
   SiAdobeaftereffects,
   SiAdobeaudition,
   SiAndroidstudio,
-  SiFlutter,
-  SiDart,
-  SiPostman,
   SiMongodb,
   SiMysql,
   SiPostgresql,
+  SiNestjs,
+  SiCanva,
 } from "react-icons/si";
-import { TbBrandCSharp } from "react-icons/tb";
 import { BiLogoVisualStudio } from "react-icons/bi";
 import { DiMsqlServer, DiVisualstudio } from "react-icons/di";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -70,7 +65,7 @@ const about = {
     },
     {
       fieldName: "Email",
-      fieldValue: "contacto@mariowebdesigns.com",
+      fieldValue: "marioalf200216@gmail.com",
     },
     {
       fieldName: "Telefono",
@@ -105,6 +100,11 @@ const experience = {
       position: "Developer Backend",
       duration: "2020 - 2019",
     },
+    {
+      company: "Estrucutrate Construcciones S.A.S.",
+      position: "Web Developer",
+      duration: "Presente - 2025",
+    },
   ],
 };
 
@@ -116,7 +116,7 @@ const education = {
   items: [
     {
       institution: "Institución Universitaria Pascual Bravo",
-      degree: "Tecnología en Desarrollo de Software",
+      degree: "Ingeniería de Software",
       duration: "En Curso - 2022",
     },
     {
@@ -136,17 +136,17 @@ const skills = {
     frontend: [
       {
         iconName: "FaHtml5",
-        iconColor: "#E44D26",
-        name: "HTML",
+        iconColor: "#E34F26",
+        name: "HTML5",
       },
       {
         iconName: "FaCss3",
-        iconColor: "#264DE4",
-        name: "CSS",
+        iconColor: "#1572B6",
+        name: "CSS3",
       },
       {
         iconName: "FaJs",
-        iconColor: "#F0DB4F",
+        iconColor: "#F7DF1E",
         name: "JavaScript",
       },
       {
@@ -161,7 +161,7 @@ const skills = {
       },
       {
         iconName: "SiTailwindcss",
-        iconColor: "#38B2AC",
+        iconColor: "#06B6D4",
         name: "Tailwind CSS",
       },
       {
@@ -172,13 +172,18 @@ const skills = {
     ],
     backend: [
       {
+        iconName: "FaPhp",
+        iconColor: "#777BB4",
+        name: "PHP",
+      },
+      {
         iconName: "FaNodeJs",
-        iconColor: "#68A063",
+        iconColor: "#339933",
         name: "Node.js",
       },
       {
         iconName: "FaJs",
-        iconColor: "#F0DB4F",
+        iconColor: "#F7DF1E",
         name: "JavaScript",
       },
       {
@@ -187,66 +192,14 @@ const skills = {
         name: "TypeScript",
       },
       {
-        iconName: "TbBrandCSharp",
-        iconColor: "#d946ef",
-        name: "C#",
-      },
-      {
-        iconName: "SiCplusplus",
-        iconColor: "#00599C",
-        name: "C++",
-      },
-      {
-        iconName: "FaPhp",
-        iconColor: "#777BB4",
-        name: "PHP",
-      },
-      {
         iconName: "FaLaravel",
         iconColor: "#FF2D20",
         name: "Laravel",
       },
-    ],
-    program: [
       {
-        iconName: "DiVisualstudio",
-        iconColor: "#5C2D91",
-        name: "Visual Studio",
-      },
-      {
-        iconName: "BiLogoVisualStudio",
-        iconColor: "#007ACC",
-        name: "Visual Studio Code",
-      },
-      {
-        iconName: "FaWordpress",
-        iconColor: "#21759B",
-        name: "Wordpress",
-      },
-      {
-        iconName: "FaCloudflare",
-        iconColor: "#F38020",
-        name: "Cloudflare",
-      },
-      {
-        iconName: "FaGitAlt",
-        iconColor: "#F05032",
-        name: "Git",
-      },
-      {
-        iconName: "FaGithub",
-        iconColor: "#FFFFFF",
-        name: "GitHub",
-      },
-      {
-        iconName: "SiPostman",
-        iconColor: "#FF6C37",
-        name: "Postman",
-      },
-      {
-        iconName: "SiAndroidstudio",
-        iconColor: "#3DDC84",
-        name: "Android Studio",
+        iconName: "SiNestjs",
+        iconColor: "#E0234E",
+        name: "NestJS",
       },
     ],
     design: [
@@ -262,92 +215,77 @@ const skills = {
       },
       {
         iconName: "SiAdobeaftereffects",
-        iconColor: "#D291FF",
+        iconColor: "#9999FF",
         name: "After Effects",
       },
       {
         iconName: "SiAdobeaudition",
-        iconColor: "#FF2F2F",
+        iconColor: "#9999FF",
         name: "Audition",
       },
       {
-        iconName: "FaFigma",
-        iconColor: "#F24E1E",
-        name: "Figma",
+        iconName: "SiCanva",
+        iconColor: "#00C4CC",
+        name: "Canva",
       },
     ],
     database: [
+      {
+        iconName: "SiMysql",
+        iconColor: "#4479A1",
+        name: "MySQL",
+      },
       {
         iconName: "DiMsqlServer",
         iconColor: "#CC2927",
         name: "SQL Server",
       },
       {
-        iconName: "SiMysql",
-        iconColor: "#336791",
-        name: "MySQL",
-      },
-      {
         iconName: "SiMongodb",
-        iconColor: "#4DB33D",
+        iconColor: "#47A248",
         name: "MongoDB",
       },
       {
         iconName: "SiPostgresql",
-        iconColor: "#336791",
+        iconColor: "#4169E1",
         name: "PostgreSQL",
       },
     ],
-    study: [
+    program: [
+      {
+        iconName: "FaGitAlt",
+        iconColor: "#F05032",
+        name: "Git",
+      },
+      {
+        iconName: "FaGithub",
+        iconColor: "#181717",
+        name: "GitHub",
+      },
+      {
+        iconName: "BiLogoVisualStudio",
+        iconColor: "#007ACC",
+        name: "VS Code",
+      },
+      {
+        iconName: "DiVisualstudio",
+        iconColor: "#5C2D91",
+        name: "Visual Studio",
+      },
       {
         iconName: "SiAndroidstudio",
         iconColor: "#3DDC84",
         name: "Android Studio",
       },
       {
-        iconName: "SiFlutter",
-        iconColor: "#02569B",
-        name: "Flutter",
+        iconName: "FaWordpress",
+        iconColor: "#21759B",
+        name: "WordPress",
       },
       {
-        iconName: "FaLaravel",
-        iconColor: "#FF2D20",
-        name: "Laravel",
-      },
-      {
-        iconName: "SiDart",
-        iconColor: "#0175C2",
-        name: "Dart",
-      },
-      {
-        iconName: "FaFigma",
-        iconColor: "#F24E1E",
-        name: "Figma",
-      },
-      {
-        iconName: "SiPostman",
-        iconColor: "#FF6C37",
-        name: "Postman",
-      },
-      {
-        iconName: "FaPython",
-        iconColor: "#3776AB",
-        name: "Python",
-      },
-      {
-        iconName: "FaReact",
-        iconColor: "#61DAFB",
-        name: "React",
-      },
-      {
-        iconName: "SiNextdotjs",
-        iconColor: "#000000",
-        name: "Next.js",
-      },
-      {
-        iconName: "SiTypescript",
-        iconColor: "#3178C6",
-        name: "TypeScript",
+        iconName: "FaCloudflare",
+        iconColor: "#F38020",
+        name: "Cloudflare",
       },
     ],
   },
@@ -367,28 +305,23 @@ const renderSkills = (category, title) => {
     FaCloudflare: FaCloudflare,
     FaGitAlt: FaGitAlt,
     FaGithub: FaGithub,
-    FaFigma: FaFigma,
-    FaPython: FaPython,
     FaLaravel: FaLaravel,
     SiNextdotjs: SiNextdotjs,
     SiTailwindcss: SiTailwindcss,
     SiTypescript: SiTypescript,
-    TbBrandCSharp: TbBrandCSharp,
-    SiCplusplus: SiCplusplus,
     SiAdobephotoshop: SiAdobephotoshop,
     SiAdobeillustrator: SiAdobeillustrator,
     SiAdobeaftereffects: SiAdobeaftereffects,
     SiAdobeaudition: SiAdobeaudition,
     SiAndroidstudio: SiAndroidstudio,
-    SiFlutter: SiFlutter,
-    SiDart: SiDart,
-    SiPostman: SiPostman,
     BiLogoVisualStudio: BiLogoVisualStudio,
     DiMsqlServer: DiMsqlServer,
     DiVisualstudio: DiVisualstudio,
     SiMysql: SiMysql,
     SiMongodb: SiMongodb,
     SiPostgresql: SiPostgresql,
+    SiNestjs: SiNestjs,
+    SiCanva: SiCanva,
   };
 
   return (
@@ -397,10 +330,10 @@ const renderSkills = (category, title) => {
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
         {skills.skillList[category].map((skill, index) => {
           const Icon = iconMap[skill.iconName];
-          
+
           return (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="w-full h-[150px] bg-secondary hover:bg-tertiary rounded-xl flex justify-center items-center group transition-all duration-500"
             >
               <div className="text-6xl transition-all duration-300">
@@ -520,7 +453,7 @@ const Resume = () => {
                         } else if (item.fieldName === "Telefono") {
                           fieldValueElement = (
                             <a
-                              href="https://wa.me/message/MC62R3PTOHVDN1"
+                              href="https://wa.me/573247773515?text=Hola%20Mario%2C%20estoy%20interesado%20en%20tus%20servicios.%20Me%20gustar%C3%ADa%20saber%20m%C3%A1s. "
                               target="_blank"
                               className="text-xl text-white hover:underline"
                             >
@@ -568,7 +501,9 @@ const Resume = () => {
                               key={index}
                               className="bg-secondary h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
                             >
-                              <span className="text-accent">{item.duration}</span>
+                              <span className="text-accent">
+                                {item.duration}
+                              </span>
                               <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
                                 {item.position}
                               </h3>
@@ -601,7 +536,9 @@ const Resume = () => {
                               key={index}
                               className="bg-secondary h-[220px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-4"
                             >
-                              <span className="text-accent">{item.duration}</span>
+                              <span className="text-accent">
+                                {item.duration}
+                              </span>
                               <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
                                 {item.degree}
                               </h3>
@@ -632,12 +569,14 @@ const Resume = () => {
                     </div>
                     <ScrollArea className="h-[410px]">
                       <div className="pr-4">
-                        {renderSkills("frontend", "FrontEnd")}
-                        {renderSkills("backend", "BackEnd")}
-                        {renderSkills("program", "Programacion")}
-                        {renderSkills("design", "Design")}
+                        {renderSkills("frontend", "Front-End")}
+                        {renderSkills("backend", "Back-End")}
+                        {renderSkills("design", "Diseño")}
                         {renderSkills("database", "Base de Datos")}
-                        {renderSkills("study", "Estudio")}
+                        {renderSkills(
+                          "program",
+                          "Tecnología de Desarrollo de Software"
+                        )}
                       </div>
                     </ScrollArea>
                   </div>

@@ -1,11 +1,136 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
-# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+# Dependabot configuration optimized for security and stability
+# Documentation: https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  # Production dependencies - Weekly updates with grouped PRs
+  - package-ecosystem: "npm"
+    directory: "/"
     schedule:
       interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/Bogota"
+    # Limit scope to production dependencies to avoid overlap with dev block
+    allow:
+      - dependency-type: "production"
+    # Group dependencies by type for cleaner PRs
+    groups:
+      # Next.js and React ecosystem
+      nextjs:
+        patterns:
+          - "next"
+          - "react"
+          - "react-dom"
+        update-types:
+          - "minor"
+          - "patch"
+      # Apply same grouping to security updates for cleaner security PRs
+      nextjs-security:
+        applies-to: security-updates
+        patterns:
+          - "next"
+          - "react"
+          - "react-dom"
+      # UI libraries (Radix, shadcn/ui)
+      ui-components:
+        patterns:
+          - "@radix-ui/*"
+          - "framer-motion"
+          - "lucide-react"
+          - "tailwind*"
+        update-types:
+          - "minor"
+          - "patch"
+      ui-components-security:
+        applies-to: security-updates
+        patterns:
+          - "@radix-ui/*"
+          - "framer-motion"
+          - "lucide-react"
+          - "tailwind*"
+      # Utility libraries
+      utilities:
+        patterns:
+          - "axios"
+          - "lodash"
+          - "clsx"
+          - "class-variance-authority"
+        update-types:
+          - "minor"
+          - "patch"
+      utilities-security:
+        applies-to: security-updates
+        patterns:
+          - "axios"
+          - "lodash"
+          - "clsx"
+          - "class-variance-authority"
+    # Limit simultaneous PRs to avoid overwhelming the repo
+    open-pull-requests-limit: 10
+    # Commit message configuration
+    commit-message:
+      prefix: "chore(deps)"
+      prefix-development: "chore(deps-dev)"
+      include: "scope"
+    # PR configuration
+    labels:
+      - "dependencies"
+      - "npm"
+    # Ignore major updates for stable packages (manual review)
+    ignore:
+      - dependency-name: "next"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react-dom"
+        update-types: ["version-update:semver-major"]
+
+  # Development dependencies - Monthly updates
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "monday"
+      time: "10:00"
+      timezone: "America/Bogota"
+    # Group dev dependencies
+    groups:
+      dev-tooling:
+        patterns:
+          - "eslint*"
+          - "@types/*"
+          - "postcss"
+          - "tailwindcss"
+          - "glob"
+          - "rimraf"
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(deps-dev)"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "dev-dependencies"
+    # Allow dev dependencies only
+    allow:
+      - dependency-type: "development"
+
+  # GitHub Actions - Monthly security updates
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "monday"
+      time: "08:00"
+      timezone: "America/Bogota"
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+    labels:
+      - "github-actions"
+      - "ci-cd"

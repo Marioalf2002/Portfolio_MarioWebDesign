@@ -25,6 +25,40 @@ import { VscLiveShare } from "react-icons/vsc";
 const projects = [
   {
     num: "01",
+    category: "Fullstack - SaaS",
+    title: "ArkaNexo",
+    description:
+      "Plataforma SaaS integral que moderniza la gestión del historial médico, estético y administrativo de mascotas en Colombia. Sistema dirigido a dueños de mascotas y clínicas veterinarias, ofreciendo herramientas avanzadas para centralizar y gestionar información sobre la salud y bienestar de los animales desde cualquier dispositivo.",
+    stack: [
+      { name: "Turborepo" },
+      { name: "Next.js" },
+      { name: "NestJS" },
+      { name: "GraphQL" },
+      { name: "PostgreSQL" },
+    ],
+    image: "/assets/work/arkanexo.webp",
+    live: "https://arkanexo.com/",
+    github: "",
+  },
+  {
+    num: "02",
+    category: "Frontend",
+    title: "Estructurarte Construcciones S.A.S",
+    description:
+      "Sitio web corporativo para empresa de construcción con más de 9 años de experiencia en estudios, obra negra, remodelaciones, trabajo en madera y acabados. El proyecto destaca por su diseño moderno y enfoque en la presentación profesional de servicios constructivos integrales.",
+    stack: [
+      { name: "Vite.js" },
+      { name: "React" },
+      { name: "Tailwind CSS" },
+      { name: "Shadcn UI" },
+      { name: "Radix UI" },
+    ],
+    image: "/assets/work/estrucutrarteconstrucciones.webp",
+    live: "https://estructurarteconstrucciones.com/",
+    github: "",
+  },
+  {
+    num: "03",
     category: "Frontend",
     title: "Asociación Asorredecol E.S.P.",
     description:
@@ -35,7 +69,7 @@ const projects = [
     github: "",
   },
   {
-    num: "02",
+    num: "04",
     category: "Fullstack",
     title: "IC TERRAQUANTUM S.A.S.",
     description:
@@ -51,7 +85,7 @@ const projects = [
     github: "https://github.com/Marioalf2002/IC-Terraquantum",
   },
   {
-    num: "03",
+    num: "05",
     category: "3D",
     title: "Spline 3D",
     description:
@@ -62,7 +96,7 @@ const projects = [
     github: "https://github.com/Marioalf2002/spline",
   },
   {
-    num: "04",
+    num: "06",
     category: "Frontend",
     title: "Galaxy Parallax",
     description:
@@ -73,7 +107,7 @@ const projects = [
     github: "https://github.com/Marioalf2002/galaxy-parallax",
   },
   {
-    num: "05",
+    num: "07",
     category: "Frontend",
     title: "Medellín Ecologico",
     description:
@@ -90,7 +124,7 @@ const projects = [
     github: "https://github.com/Marioalf2002/MedellinEcologicoWeb",
   },
   {
-    num: "06",
+    num: "08",
     category: "Fullstack",
     title: "eCommerce",
     description:
@@ -106,7 +140,7 @@ const projects = [
     github: "https://github.com/Marioalf2002/eCommerce",
   },
   {
-    num: "07",
+    num: "09",
     category: "Frontend",
     title: "Starts",
     description:
@@ -117,7 +151,7 @@ const projects = [
     github: "https://github.com/Marioalf2002/starts",
   },
   {
-    num: "08",
+    num: "10",
     category: "Fullstack",
     title: "PacCraft",
     description:
@@ -128,7 +162,7 @@ const projects = [
     github: "https://github.com/Marioalf2002/PacCraft",
   },
   {
-    num: "09",
+    num: "11",
     category: "Backend",
     title: "Plugin GitList-GLPI",
     description:
@@ -321,6 +355,10 @@ const Work = () => {
                 onSlideChange={handleSlideChange}
               >
                 {projects.map((project, index) => {
+                  // Solo la primera imagen (hero) debe tener priority y fetchPriority="high"
+                  // El resto se carga lazy para optimizar LCP
+                  const isFirstSlide = index === 0;
+
                   return (
                     <SwiperSlide key={index} className="w-full">
                       <div className="h-[300px] lg:h-[460px] w-full relative group flex justify-center items-center bg-black/10">
@@ -332,9 +370,11 @@ const Work = () => {
                             src={project.image}
                             fill
                             sizes="(min-width: 640px) 640px, 100vw"
-                            priority
+                            priority={isFirstSlide}
+                            fetchPriority={isFirstSlide ? "high" : "auto"}
+                            loading={isFirstSlide ? "eager" : "lazy"}
                             className="object-contain xl:object-cover"
-                            alt={project.title}
+                            alt={`${project.title} - Proyecto de desarrollo web`}
                           />
                         </div>
                       </div>

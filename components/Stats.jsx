@@ -19,6 +19,162 @@ const stats = [
 
 // Variables de entorno
 const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
+const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
+
+/**
+ * Obtiene el total de commits de un usuario de GitHub
+ * Usa la GraphQL API para mejor performance y precisión
+ */
+const fetchGitHubCommitsGraphQL = async () => {
+  if (!GITHUB_TOKEN || !GITHUB_USERNAME) {
+    console.warn("GitHub credentials not configured");
+    return 0;
+  }
+
+  try {
+    const query = `
+      query($username: String!) {
+        user(login: $username) {
+          contributionsCollection {
+            contributionCalendar {
+              totalContributions
+            }
+          }
+          repositories(first: 100, ownerAffiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER]) {
+            totalCount
+            nodes {
+              defaultBranchRef {
+                target {
+                  ... on Commit {
+                    history {
+                      totalCount
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    `;
+
+    const response = await axios.post(
+      "https://api.github.com/graphql",
+      {
+        query,
+        variables: { username: GITHUB_USERNAME },
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${GITHUB_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (response.data.errors) {
+      console.error("GraphQL errors:", response.data.errors);
+      // Fallback a REST API si GraphQL falla
+      return await fetchGitHubCommitsREST();
+    }
+
+    const repos = response.data.data.user.repositories.nodes;
+    let totalCommits = 0;
+
+    repos.forEach((repo) => {
+      if (repo.defaultBranchRef?.target?.history) {
+        totalCommits += repo.defaultBranchRef.target.history.totalCount;
+      }
+    });
+
+    return totalCommits;
+  } catch (error) {
+    console.error("Error with GraphQL API, trying REST:", error);
+    return await fetchGitHubCommitsREST();
+  }
+};
+
+/**
+ * Fallback: Usa REST API con paginación mejorada
+ */
+const fetchGitHubCommitsREST = async () => {
+  try {
+    let totalCommits = 0;
+    let page = 1;
+    const perPage = 100;
+
+    // Primero obtener todos los repositorios
+    const allRepos = [];
+    while (true) {
+      const reposResponse = await axios.get(
+        `https://api.github.com/users/${GITHUB_USERNAME}/repos`,
+        {
+          headers: {
+            Authorization: `token ${GITHUB_TOKEN}`,
+            Accept: "application/vnd.github.v3+json",
+          },
+          params: {
+            per_page: perPage,
+            page: page,
+            type: "all", // owner, public, private, member
+          },
+        }
+      );
+
+      if (reposResponse.data.length === 0) break;
+      allRepos.push(...reposResponse.data);
+
+      // GitHub limita a 100 repos por request
+      if (reposResponse.data.length < perPage) break;
+      page++;
+    }
+
+    console.log(`Found ${allRepos.length} repositories`);
+
+    // Obtener commits de cada repositorio con mejor manejo
+    for (const repo of allRepos) {
+      try {
+        // Usar parámetro per_page=1 para obtener el count total más rápido
+        const commitsResponse = await axios.get(
+          `https://api.github.com/repos/${repo.owner.login}/${repo.name}/commits`,
+          {
+            headers: {
+              Authorization: `token ${GITHUB_TOKEN}`,
+              Accept: "application/vnd.github.v3+json",
+            },
+            params: {
+              per_page: 1, // Solo necesitamos el header Link para el count total
+            },
+          }
+        );
+
+        // Extraer total de commits del header Link (más eficiente)
+        const linkHeader = commitsResponse.headers.link;
+        if (linkHeader) {
+          const match = linkHeader.match(/page=(\d+)>; rel="last"/);
+          if (match) {
+            totalCommits += parseInt(match[1], 10);
+          } else {
+            totalCommits += commitsResponse.data.length;
+          }
+        } else {
+          // Si no hay header Link, hay menos de per_page commits
+          totalCommits += commitsResponse.data.length;
+        }
+      } catch (commitError) {
+        // Ignorar repos sin commits o privados sin acceso
+        if (commitError.response?.status !== 409) {
+          console.warn(`Skipping ${repo.name}:`, commitError.message);
+        }
+      }
+    }
+
+    return totalCommits;
+  } catch (error) {
+    console.error("Error fetching commits via REST:", error);
+    return 0;
+  }
+};
 
 const Stats = () => {
   const [commitCount, setCommitCount] = useState(0);
@@ -28,77 +184,38 @@ const Stats = () => {
     const fetchCommits = async () => {
       try {
         const now = new Date().getTime();
-        const cachedData = JSON.parse(localStorage.getItem(CACHE_KEY));
 
-        // Verificar si existe la cache y si no ha caducado
-        if (cachedData && now - cachedData.timestamp < CACHE_DURATION) {
-          setCommitCount(cachedData.data);
-          setLoading(false);
-          return;
-        }
-
-        let totalCommits = 0;
-        let page = 1;
-        const perPage = 100; // Número de repositorios por página
-
-        while (true) {
-          // Obtén los repositorios de la página actual
-          const reposResponse = await axios.get(
-            "https://api.github.com/user/repos",
-            {
-              headers: {
-                Authorization: `token ${GITHUB_TOKEN}`,
-                Accept: "application/vnd.github.v3+json",
-              },
-              params: {
-                per_page: perPage,
-                page: page,
-              },
-            }
-          );
-
-          if (reposResponse.data.length === 0) break; // Salir si no hay más repositorios
-
-          const repos = reposResponse.data;
-
-          for (const repo of repos) {
-            try {
-              // Obtén los commits del repositorio
-              const commitsResponse = await axios.get(
-                `https://api.github.com/repos/${repo.owner.login}/${repo.name}/commits`,
-                {
-                  headers: {
-                    Authorization: `token ${GITHUB_TOKEN}`,
-                    Accept: "application/vnd.github.v3+json",
-                  },
-                }
-              );
-
-              // Suma el número de commits
-              totalCommits += commitsResponse.data.length;
-            } catch (commitError) {
-              console.error(
-                `Error fetching commits for ${repo.name}:`,
-                commitError
-              );
+        // Verificar cache en localStorage
+        if (typeof window !== "undefined") {
+          const cachedData = localStorage.getItem(CACHE_KEY);
+          if (cachedData) {
+            const parsed = JSON.parse(cachedData);
+            if (now - parsed.timestamp < CACHE_DURATION) {
+              setCommitCount(parsed.data);
+              setLoading(false);
+              return;
             }
           }
-
-          page++;
         }
 
-        // Guardar los datos en el cache
-        localStorage.setItem(
-          CACHE_KEY,
-          JSON.stringify({
-            timestamp: now,
-            data: totalCommits,
-          })
-        );
+        // Intentar GraphQL primero (más eficiente), luego REST
+        const totalCommits = await fetchGitHubCommitsGraphQL();
+
+        // Guardar en cache
+        if (typeof window !== "undefined" && totalCommits > 0) {
+          localStorage.setItem(
+            CACHE_KEY,
+            JSON.stringify({
+              timestamp: now,
+              data: totalCommits,
+            })
+          );
+        }
 
         setCommitCount(totalCommits);
       } catch (error) {
-        console.error("Error fetching repos:", error);
+        console.error("Error fetching commits:", error);
+        setCommitCount(0);
       } finally {
         setLoading(false);
       }
@@ -135,7 +252,6 @@ const Stats = () => {
             className="flex-1 flex gap-4 items-center justify-center xl:justify-start z-20"
             key="commits"
           >
-            {/* <p className="text-4xl xl:text-6xl font-extrabold text-accent">+</p> */}
             <CountUp
               end={commitCount}
               duration={5}

@@ -15,15 +15,17 @@ const Photo = () => {
         }}
       >
         {/* Imagen */}
-        <div className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten flex items-center justify-center">
+        <div className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten overflow-hidden animated">
           <Image
             src="/assets/perfil.webp"
             priority
+            fetchPriority="high"
             quality={100}
-            width={450}
-            height={450}
-            alt="MarioWebDesign"
-            className="object-contain rounded-full animated"
+            width={498}
+            height={498}
+            sizes="(max-width: 1200px) 298px, 498px"
+            alt="Mario Hernández - Desarrollador Web Full-Stack"
+            className="object-cover object-top w-full h-full"
           />
         </div>
       </motion.div>
