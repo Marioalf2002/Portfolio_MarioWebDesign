@@ -2,7 +2,7 @@
 // Optimizado según las recomendaciones de Google para crawling eficiente
 
 export default function robots() {
-  const baseUrl = "https://mariowebdesigns.com";
+  const baseUrl = "https://mariowebdesign.vercel.app";
 
   return {
     rules: [

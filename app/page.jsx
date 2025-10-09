@@ -81,7 +81,7 @@ const Home = () => {
   const breadcrumbs = breadcrumbSchema([
     {
       name: "Inicio",
-      url: "https://mariowebdesigns.com",
+      url: "https://mariowebdesign.vercel.app",
     },
   ]);
 

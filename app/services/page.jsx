@@ -52,11 +52,11 @@ const Services = ({ page }) => {
   const breadcrumbs = breadcrumbSchema([
     {
       name: "Inicio",
-      url: "https://mariowebdesigns.com",
+      url: "https://mariowebdesign.vercel.app",
     },
     {
       name: "Servicios",
-      url: "https://mariowebdesigns.com/services",
+      url: "https://mariowebdesign.vercel.app/services",
     },
   ]);
 

@@ -34,6 +34,7 @@ import StructuredData, {
   contactPageSchema,
   breadcrumbSchema,
 } from "@/components/StructuredData";
+import Link from "next/link";
 
 // Información de contacto
 const info = [
@@ -59,18 +60,24 @@ const info = [
 
 const Contact = (props) => {
   const [alertData, setAlertData] = useState(null);
-  const { register, handleSubmit, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
   const [service, setService] = useState("");
   const [isVisible, setIsVisible] = useState(false);
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
 
   const breadcrumbs = breadcrumbSchema([
     {
       name: "Inicio",
-      url: "https://mariowebdesigns.com",
+      url: "https://mariowebdesign.vercel.app",
     },
     {
       name: "Contacto",
-      url: "https://mariowebdesigns.com/contact",
+      url: "https://mariowebdesign.vercel.app/contact",
     },
   ]);
 
@@ -85,6 +92,16 @@ const Contact = (props) => {
   }, [alertData]);
 
   const onSubmit = async (data) => {
+    // Validar que se haya aceptado la política de privacidad
+    if (!privacyAccepted) {
+      setAlertData({
+        status: "error",
+        message:
+          "Debes aceptar la Política de Privacidad para poder enviar el formulario.",
+      });
+      return;
+    }
+
     data.service = service;
 
     const response = await fetch("/api/emails", {
@@ -106,7 +123,11 @@ const Contact = (props) => {
           : "Error: " + result.message,
     });
 
-    reset();
+    // Limpiar formulario solo si fue exitoso
+    if (result.status === "success") {
+      reset();
+      setPrivacyAccepted(false);
+    }
   };
 
   return (
@@ -125,13 +146,6 @@ const Contact = (props) => {
           aria-label="Formulario de contacto"
         >
           <div className="container mx-auto z-20">
-            <header className="mb-8 text-center">
-              <h1 className="h1 text-accent mb-4">Contáctame</h1>
-              <p className="text-white/90 max-w-2xl mx-auto">
-                ¿Tienes un proyecto en mente? Conversemos sobre cómo puedo
-                ayudarte
-              </p>
-            </header>
             <div className="flex flex-col xl:flex-row gap-[30px] items-center z-20">
               <div className="xl:w-[54%] order-2 xl:order-none z-20">
                 <form
@@ -295,16 +309,51 @@ const Contact = (props) => {
                     title="Este campo es obligatorio. Por favor, introduce tu mensaje."
                     {...register("message", { required: true })}
                   />
-                  <p className="text-white/90">
-                    Al usar este formulario estas Aceptando los{" "}
-                    <a
-                      href="/terms"
-                      className="text-accent font-semibold hover:text-accent-hover"
-                      target="_blank"
+
+                  {/* Checkbox Política de Privacidad (OBLIGATORIO Ley 1581/2012) */}
+                  <div className="flex items-start gap-3 p-4 bg-primary/30 rounded-lg border border-accent/20">
+                    <input
+                      type="checkbox"
+                      id="privacy-consent"
+                      checked={privacyAccepted}
+                      onChange={(e) => setPrivacyAccepted(e.target.checked)}
+                      className="mt-1 w-4 h-4 accent-accent cursor-pointer"
+                      required
+                      aria-label="Aceptar Política de Privacidad"
+                      aria-required="true"
+                    />
+                    <label
+                      htmlFor="privacy-consent"
+                      className="text-sm text-white/90 cursor-pointer"
                     >
-                      Términos y Condiciones.
-                    </a>
-                  </p>
+                      <strong className="text-white">
+                        He leído y acepto la
+                      </strong>{" "}
+                      <Link
+                        href="/privacy"
+                        target="_blank"
+                        className="text-accent font-semibold hover:text-accent-hover underline"
+                      >
+                        Política de Privacidad
+                      </Link>{" "}
+                      y los{" "}
+                      <Link
+                        href="/terms"
+                        target="_blank"
+                        className="text-accent font-semibold hover:text-accent-hover underline"
+                      >
+                        Términos y Condiciones
+                      </Link>
+                      . Autorizo el tratamiento de mis datos personales conforme
+                      a la Ley 1581 de 2012.
+                      {!privacyAccepted && (
+                        <span className="block mt-1 text-accent text-xs">
+                          * Campo obligatorio para enviar el formulario
+                        </span>
+                      )}
+                    </label>
+                  </div>
+
                   <motion.div
                     className="flex justify-center items-center"
                     whileHover={{ scale: 1.1 }}

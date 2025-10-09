@@ -21,8 +21,8 @@ export const personSchema = {
   jobTitle: "Desarrollador Web Full-Stack",
   description:
     "Desarrollador Web Full-Stack con +5 años de experiencia especializado en Next.js, React, Node.js, y tecnologías modernas",
-  url: "https://mariowebdesigns.com",
-  image: "https://mariowebdesigns.com/opengraph-image.png",
+  url: "https://mariowebdesign.vercel.app",
+  image: "https://mariowebdesign.vercel.app/opengraph-image.png",
   email: "marioalf200216@gmail.com",
   telephone: "+573247773515",
   address: {
@@ -61,14 +61,15 @@ export const websiteSchema = {
   name: "MarioWebDesign",
   description:
     "Portafolio profesional de Mario Hernández - Desarrollador Web Full-Stack",
-  url: "https://mariowebdesigns.com",
+  url: "https://mariowebdesign.vercel.app",
   author: {
     "@type": "Person",
     name: "Mario Hernández",
   },
   potentialAction: {
     "@type": "SearchAction",
-    target: "https://mariowebdesigns.com/work?search={search_term_string}",
+    target:
+      "https://mariowebdesign.vercel.app/work?search={search_term_string}",
     "query-input": "required name=search_term_string",
   },
 };
@@ -79,7 +80,7 @@ export const professionalServiceSchema = {
   name: "MarioWebDesign - Servicios de Desarrollo Web",
   description:
     "Servicios profesionales de desarrollo web: Full-Stack, SEO, mantenimiento y soporte técnico",
-  url: "https://mariowebdesigns.com/services",
+  url: "https://mariowebdesign.vercel.app/services",
   provider: {
     "@type": "Person",
     name: "Mario Hernández",
@@ -156,7 +157,7 @@ export const contactPageSchema = {
   "@type": "ContactPage",
   name: "Contacto - MarioWebDesign",
   description: "Contacta a Mario Hernández para tu proyecto de desarrollo web",
-  url: "https://mariowebdesigns.com/contact",
+  url: "https://mariowebdesign.vercel.app/contact",
   mainEntity: {
     "@type": "Person",
     name: "Mario Hernández",

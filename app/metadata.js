@@ -12,6 +12,10 @@ export const metadata = {
       "Contacto | Solicita tu Proyecto Web - Desarrollador Freelance Colombia",
     terms:
       "Términos & Condiciones de Servicio | MarioWebDesign - Desarrollo Web",
+    privacy:
+      "Política de Privacidad & Protección de Datos | Ley 1581 de 2012 - MarioWebDesign",
+    cookies:
+      "Política de Cookies | Gestión de Cookies & Privacidad - MarioWebDesign",
   },
   description: {
     default:
@@ -25,7 +29,11 @@ export const metadata = {
     contact:
       "¿Necesitas un desarrollador web en Colombia? Contáctame para discutir tu proyecto. Respuesta en 24 horas. Presupuestos personalizados. Email: marioalf200216@gmail.com | WhatsApp: +57 324 777 3515. ¡Trabajemos juntos!",
     terms:
-      "Términos y Condiciones de uso del sitio web MarioWebDesign. Información sobre privacidad, uso de datos, cookies y derechos de propiedad intelectual. Última actualización: 2025.",
+      "Términos y Condiciones de uso del sitio web MarioWebDesign. Información sobre propiedad intelectual, limitación de responsabilidad, uso permitido del sitio y ley aplicable en Colombia. Última actualización: 2025.",
+    privacy:
+      "Política de Privacidad conforme a la Ley 1581 de 2012 de Colombia. Protección de datos personales, derechos ARCO, procesadores externos (Resend), medidas de seguridad y consentimiento informado. Cumplimiento total con legislación colombiana.",
+    cookies:
+      "Política de Cookies de MarioWebDesign. Información sobre cookies técnicas, analíticas (Vercel Analytics), gestión y desactivación. Cumplimiento con normativas de privacidad. Aprende cómo usamos cookies para mejorar tu experiencia.",
   },
   keywords: {
     default:
@@ -39,24 +47,32 @@ export const metadata = {
     contact:
       "contactar desarrollador web, freelance colombia, presupuesto desarrollo web, cotizar proyecto web, desarrollador medellín contacto",
     terms:
-      "términos condiciones, política privacidad, uso datos, derechos autor",
+      "términos condiciones, uso del sitio, propiedad intelectual, limitación responsabilidad, ley aplicable colombia",
+    privacy:
+      "política privacidad, ley 1581 2012 colombia, protección datos personales, derechos arco, consentimiento informado, habeas data",
+    cookies:
+      "política cookies, gestión cookies, vercel analytics, cookies técnicas, privacidad navegación, desactivar cookies",
   },
   url: {
-    default: "https://mariowebdesigns.com",
-    home: "https://mariowebdesigns.com",
-    services: "https://mariowebdesigns.com/services",
-    history: "https://mariowebdesigns.com/history",
-    work: "https://mariowebdesigns.com/work",
-    contact: "https://mariowebdesigns.com/contact",
-    terms: "https://mariowebdesigns.com/terms",
+    default: "https://mariowebdesign.vercel.app",
+    home: "https://mariowebdesign.vercel.app",
+    services: "https://mariowebdesign.vercel.app/services",
+    history: "https://mariowebdesign.vercel.app/history",
+    work: "https://mariowebdesign.vercel.app/work",
+    contact: "https://mariowebdesign.vercel.app/contact",
+    terms: "https://mariowebdesign.vercel.app/terms",
+    privacy: "https://mariowebdesign.vercel.app/privacy",
+    cookies: "https://mariowebdesign.vercel.app/cookies",
   },
   image: {
-    default: "https://mariowebdesigns.com/opengraph-image.png",
-    home: "https://mariowebdesigns.com/opengraph-image.png",
-    services: "https://mariowebdesigns.com/services/opengraph-image.png",
-    history: "https://mariowebdesigns.com/history/opengraph-image.png",
-    work: "https://mariowebdesigns.com/work/opengraph-image.png",
-    contact: "https://mariowebdesigns.com/contact/opengraph-image.png",
-    terms: "https://mariowebdesigns.com/terms/opengraph-image.png",
+    default: "https://mariowebdesign.vercel.app/opengraph-image.png",
+    home: "https://mariowebdesign.vercel.app/opengraph-image.png",
+    services: "https://mariowebdesign.vercel.app/services/opengraph-image.png",
+    history: "https://mariowebdesign.vercel.app/history/opengraph-image.png",
+    work: "https://mariowebdesign.vercel.app/work/opengraph-image.png",
+    contact: "https://mariowebdesign.vercel.app/contact/opengraph-image.png",
+    terms: "https://mariowebdesign.vercel.app/terms/opengraph-image.png",
+    privacy: "https://mariowebdesign.vercel.app/privacy/opengraph-image.png",
+    cookies: "https://mariowebdesign.vercel.app/cookies/opengraph-image.png",
   },
 };

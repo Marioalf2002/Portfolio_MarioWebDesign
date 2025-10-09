@@ -2,7 +2,7 @@
 // Mejora el descubrimiento de páginas por Google según las mejores prácticas de Vercel
 
 export default function sitemap() {
-  const baseUrl = "https://mariowebdesigns.com";
+  const baseUrl = "https://mariowebdesign.vercel.app";
   const currentDate = new Date().toISOString();
 
   // Páginas estáticas principales
