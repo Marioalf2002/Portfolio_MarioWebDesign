@@ -22,8 +22,8 @@ const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
 
 /**
- * Obtiene el total de commits de un usuario de GitHub
- * Usa la GraphQL API para mejor performance y precisión
+ * Obtiene el total de commits SOLO del usuario autenticado usando GraphQL
+ * Filtra por author para contar únicamente commits hechos por ti
  */
 const fetchGitHubCommitsGraphQL = async () => {
   if (!GITHUB_TOKEN || !GITHUB_USERNAME) {
@@ -32,21 +32,52 @@ const fetchGitHubCommitsGraphQL = async () => {
   }
 
   try {
-    const query = `
+    // Primero obtener el ID del usuario para filtrar commits
+    const userQuery = `
       query($username: String!) {
         user(login: $username) {
-          contributionsCollection {
-            contributionCalendar {
-              totalContributions
-            }
-          }
+          id
+        }
+      }
+    `;
+
+    const userResponse = await axios.post(
+      "https://api.github.com/graphql",
+      {
+        query: userQuery,
+        variables: { username: GITHUB_USERNAME },
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${GITHUB_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (userResponse.data.errors) {
+      console.error(
+        "GraphQL errors getting user ID:",
+        userResponse.data.errors
+      );
+      return await fetchGitHubCommitsREST();
+    }
+
+    const userId = userResponse.data.data.user.id;
+    console.log(`Filtering commits by author ID: ${userId}`);
+
+    // Ahora obtener repos y contar commits del autor
+    const query = `
+      query($username: String!, $authorId: ID!) {
+        user(login: $username) {
           repositories(first: 100, ownerAffiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER]) {
             totalCount
             nodes {
+              name
               defaultBranchRef {
                 target {
                   ... on Commit {
-                    history {
+                    history(first: 1, author: {id: $authorId}) {
                       totalCount
                     }
                   }
@@ -62,7 +93,10 @@ const fetchGitHubCommitsGraphQL = async () => {
       "https://api.github.com/graphql",
       {
         query,
-        variables: { username: GITHUB_USERNAME },
+        variables: {
+          username: GITHUB_USERNAME,
+          authorId: userId,
+        },
       },
       {
         headers: {
@@ -74,7 +108,6 @@ const fetchGitHubCommitsGraphQL = async () => {
 
     if (response.data.errors) {
       console.error("GraphQL errors:", response.data.errors);
-      // Fallback a REST API si GraphQL falla
       return await fetchGitHubCommitsREST();
     }
 
@@ -83,10 +116,15 @@ const fetchGitHubCommitsGraphQL = async () => {
 
     repos.forEach((repo) => {
       if (repo.defaultBranchRef?.target?.history) {
-        totalCommits += repo.defaultBranchRef.target.history.totalCount;
+        const commits = repo.defaultBranchRef.target.history.totalCount;
+        totalCommits += commits;
+        if (commits > 0) {
+          console.log(`${repo.name}: ${commits} commits by ${GITHUB_USERNAME}`);
+        }
       }
     });
 
+    console.log(`Total commits by ${GITHUB_USERNAME}: ${totalCommits}`);
     return totalCommits;
   } catch (error) {
     console.error("Error with GraphQL API, trying REST:", error);
@@ -95,7 +133,7 @@ const fetchGitHubCommitsGraphQL = async () => {
 };
 
 /**
- * Fallback: Usa REST API con paginación mejorada
+ * Fallback: Usa REST API filtrando por author (commits del usuario solamente)
  */
 const fetchGitHubCommitsREST = async () => {
   try {
@@ -116,7 +154,7 @@ const fetchGitHubCommitsREST = async () => {
           params: {
             per_page: perPage,
             page: page,
-            type: "all", // owner, public, private, member
+            type: "all",
           },
         }
       );
@@ -124,17 +162,16 @@ const fetchGitHubCommitsREST = async () => {
       if (reposResponse.data.length === 0) break;
       allRepos.push(...reposResponse.data);
 
-      // GitHub limita a 100 repos por request
       if (reposResponse.data.length < perPage) break;
       page++;
     }
 
     console.log(`Found ${allRepos.length} repositories`);
 
-    // Obtener commits de cada repositorio con mejor manejo
+    // Obtener commits SOLO del autor en cada repositorio
     for (const repo of allRepos) {
       try {
-        // Usar parámetro per_page=1 para obtener el count total más rápido
+        // CLAVE: Usar author=${GITHUB_USERNAME} para filtrar por autor
         const commitsResponse = await axios.get(
           `https://api.github.com/repos/${repo.owner.login}/${repo.name}/commits`,
           {
@@ -143,32 +180,37 @@ const fetchGitHubCommitsREST = async () => {
               Accept: "application/vnd.github.v3+json",
             },
             params: {
-              per_page: 1, // Solo necesitamos el header Link para el count total
+              author: GITHUB_USERNAME, // FILTRO POR AUTOR
+              per_page: 1,
             },
           }
         );
 
-        // Extraer total de commits del header Link (más eficiente)
+        // Extraer total de commits del autor del header Link
         const linkHeader = commitsResponse.headers.link;
         if (linkHeader) {
           const match = linkHeader.match(/page=(\d+)>; rel="last"/);
           if (match) {
-            totalCommits += parseInt(match[1], 10);
+            const repoCommits = parseInt(match[1], 10);
+            totalCommits += repoCommits;
+            console.log(
+              `${repo.name}: ${repoCommits} commits by ${GITHUB_USERNAME}`
+            );
           } else {
             totalCommits += commitsResponse.data.length;
           }
         } else {
-          // Si no hay header Link, hay menos de per_page commits
           totalCommits += commitsResponse.data.length;
         }
       } catch (commitError) {
-        // Ignorar repos sin commits o privados sin acceso
+        // Ignorar repos sin commits del autor o privados sin acceso
         if (commitError.response?.status !== 409) {
           console.warn(`Skipping ${repo.name}:`, commitError.message);
         }
       }
     }
 
+    console.log(`Total commits by ${GITHUB_USERNAME} (REST): ${totalCommits}`);
     return totalCommits;
   } catch (error) {
     console.error("Error fetching commits via REST:", error);
