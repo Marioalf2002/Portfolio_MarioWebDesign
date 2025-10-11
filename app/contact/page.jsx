@@ -143,6 +143,7 @@ const Contact = (props) => {
             opacity: 1,
             transition: { delay: 1, duration: 0.4, ease: "easeIn" },
           }}
+          className="min-h-[calc(100vh-7rem)] flex items-center py-12 xl:py-0"
           aria-label="Formulario de contacto"
         >
           <div className="container mx-auto z-20">

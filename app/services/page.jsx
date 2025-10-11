@@ -71,7 +71,7 @@ const Services = ({ page }) => {
 
       <main>
         <section
-          className="min-h-[80] flex flex-col justify-center py-4"
+          className="min-h-[calc(100vh-7rem)] flex flex-col justify-center py-4"
           aria-label="Servicios de desarrollo web"
         >
           <div className="container mx-auto">

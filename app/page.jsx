@@ -92,11 +92,14 @@ const Home = () => {
       <StructuredData data={websiteSchema} />
       <StructuredData data={breadcrumbs} />
 
-      <main>
-        <article>
-          <section className="h-full" aria-label="Presentación personal">
-            <div className="container h-full mx-auto">
-              <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-2 xl:pb-20">
+      <main className="min-h-[calc(100vh-7rem)] flex flex-col">
+        <article className="flex-1 flex flex-col">
+          <section
+            className="flex-1 flex items-center"
+            aria-label="Presentación personal"
+          >
+            <div className="container mx-auto w-full">
+              <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-2 xl:pb-10">
                 {/* Texto */}
                 <header className="text-center xl:text-left order-2 xl:order-none z-20">
                   <AnimatedText />

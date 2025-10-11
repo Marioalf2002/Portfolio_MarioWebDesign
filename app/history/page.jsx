@@ -385,7 +385,7 @@ const Resume = () => {
           opacity: 1,
           transition: { delay: 1, duration: 0.4, ease: "easeIn" },
         }}
-        className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
+        className="min-h-[calc(100vh-7rem)] flex items-center justify-center py-12 xl:py-0"
       >
         <div className="container mx-auto">
           {isClient ? (

@@ -14,7 +14,7 @@ const Cookies = () => {
           opacity: 1,
           transition: { delay: 1, duration: 0.4, ease: "easeIn" },
         }}
-        className="py-6"
+        className="min-h-[calc(100vh-7rem)] py-6"
       >
         <div className="container mx-auto z-20">
           <div className="gap-6 p-7 bg-secondary rounded-xl">
