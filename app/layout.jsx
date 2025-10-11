@@ -91,17 +91,6 @@ export default function RootLayout({ children, page }) {
           content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
         />
         <meta name="googlebot" content="index, follow" />
-
-        {/* Meticulous - Solo en desarrollo/preview con async para evitar bloqueos */}
-        {(process.env.NODE_ENV === "development" ||
-          process.env.VERCEL_ENV === "preview") && (
-          <script
-            async
-            data-project-id="BHPqIC60ngN0pebdii6cJ6sgnMhs5B2SoIyXyfWI"
-            data-is-production-environment="false"
-            src="https://snippet.meticulous.ai/v1/meticulous.js"
-          />
-        )}
       </head>
       <body className={`${poppins.variable} ${galada.variable}`}>
         <ErrorBoundary>
