@@ -18,6 +18,7 @@ import {
   FaMapMarkedAlt,
   FaInfoCircle,
   FaTerminal,
+  FaExternalLinkAlt,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
@@ -49,12 +50,6 @@ const info = [
     title: "Email",
     description: "marioalf200216@gmail.com",
     path: "https://mail.google.com/mail/?view=cm&fs=1&to=marioalf200216@gmail.com",
-  },
-  {
-    icon: <FaMapMarkedAlt />,
-    title: "Dirección",
-    description: "Colombia, Antioquia, Sabaneta",
-    path: "",
   },
 ];
 
@@ -373,21 +368,54 @@ const Contact = (props) => {
                 </form>
               </div>
               {/* Información de contacto */}
-              <div className="z-10 flex-1 flex items-center justify-center order-1 xl:order-none mb-8 xl:mb-0">
+              <div className="z-10 flex-1 flex flex-col gap-8 items-center justify-center order-1 xl:order-none mb-8 xl:mb-0">
+                {/* Banner de servicio temporalmente fuera */}
+                <div className="w-full p-5 bg-accent/10 border-2 border-accent rounded-xl">
+                  <div className="flex items-start gap-3">
+                    <FaInfoCircle className="text-accent text-2xl mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="text-accent font-semibold text-lg mb-2">
+                        ⚠️ Formulario Fuera de Servicio
+                      </h3>
+                      <p className="text-white/90 text-sm leading-relaxed mb-3">
+                        Por el momento, el formulario no está disponible.
+                        <strong className="text-white block mt-1">
+                          Usa estos métodos para contactarme:
+                        </strong>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
                 <ul className="flex flex-col gap-10">
                   {info.map((item, index) => (
                     <li key={index} className="flex items-center gap-6">
-                      <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-secondary text-accent rounded-md flex items-center justify-center">
-                        <div className="text-[28px]">{item.icon}</div>
-                      </div>
-                      <a href={item.path} target="_blank">
+                      <motion.a
+                        href={item.path}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-6 group cursor-pointer"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 17,
+                        }}
+                      >
+                        <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-secondary text-accent rounded-md flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-all duration-300 shadow-lg group-hover:shadow-accent/50">
+                          <div className="text-[28px]">{item.icon}</div>
+                        </div>
                         <div className="flex-1">
-                          <p className="text-white/60">{item.title}</p>
-                          <h1 className="text-ml lg:text-xl">
+                          <p className="text-white/60 group-hover:text-white transition-all duration-300 flex items-center gap-2">
+                            {item.title}
+                            <FaExternalLinkAlt className="text-xs opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                          </p>
+                          <h1 className="text-ml lg:text-xl text-white group-hover:text-accent transition-all duration-300 font-medium">
                             {item.description}
                           </h1>
                         </div>
-                      </a>
+                      </motion.a>
                     </li>
                   ))}
                 </ul>
