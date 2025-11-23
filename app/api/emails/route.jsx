@@ -1,6 +1,20 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy initialization de Resend para evitar errores en build time
+let resendInstance = null;
+
+function getResendClient() {
+  if (!resendInstance) {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      throw new Error(
+        "RESEND_API_KEY no está configurada en las variables de entorno."
+      );
+    }
+    resendInstance = new Resend(apiKey);
+  }
+  return resendInstance;
+}
 
 let lastEmailSentAt = {};
 
@@ -78,6 +92,9 @@ export async function POST(request) {
         </body>
       </html>
     `;
+
+    // Obtener el cliente de Resend (lazy initialization)
+    const resend = getResendClient();
 
     await resend.emails.send({
       from: "MarioWebDesign <mariowebdesing@proton.me>",
