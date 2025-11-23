@@ -27,7 +27,7 @@ export const metadata = {
       "Conoce mi trayectoria profesional como desarrollador web: +5 años de experiencia, Ingeniería de Software en curso, proyectos para empresas en Colombia. Especialización en tecnologías modernas: Next.js, React, TypeScript, NestJS, PostgreSQL.",
     work: "Explora mi portafolio de 11+ proyectos web: Plataformas SaaS, aplicaciones Full-Stack, sitios corporativos y e-commerce. Tecnologías: Next.js, React, NestJS, GraphQL, PostgreSQL, Tailwind CSS. Soluciones reales para clientes reales.",
     contact:
-      "¿Necesitas un desarrollador web en Colombia? Contáctame para discutir tu proyecto. Respuesta en 24 horas. Presupuestos personalizados. Email: marioalf200216@gmail.com | WhatsApp: +57 324 777 3515. ¡Trabajemos juntos!",
+      "¿Necesitas un desarrollador web en Colombia? Contáctame para discutir tu proyecto. Respuesta en 24 horas. Presupuestos personalizados. Email: mariowebdesing@proton.me | WhatsApp: +57 324 777 3515. ¡Trabajemos juntos!",
     terms:
       "Términos y Condiciones de uso del sitio web MarioWebDesign. Información sobre propiedad intelectual, limitación de responsabilidad, uso permitido del sitio y ley aplicable en Colombia. Última actualización: 2025.",
     privacy:

@@ -48,8 +48,8 @@ const info = [
   {
     icon: <FaEnvelope />,
     title: "Email",
-    description: "marioalf200216@gmail.com",
-    path: "https://mail.google.com/mail/?view=cm&fs=1&to=marioalf200216@gmail.com",
+    description: "mariowebdesing@proton.me",
+    path: "https://mail.google.com/mail/?view=cm&fs=1&to=mariowebdesing@proton.me",
   },
 ];
 

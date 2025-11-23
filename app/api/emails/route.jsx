@@ -80,8 +80,8 @@ export async function POST(request) {
     `;
 
     await resend.emails.send({
-      from: "MarioWebDesign <marioalf200216@gmail.com>",
-      to: [email, "marioalf200216@gmail.com"],
+      from: "MarioWebDesign <mariowebdesing@proton.me>",
+      to: [email, "mariowebdesing@proton.me"],
       subject: `Contacto de ${firstname} ${lastname} para MarioWebDesign`,
       html: htmlContent,
     });

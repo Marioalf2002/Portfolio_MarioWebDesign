@@ -15,7 +15,7 @@
 
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-Chat-green?style=flat&logo=whatsapp)](https://wa.me/message/MC62R3PTOHVDN1)
 [![Telegram](https://img.shields.io/badge/Telegram-Chat-blue?style=flat&logo=telegram)](https://t.me/mariowebdesing)
-[![Gmail](https://img.shields.io/badge/Gmail-Email-red?style=flat&logo=gmail)](https://mail.google.com/mail/?view=cm&fs=1&to=marioalf200216@gmail.com)
+[![Gmail](https://img.shields.io/badge/Gmail-Email-red?style=flat&logo=gmail)](https://mail.google.com/mail/?view=cm&fs=1&to=mariowebdesing@proton.me)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/mariowebdesign)
 [![Discord](https://img.shields.io/badge/Discord-Chat-blue?style=flat&logo=discord)](https://discordapp.com/users/744348258893168680)
 
@@ -43,7 +43,7 @@ I am passionate about web design & development. I love creating websites & web a
 
 ## [Contact](https://mariowebdesign.vercel.app/)
 
-- Email: [marioalf200216@gmail.com](https://mail.google.com/mail/?view=cm&fs=1&to=marioalf200216@gmail.com)
+- Email: [mariowebdesing@proton.me](https://mail.google.com/mail/?view=cm&fs=1&to=mariowebdesing@proton.me)
 - Teléfono: [(+57) 324 777 3515](https://wa.me/message/MC62R3PTOHVDN1)
 
 ## Instalation

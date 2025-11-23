@@ -66,7 +66,7 @@ const about = {
     },
     {
       fieldName: "Email",
-      fieldValue: "marioalf200216@gmail.com",
+      fieldValue: "mariowebdesing@proton.me",
     },
     {
       fieldName: "Telefono",

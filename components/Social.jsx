@@ -33,7 +33,7 @@ const socials = [
   {
     name: "Telegram",
     icon: <FaTelegramPlane />,
-    path: "https://t.me/mariowebdesing",
+    path: "https://t.me/mariowebdesign",
   },
   {
     name: "Discord",

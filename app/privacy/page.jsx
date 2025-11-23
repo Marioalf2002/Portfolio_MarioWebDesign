@@ -41,10 +41,10 @@ const Privacy = () => {
                 <p className="mb-2">
                   <strong className="text-white">Email de contacto:</strong>{" "}
                   <a
-                    href="mailto:marioalf200216@gmail.com"
+                    href="mailto:mariowebdesing@proton.me"
                     className="text-accent hover:text-accent-hover underline"
                   >
-                    marioalf200216@gmail.com
+                    mariowebdesing@proton.me
                   </a>
                 </p>
                 <p className="mb-2">
@@ -315,10 +315,10 @@ const Privacy = () => {
                     <li>
                       <strong className="text-white">Email:</strong>{" "}
                       <a
-                        href="mailto:marioalf200216@gmail.com"
+                        href="mailto:mariowebdesing@proton.me"
                         className="text-accent hover:text-accent-hover underline"
                       >
-                        marioalf200216@gmail.com
+                        mariowebdesing@proton.me
                       </a>
                     </li>
                     <li>
@@ -464,10 +464,10 @@ const Privacy = () => {
                   <p className="mb-2">
                     <strong className="text-white">Email:</strong>{" "}
                     <a
-                      href="mailto:marioalf200216@gmail.com"
+                      href="mailto:mariowebdesing@proton.me"
                       className="text-accent hover:text-accent-hover underline"
                     >
-                      marioalf200216@gmail.com
+                      mariowebdesing@proton.me
                     </a>
                   </p>
                   <p className="mb-2">

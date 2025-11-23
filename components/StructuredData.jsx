@@ -23,7 +23,7 @@ export const personSchema = {
     "Desarrollador Web Full-Stack con +5 años de experiencia especializado en Next.js, React, Node.js, y tecnologías modernas",
   url: "https://mariowebdesign.vercel.app",
   image: "https://mariowebdesign.vercel.app/opengraph-image.png",
-  email: "marioalf200216@gmail.com",
+  email: "mariowebdesing@proton.me",
   telephone: "+573247773515",
   address: {
     "@type": "PostalAddress",
@@ -161,13 +161,13 @@ export const contactPageSchema = {
   mainEntity: {
     "@type": "Person",
     name: "Mario Hernández",
-    email: "marioalf200216@gmail.com",
+    email: "mariowebdesing@proton.me",
     telephone: "+573247773515",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+573247773515",
       contactType: "Customer Service",
-      email: "marioalf200216@gmail.com",
+      email: "mariowebdesing@proton.me",
       availableLanguage: ["Spanish", "English"],
       areaServed: "CO",
     },
